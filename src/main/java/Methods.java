@@ -1,8 +1,8 @@
 import java.util.Date;
 
-public class YBMethods {
+public class Methods {
     
-	public static Boolean DatesBeforeNow(){
+	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
 		Date now = new Date();
 		
 		

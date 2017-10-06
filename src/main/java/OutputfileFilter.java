@@ -257,6 +257,11 @@ public class OutputfileFilter {
 			}
 		}//fixing families date
 		
+		//Checks that all given dates are before the current date
+		if(!(Methods.DatesBeforeNow(in, fa))){
+			System.out.println("Cannot have Birth, Death, Marriage, or Divorce before the current date.");
+		}
+		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());
 		}

@@ -258,9 +258,12 @@ public class OutputfileFilter {
 		}//fixing families date
 		
 		//Checks that all given dates are before the current date
-		if(!(Methods.DatesBeforeNow(in, fa))){
-			System.out.println("Cannot have Birth, Death, Marriage, or Divorce before the current date.");
-		}
+		if(!(Methods.DatesBeforeNow(in, fa)))
+			System.out.println("Cannot have Birth, Death, Marriage, or Divorce after the current date!");
+		
+		//Checks that all birth dates came before marriage
+		if(!Methods.birthBeforeMarriage(in, fa))
+			System.out.println("Cannot have Marriage before a Birth!");
 		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());
@@ -286,6 +289,9 @@ public class OutputfileFilter {
 			System.out.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", fa[i].getId(),fa[i].getMarrieddate(),fa[i].getDivorcedate(),fa[i].getHusbandid(),fa[i].getHusbandname(),fa[i].getWifeid(),fa[i].getWifename(),"{'"+fa[i].getChild()+"'}");
 			
 		}//output of Families
+		Date begin = Methods.findDate("1900-01-01");
+		Date check = new Date(0, 0, 1);
+		System.out.println(begin.toString() + check.toString());
 		
 	}
 }

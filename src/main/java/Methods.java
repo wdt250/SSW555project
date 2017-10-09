@@ -1,12 +1,7 @@
 import java.util.Date;
 
-/*
-*Yoseph Borai
-*10/6/17
-*/
-
 public class Methods {
-
+	//Makes a date value based off of date format YYYY-MM-DD
     public static Date findDate(String date){
     	String[] temp = date.split("-");
     	int year = Integer.parseInt(temp[0]) - 1900;
@@ -17,9 +12,11 @@ public class Methods {
     	return(response);
     }
     
+    //Verifies whether all dates are before the given date when passed an array of individuals and families
 	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
 		Date now = new Date();
 		
+		//Checks all valid individual dates for a logical date
 		for(int i = 0;i < in.length;i++){
 			if(!(in[i].getBirt().equals("NA"))){
 			    if(findDate(in[i].getBirt()).after(now)){
@@ -32,6 +29,8 @@ public class Methods {
 			    }
 			}
 		}
+		
+		//Checks all valid family dates for l
 		for(int i = 0;i < fa.length;i++){
 			if(!(fa[i].getMarrieddate().equals("NA"))){
 			    if(findDate(fa[i].getMarrieddate()).after(now)){
@@ -42,6 +41,25 @@ public class Methods {
 			    if(findDate(fa[i].getDivorcedate()).after(now)){
 				    return false;
 			    }
+			}
+		}
+		
+		return true;
+	}
+	
+	public static Boolean birthBeforeMarriage(Individual[] in, Family[] fa){
+		for(Family fam: fa){
+			for(Individual indi: in){
+				if(fam.getMarrieddate() == "NA")
+					continue;
+
+				if(fam.getHusbandid() == indi.getId())
+					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate())))
+						return false;
+
+				if(fam.getWifeid() == indi.getId())
+					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate())))
+						return false;
 			}
 		}
 		

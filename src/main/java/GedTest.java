@@ -74,11 +74,34 @@ public class GedTest extends TestCase{
       assertFalse(Methods.birthBeforeMarriage(in, fa));
    }
 
+   public void testLessthan150years(){
+   	   inputfile = "My-Family-13-Sep-2017-897.ged";
+	   Methods.LessThan150YearsOld();
+	   assertEquals(true, Methods.testFor150);
+   }
+	
+   public void testBirthBeforeMarriageofParents(){
+   	in[0] = new Individual();
+	in[0].setBirt("10 MAY 1900");
+	in[0].setChild("@F1@");
+	fa[0] = new Family();
+	fa[0].setMarrieddate("1 APR 1900");
+	fa[0].setId("@F1@");
+	Methods.BirthBeforeMarriageofParents(in, fa);
+	assertEquals(true, Methods.testForBirthDateBetween);
+	fa[0].setMarrieddate("1 APR 1901");
+	Methods.BirthBeforeMarriageofParents(in, fa);
+	assertEquals(false, Methods.testForBirthDateBetween);
+   }
+	
+	   
    public static Test Suite(){
    	   TestSuite suite = new TestSuite();
    	   suite.addTest(new GedTest("testFindDate"));
    	   suite.addTest(new GedTest("testDatesBeforeNow"));
    	   suite.addTest(new GedTest("testBirthBeforeMarriage"));
+	   suite.addTest(new GedTest("testLessthan150years"));
+	   suite.addTest(new GedTest("testBirthBeforeMarriageofParents"));
    	   return suite;
    }
 }

@@ -11,6 +11,16 @@ public class Methods {
     	
     	return(response);
     }
+	
+    public static Date dateParse(String date){
+	String[] temp = date.split("-");
+	int year = Integer.parseInt(temp[0]);
+	int month = Integer.parseInt(temp[1]);
+	int day = Integer.parseInt(temp[2]);
+	Date response = new Date(year, month, day);
+
+	return(response);
+    }
     
     //Verifies whether all dates are before the given date when passed an array of individuals and families
 	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
@@ -60,6 +70,31 @@ public class Methods {
 				if(fam.getWifeid() == indi.getId())
 					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate())))
 						return false;
+			}
+		}
+		
+		return true;
+	}
+	//Verify the birth of an individual is before death
+	public static Boolean birthBeforeDeath(Individual[] in) {
+		for(int i = 0; i < in.length; i++) {
+			if(in[i].getDeat() != "NA") {
+				if(Methods.dateParse(in[i].getBirt()).after(Methods.dateParse(in[i].getDeat()))) {
+					return false;
+				}			
+			}
+		}
+		
+		return true;
+	}
+	
+	//Verify the marriage of an family is before divorce
+	public static Boolean marriageBeforeDivorce(Family[] fa) {
+		for(int i = 0; i < fa.length; i++) {
+			if(fa[i].getDivorcedate() != "NA") {
+				if(Methods.dateParse(fa[i].getMarrieddate()).after(Methods.dateParse(fa[i].getDivorcedate()))) {
+					return false;
+				}			
 			}
 		}
 		

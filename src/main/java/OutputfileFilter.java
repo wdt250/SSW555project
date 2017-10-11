@@ -265,6 +265,14 @@ public class OutputfileFilter {
 		if(!Methods.birthBeforeMarriage(in, fa))
 			System.out.println("Cannot have Marriage before a Birth!");
 		
+		//chexk that all birth dates came before death dates
+		if(!Methods.birthBeforeDeath(in))
+			System.out.println("Cannot have death before birth");
+		
+		//chexk that all birth dates came before death dates
+		if(!Methods.marriageBeforeDivorce(fa))
+			System.out.println("Cannot have divorce before marriage");
+		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());
 		}

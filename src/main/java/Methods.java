@@ -21,7 +21,10 @@ public class Methods {
 
 	return(response);
     }
-    
+    	//flags to test of testFor150 and BirthBeforeMarriageofParents
+    public static boolean testFor150 = false;
+    public static boolean testForBirthDateBetween = true;
+
     //Verifies whether all dates are before the given date when passed an array of individuals and families
 	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
 		Date now = new Date();
@@ -104,7 +107,7 @@ public class Methods {
 	//verify all the individuals lives not more than 150 years old, input is the original .ged 
 	//and if there's anyone longer than 150, output a string"someone's age is not correct"
 	public static void LessThan150YearsOld(){
-		boolean testFor150 = false;
+		
 		
 		try {
 			String sCurrent;
@@ -172,7 +175,7 @@ public class Methods {
 	public static void BirthBeforeMarriageofParents(Individual[] in, Family[] fa){
 		//attention to the input: this method has to wait for the classification of individuals and families
 		String family;
-		boolean testForBirthDateBetween = true;
+		
 		
 		Calendar DateofBirth = Calendar.getInstance();
 		Calendar DateofMarried = Calendar.getInstance();

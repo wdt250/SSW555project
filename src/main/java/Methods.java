@@ -104,7 +104,7 @@ public class Methods {
 	//verify all the individuals lives not more than 150 years old, input is the original .ged 
 	//and if there's anyone longer than 150, output a string"someone's age is not correct"
 	public static void LessThan150YearsOld(){
-		
+		boolean testFor150 = false;
 		
 		try {
 			String sCurrent;
@@ -172,6 +172,7 @@ public class Methods {
 	public static void BirthBeforeMarriageofParents(Individual[] in, Family[] fa){
 		//attention to the input: this method has to wait for the classification of individuals and families
 		String family;
+		boolean testForBirthDateBetween = true;
 		
 		Calendar DateofBirth = Calendar.getInstance();
 		Calendar DateofMarried = Calendar.getInstance();

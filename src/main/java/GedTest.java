@@ -75,8 +75,7 @@ public class GedTest extends TestCase{
    }
 
    public void testLessthan150years(){
-   	   inputfile = "My-Family-13-Sep-2017-897.ged";
-	   Methods.LessThan150YearsOld();
+	   Methods.LessThan150YearsOld("My-Family-13-Sep-2017-897.ged");
 	   assertEquals(true, Methods.testFor150);
    }
 	

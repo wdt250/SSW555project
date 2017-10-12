@@ -1,4 +1,10 @@
 import java.util.Date;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.text.ParseException;
 
 public class Methods {
 	//Makes a date value based off of date format YYYY-MM-DD
@@ -106,7 +112,7 @@ public class Methods {
 	
 	//verify all the individuals lives not more than 150 years old, input is the original .ged 
 	//and if there's anyone longer than 150, output a string"someone's age is not correct"
-	public static void LessThan150YearsOld(){
+	public static void LessThan150YearsOld(String inputfile){
 		
 		
 		try {

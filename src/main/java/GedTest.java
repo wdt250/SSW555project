@@ -94,6 +94,23 @@ public class GedTest extends TestCase{
    }
 	
 	   
+   public void testBirthBeforeDeath() {
+	   in[0] = new Individual();
+	   in[0].setBirt("1970-08-09");
+	   in[0].setDeat("1960-06-07");
+	   assertFalse(Methods.birthBeforeDeath(in));
+	   
+   }
+   
+   public void testMarriageBeforeDivorce() {
+	   fa[0] = new Family();
+	   fa[0].setDivorcedate("1970-08-09");
+	   fa[0].setMarrieddate("1960-06-07");
+	   assertTrue(Methods.marriageBeforeDivorce(fa));
+	   
+   }
+	
+	   
    public static Test Suite(){
    	   TestSuite suite = new TestSuite();
    	   suite.addTest(new GedTest("testFindDate"));
@@ -101,6 +118,8 @@ public class GedTest extends TestCase{
    	   suite.addTest(new GedTest("testBirthBeforeMarriage"));
 	   suite.addTest(new GedTest("testLessthan150years"));
 	   suite.addTest(new GedTest("testBirthBeforeMarriageofParents"));
+	   suite.addTest(new GedTest("testBirthBeforeDeath"));
+	   suite.addTest(new GedTest("testMarriageBeforeDivorce"));
    	   return suite;
    }
 }

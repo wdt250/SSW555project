@@ -140,35 +140,23 @@ public class GedTest extends TestCase{
        in[1].setDeat("1970-08-08");
        assertFalse(Methods.DeathBeforeDivorce(in, fa));
    }
-
-   public void testBirthBeforeDeath(){
+	   
+   public void testBirthBeforeDeath() {
 	   in[0] = new Individual();
-	   in[1] = new Individual();
-	   in[0].setBirt("2000-01-01");
-	   in[1].setBirt("2000-01-07");
-	   in[0].setDeat("1999-01-01");
-	   in[1].setDeat("2000-01-02");
+	   in[0].setBirt("1970-08-09");
+	   in[0].setDeat("1960-06-07");
 	   assertFalse(Methods.birthBeforeDeath(in));
-	   in[1].setDeat("2000-01-08");
-	   assertFalse(Methods.birthBeforeDeath(in));
-	   in[0].setDeat("2000-05-09");
-	   assertTrue(Methods.birthBeforeDeath(in));
+	   
    }
    
-   public void testMarriageBeforeDivorce(){
+   public void testMarriageBeforeDivorce() {
 	   fa[0] = new Family();
-	   fa[1] = new Family();
-	   fa[0].setMarrieddate("2000-01-01");
-	   fa[1].setMarrieddate("2000-01-07");
-	   fa[0].setDivorcedate("1999-01-01");
-	   fa[1].setDivorcedate("2000-01-02");
-	   assertFalse(Methods.marriageBeforeDivorce(fa));
-	   fa[1].setDivorcedate("2000-01-08");
-	   assertFalse(Methods.marriageBeforeDivorce(fa));
-	   fa[0].setDivorcedate("2000-05-09");
+	   fa[0].setDivorcedate("1970-08-09");
+	   fa[0].setMarrieddate("1960-06-07");
 	   assertTrue(Methods.marriageBeforeDivorce(fa));
-
+	   
    }
+	
 	   
    public static Test Suite(){
    	   TestSuite suite = new TestSuite();
@@ -179,6 +167,8 @@ public class GedTest extends TestCase{
 	   suite.addTest(new GedTest("testBirthBeforeMarriageofParents"));
 	   suite.addTest(new GedTest("testDeathBeforeDivorce"));
 	   suite.addTest(new GedTest("testDeathBeforeMarriage"));
+	   suite.addTest(new GedTest("testBirthBeforeDeath"));
+	   suite.addTest(new GedTest("testMarriageBeforeDivorce"));
    	   return suite;
    }
 }

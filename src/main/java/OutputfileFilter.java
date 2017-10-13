@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class OutputfileFilter {
 
-	static String inputfile = "output.txt";
+	static String inputfile = "My-Family-13-Sep-2017-897.ged";
 	static String outputfile;
 	
 	
@@ -42,52 +42,50 @@ public class OutputfileFilter {
 			BufferedReader br = new BufferedReader(new FileReader(inputfile));
 			
 			while((sCurrent = br.readLine())!=null){
-				s = sCurrent.split("\\|");
-				
-				if(s[2].equals("Y")){
+				s = sCurrent.split(" ");
+				if(s.length>2 && s[2].equals("INDI")){
+					iCurrent++;
+					in[iCurrent].setId(s[1].replace("@", ""));
+					
+				}
+				else if(s.length>2 && s[2].equals("FAM")){
+					fCurrent++;
+					fa[fCurrent].setId(s[1].replace("@", ""));
+					
+				}
+				else if(s.length==2){
 					switch(s[1]){
-					case "INDI":
-						iCurrent++;
-						in[iCurrent].setId(s[3].replace("@", ""));
-						break;
-						//rank 0
-					case "NAME":
-						in[iCurrent].setName(s[3]);
-						break;
-						//rank 1
-					case "SEX":
-						in[iCurrent].setGend(s[3]);
-						break;
-						//rank 1
-						//FAMS rank 1
 					case "BIRT":
-						//rank 1 but the DATE rank 2
 						bdate = true;
 						break;
-						
+					
+					case "MARR":
+						madate = true;
+						break;
+					case "DIV":
+						didate = true;
+						break;
+					}
+				}
+				else if(s.length>2 && iCurrent > -1){
+					switch(s[1]){
+					case "NAME":
+						in[iCurrent].setName(s[2]+" "+s[3]);
+						break;
+					case "SEX":
+						in[iCurrent].setGend(s[2]);
+						break;
 					case "DEAT":
-						//rank 1 but the DATE rank 2
 						ddate = true;
 						break;
-						
 					case "FAMS":
-						in[iCurrent].setSpouse("{'"+s[3].replace("@", "")+"'}");
-						
+						in[iCurrent].setSpouse(s[2].replace("@", ""));
 						break;
-						
 					case "FAMC":
-						in[iCurrent].setChild("{'"+s[3].replace("@", "")+"'}");
-						
+						in[iCurrent].setChild(s[2].replace("@", ""));
 						break;
-					//above is the information collected about individuals
-						
-					case "FAM":
-						fCurrent++;
-						fa[fCurrent].setId(s[3].replace("@", ""));
-						break;
-						
 					case "HUSB":
-						fa[fCurrent].setHusbandid(s[3].substring(0, s[3].length()-1).replace("@", ""));//I don't know why the original output contains a space at last, resulting to never equals
+						fa[fCurrent].setHusbandid(s[2].replace("@", ""));
 						for(int i=0; i<in.length; i++){
 							if(fa[fCurrent].getHusbandid().equals(in[i].getId())){
 								fa[fCurrent].setHusbandname(in[i].getName());
@@ -95,9 +93,8 @@ public class OutputfileFilter {
 							}
 						}
 						break;
-						
 					case "WIFE":
-						fa[fCurrent].setWifeid(s[3].substring(0, s[3].length()-1).replace("@", ""));//same as above reason
+						fa[fCurrent].setWifeid(s[2].replace("@", ""));
 						for(int i=0; i<in.length; i++){
 							if(fa[fCurrent].getWifeid().equals(in[i].getId())){
 								fa[fCurrent].setWifename(in[i].getName());
@@ -105,41 +102,31 @@ public class OutputfileFilter {
 							}
 						}
 						break;
-						
-					case "MARR":
-						madate = true;
-						break;
-						
-					case "DIV":
-						didate =true;
-						break;
-						
 					case "CHIL":
 						if(fa[fCurrent].getChild()== null){
 							
-							fa[fCurrent].setChild(s[3].substring(0, s[3].length()-1).replace("@", ""));
+							fa[fCurrent].setChild(s[2].replace("@", ""));
 						}
 						else if(fa[fCurrent].getChild()!= null){
-							fa[fCurrent].setChild(fa[fCurrent].getChild()+","+s[3].substring(0, s[3].length()-1).replace("@", ""));
+							fa[fCurrent].setChild(fa[fCurrent].getChild()+","+s[2].replace("@", ""));
 							
 						}
 						break;
-					//above is the information collected about families	
 					case "DATE":
 						if(bdate){
-							in[iCurrent].setBirt(s[3]);
+							in[iCurrent].setBirt(s[2]+" "+s[3]+" "+s[4]);
 							bdate = false;
 						}
 						else if(ddate){
-							in[iCurrent].setDeat(s[3]);
+							in[iCurrent].setDeat(s[2]+" "+s[3]+" "+s[4]);
 							ddate = false;
 						}//set the rank 2 date 
 						else if(madate){
-							fa[fCurrent].setMarrieddate(s[3]);
+							fa[fCurrent].setMarrieddate(s[2]+" "+s[3]+" "+s[4]);
 							madate = false;
 						}
 						else if(didate){
-							fa[fCurrent].setDivorcedate(s[3]);
+							fa[fCurrent].setDivorcedate(s[2]+" "+s[3]+" "+s[4]);
 							didate = false;
 						}//set the rank 2 date for family
 						 
@@ -148,7 +135,6 @@ public class OutputfileFilter {
 						
 					default: 
 						break;
-						
 					}
 				}
 				

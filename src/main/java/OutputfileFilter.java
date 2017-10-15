@@ -243,27 +243,13 @@ public class OutputfileFilter {
 			}
 		}//fixing families date
 		
-		//Checks that all given dates are before the current date
-		if(!(Methods.DatesBeforeNow(in, fa)))
-			System.out.println("Cannot have Birth, Death, Marriage, or Divorce after the current date!");
-		
-		//Checks that all birth dates came before marriage
-		if(!Methods.birthBeforeMarriage(in, fa))
-			System.out.println("Cannot have Marriage before a Birth!");
-		
-		//chexk that all birth dates came before death dates
-		if(!Methods.birthBeforeDeath(in))
-			System.out.println("Cannot have death before birth");
-		
-		//chexk that all birth dates came before death dates
-		if(!Methods.marriageBeforeDivorce(fa))
-			System.out.println("Cannot have divorce before marriage");
-		
-		if(!Methods.DeathBeforeMarriage(in, fa))
-			System.out.println("Cannot have death date before Marriage.");
-		
-		if(!Methods.DeathBeforeDivorce(in, fa))
-			System.out.println("Cannot have death date before Divorce.");
+		//Makes various checks on family validity
+		Methods.DatesBeforeNow(in, fa);
+		Methods.birthBeforeMarriage(in, fa);
+		Methods.birthBeforeDeath(in);
+		Methods.marriageBeforeDivorce(fa);
+		Methods.DeathBeforeMarriage(in, fa);
+		Methods.DeathBeforeDivorce(in, fa);
 		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());

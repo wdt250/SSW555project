@@ -1,4 +1,4 @@
-package linlei;
+package main.java.common;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,17 +8,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
-import beans.Family;
-import beans.Individual;
-import util.DateUtil;
-import util.StringUtil;
+import main.java.beans.Family;
+import main.java.beans.Individual;
+import main.java.util.DateUtil;
+import main.java.util.StringUtil;
 /**
  * 
  * @author Linlei Liu 
@@ -27,8 +22,6 @@ import util.StringUtil;
  * modify Daotong's code
  */
 public class GEDCOMReader {
-	
-	static String dateSwitch = "";
 	
 	public void FileConvertor(String inputPath, String outputPath) {
 		
@@ -44,8 +37,10 @@ public class GEDCOMReader {
 			
 			ArrayList<Individual> individuals = new ArrayList<Individual>();
 			ArrayList<Family> families = new ArrayList<Family>();
-			Individual individual = new Individual();
+			Individual individual = null;
 			Family family = new Family();
+			IndividualProcess individualProcess = new IndividualProcess();
+			FamilyProcess familyProcess = new FamilyProcess();
 			
 			String[] individualTags = {"INDI","NAME","SEX","BIRT","DEAT","DATE","FAMS","FAMC"};
     		String[] famalyTags = {"FAM","HUSB","WIFE","MARR","DIV","DATE","CHIL"};
@@ -54,7 +49,10 @@ public class GEDCOMReader {
             	String[] splitResults = sentenceIllegalChecker(line);
             	if (usefulChecker(splitResults)) {
             		if (StringUtil.ifStrInArr(splitResults[1], individualTags)) {
-            			individual = individualCombiner(individual, splitResults);
+            			if ("INDI".equals(splitResults[1])) {
+							individual = new Individual();
+						}
+            			individual = individualProcess.individualCombiner(individual, splitResults);
             			continue;
 					}
 				}else {
@@ -67,7 +65,7 @@ public class GEDCOMReader {
             	String[] splitResults = sentenceIllegalChecker(line);
             	if (usefulChecker(splitResults)) {
             		if (StringUtil.ifStrInArr(splitResults[1], famalyTags)) {
-            			family = familyCombiner(family, individuals, splitResults);
+            			family = familyProcess.familyCombiner(family, individuals, splitResults);
             			continue;
 					}
 				}else {
@@ -163,16 +161,21 @@ public class GEDCOMReader {
 			tag = sliptStrs[1];
 		}
 		
-		combStrs = new String[]{level,tag};
+//		combStrs = new String[]{level,tag};
+//		
+//		if (StringUtil.ifStrArrInArr(combStrs, strArray)) {
+//			returnStrs[0] = level;
+//			returnStrs[1] = tag;
+//			returnStrs[2] = value;
+//		} else {
+//			System.out.println("Illegal file. Error in levels and tags");
+//			throw new NoSuchFieldException();
+//		}
 		
-		if (StringUtil.ifStrArrInArr(combStrs, strArray)) {
-			returnStrs[0] = level;
-			returnStrs[1] = tag;
-			returnStrs[2] = value;
-		} else {
-			System.out.println("Illegal file. Error in levels and tags");
-			throw new NoSuchFieldException();
-		}
+		returnStrs[0] = level;
+		returnStrs[1] = tag;
+		returnStrs[2] = value;
+		
 		return returnStrs;
 	}
 	
@@ -185,149 +188,4 @@ public class GEDCOMReader {
 		}
 	} 
 	
-	public static Individual individualCombiner(Individual individual, String[] strArr) 
-			throws Exception {
-		
-		switch(strArr[1]){
-		
-			case "INDI":
-				individual.setIndividualId(strArr[2]);
-				break;
-				
-			case "NAME":
-				individual.setName(strArr[2]);;
-				break;
-				
-			case "SEX":
-				individual.setGender(strArr[2]);
-				break;
-				
-			case "BIRT":
-				dateSwitch = "birth";
-				break;
-				
-			case "DEAT":
-				dateSwitch = "death";
-				break;
-				
-			case "DATE":
-				switch (dateSwitch) {
-					case "birth":
-						individual.setBirthDate(StringUtil.DateFormat(strArr[2]));
-						break;
-					case "death":
-						if ("".equals(strArr[2])) {
-							individual.setAlive(true);
-							individual.setDeathDate("NA");
-							int age = 0;
-							try {
-								age = DateUtil.getAge(StringUtil.Str2DateFormat(individual.getBirthDate()));
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							individual.setAge(age);
-						}else {
-							individual.setAlive(false);
-							individual.setDeathDate(StringUtil.DateFormat(strArr[2]));
-							int age = 0;
-							try {
-								age = DateUtil.getAge(StringUtil.Str2DateFormat(individual.getBirthDate()),StringUtil.Str2DateFormat(individual.getDeathDate()));
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							individual.setAge(age);
-						}
-						break;
-					default:
-						break;
-				}
-				break;
-				
-			case "FAMS":
-				if ("".equals(strArr[2])) {
-					individual.setSpouse("NA");
-				} else {
-					individual.setSpouse(strArr[2]);
-				}
-				break;
-				
-			case "FAMC":
-				if ("".equals(strArr[2])) {
-					individual.setChild("NA");
-				} else {
-					individual.setChild(strArr[2]);
-				}
-				break;
-				
-			default: 
-				break;
-			
-		}
-		return individual;
-	}
-		
-	public static Family familyCombiner(Family family, ArrayList<Individual> individuals, String[] strArr) 
-			throws NoSuchFieldException {
-		
-		switch(strArr[1]){
-		
-			case "FAM":
-				family.setFamiliesId(strArr[2]);
-				break;
-				
-			case "HUSB":
-				family.setHusbandId(strArr[2]);
-				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-					Individual i = (Individual) iterator.next();
-					if (i.getIndividualId() == family.getHusbandId()) {
-						family.setHusbandName(i.getName());
-					}
-				}
-				break;
-				
-			case "WIFE":
-				family.setWifeId(strArr[2]);
-				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-					Individual i = (Individual) iterator.next();
-					if (i.getIndividualId() == family.getWifeId()) {
-						family.setWifeName(i.getName());
-					}
-				}
-				break;
-				
-			case "MARR":
-				dateSwitch = "married";
-				break;
-				
-			case "DIV":
-				dateSwitch = "divorce";
-				break;
-				
-			case "CHIL":
-				family.getChildren().add(strArr[2]);
-				break;
-				
-			case "DATE":
-				switch (dateSwitch) {
-					case "married":
-						family.setMarriedDate(StringUtil.DateFormat(strArr[2]));
-						break;
-					case "divorce":
-						if ("".equals(strArr[2])) {
-							family.setDivorceDate("NA");
-						} else {
-							family.setDivorceDate(StringUtil.DateFormat(strArr[2]));
-						}
-						
-						break;
-					default:
-						break;
-				}
-				break;
-				
-			default: 
-				break;
-		}
-		return family;
-	}
 }

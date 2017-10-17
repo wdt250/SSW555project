@@ -1,6 +1,8 @@
+package main.java;
+
 import java.util.Scanner;
 
-import linlei.GEDCOMReader;
+import main.java.common.GEDCOMReader;
 
 /**
 * @author Linlei Liu 

@@ -12,7 +12,7 @@ import main.java.util.StringUtil;
 *         E-mail:lliu33@stevens.edu
 * @version 
 * @date Oct 13, 2017 
-*
+* @editor Daotong Wang
 */
 public class FamilyProcess {
 	
@@ -24,15 +24,17 @@ public class FamilyProcess {
 		switch(strArr[1]){
 		
 			case "FAM":
-				family.setFamiliesId(strArr[2]);
+				family.setFamilyId(strArr[2]);
 				break;
 				
 			case "HUSB":
 				family.setHusbandId(strArr[2]);
 				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-					Individual i = (Individual) iterator.next();
-					if (i.getIndividualId() == family.getHusbandId()) {
+					Individual i = iterator.next();
+					if (family.getHusbandId().equals(i.getIndividualId()) ) {
+				
 						family.setHusbandName(i.getName());
+						break;
 					}
 				}
 				break;
@@ -41,8 +43,9 @@ public class FamilyProcess {
 				family.setWifeId(strArr[2]);
 				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
 					Individual i = (Individual) iterator.next();
-					if (i.getIndividualId() == family.getWifeId()) {
+					if (family.getWifeId().equals(i.getIndividualId())) {
 						family.setWifeName(i.getName());
+						break;
 					}
 				}
 				break;
@@ -56,22 +59,28 @@ public class FamilyProcess {
 				break;
 				
 			case "CHIL":
-				family.getChildren().add(strArr[2]);
+				ArrayList<String> child = new ArrayList();
+				if(family.getChildren()!= null){
+					child = family.getChildren();
+				}
+				child.add(strArr[2]);
+				family.setChilden(child);
 				break;
 				
 			case "DATE":
+				
 				switch (dateSwitch) {
 					case "married":
+						
 						family.setMarriedDate(StringUtil.DateFormat(strArr[2]));
-						break;
-					case "divorce":
-						if ("".equals(strArr[2])) {
-							family.setDivorceDate("NA");
-						} else {
-							family.setDivorceDate(StringUtil.DateFormat(strArr[2]));
-						}
+						dateSwitch="";
 						
 						break;
+					case "divorce":
+						family.setDivorceDate(StringUtil.DateFormat(strArr[2]));
+						dateSwitch="";
+						break;
+						
 					default:
 						break;
 				}

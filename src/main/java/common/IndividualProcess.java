@@ -25,7 +25,7 @@ public class IndividualProcess {
 				break;
 				
 			case "NAME":
-				individual.setName(strArr[2]);;
+				individual.setName(strArr[2]);
 				break;
 				
 			case "SEX":
@@ -44,19 +44,12 @@ public class IndividualProcess {
 				switch (dateSwitch) {
 					case "birth":
 						individual.setBirthDate(StringUtil.DateFormat(strArr[2]));
+						individual.setAge(DateUtil.getAge(StringUtil.Str2DateFormat(individual.getBirthDate())));
+						individual.setAlive(true);
+						individual.setDeathDate("NA");
 						break;
 					case "death":
-						if ("".equals(strArr[2])) {
-							individual.setAlive(true);
-							individual.setDeathDate("NA");
-							int age = 0;
-							try {
-								age = DateUtil.getAge(StringUtil.Str2DateFormat(individual.getBirthDate()));
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							individual.setAge(age);
-						}else {
+						
 							individual.setAlive(false);
 							individual.setDeathDate(StringUtil.DateFormat(strArr[2]));
 							int age = 0;
@@ -66,7 +59,7 @@ public class IndividualProcess {
 								e.printStackTrace();
 							}
 							individual.setAge(age);
-						}
+						
 						break;
 					default:
 						break;

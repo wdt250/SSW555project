@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,74 +29,84 @@ public class GEDCOMReader {
 		File inputFile = new File(inputPath);
 		File outputFile = new File(outputPath);
         BufferedReader reader = null;  
-        BufferedWriter writer = null;
+        PrintWriter outFile = null;
+        
 		
 		try {
 			reader = new BufferedReader(new FileReader(inputFile));
-			writer = new BufferedWriter(new FileWriter(outputFile));
+			outFile = new PrintWriter(new BufferedWriter(new FileWriter(outputPath)));
+			
 			String line = new String();
 			
 			ArrayList<Individual> individuals = new ArrayList<Individual>();
 			ArrayList<Family> families = new ArrayList<Family>();
-			Individual individual = null;
+			Individual individual = new Individual();
+			
 			Family family = new Family();
 			IndividualProcess individualProcess = new IndividualProcess();
 			FamilyProcess familyProcess = new FamilyProcess();
 			
 			String[] individualTags = {"INDI","NAME","SEX","BIRT","DEAT","DATE","FAMS","FAMC"};
-    		String[] famalyTags = {"FAM","HUSB","WIFE","MARR","DIV","DATE","CHIL"};
+    		String[] familyTags = {"FAM","HUSB","WIFE","MARR","DIV","DATE","CHIL"};
     		
             while ((line = reader.readLine()) != null) {
             	String[] splitResults = sentenceIllegalChecker(line);
-            	if (usefulChecker(splitResults)) {
-            		if (StringUtil.ifStrInArr(splitResults[1], individualTags)) {
-            			if ("INDI".equals(splitResults[1])) {
-							individual = new Individual();
-						}
-            			individual = individualProcess.individualCombiner(individual, splitResults);
-            			continue;
-					}
-				}else {
-					continue;
-				}
+            	if(usefulChecker(splitResults)) {
+            		if(StringUtil.ifStrInArr(splitResults[1], individualTags) && families.isEmpty()) {
+            			if("INDI".equals(splitResults[1])){
+            				individual = new Individual();
+            				individuals.add(individual);	
+            			}
+            			
+            			individuals.set(individuals.size()-1, individualProcess.individualCombiner(individuals.get(individuals.size()-1), splitResults));
+            			
+            		}else if(StringUtil.ifStrInArr(splitResults[1], familyTags))	{
+            			if("FAM".equals(splitResults[1])){
+            				family = new Family();
+            				families.add(family);
+            			}
+            			families.set(families.size()-1, familyProcess.familyCombiner(family, individuals, splitResults));
+            		}
+            		
+            	}
             }
-            individuals.add(individual);
             
-            while ((line = reader.readLine()) != null) {
-            	String[] splitResults = sentenceIllegalChecker(line);
-            	if (usefulChecker(splitResults)) {
-            		if (StringUtil.ifStrInArr(splitResults[1], famalyTags)) {
-            			family = familyProcess.familyCombiner(family, individuals, splitResults);
-            			continue;
-					}
-				}else {
-					continue;
-				}
-            }
-            families.add(family);
             
-    		writer.write("Individuals");
-			writer.newLine();
-			writer.write("ID Name Gender Birthday Age Alive Death Child Spouse");
-			writer.newLine();
+			outFile.println("Individuals");
+			outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
+			outFile.print("\r\n");
+			
+			
 			for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
     			Individual indi = iterator.next();
-    			writer.write(indi.getIndividualId() + " " + indi.getName() + " " + indi.getGender()
-    				+ " " + indi.getBirthDate() + " " + indi.getAge() + " " + indi.getAlive()
-    				+ " " + indi.getDeathDate() + " " + indi.getChild() + " " + indi.getSpouse());
-    			writer.newLine();
+    			outFile.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
+    																			indi.getName(),
+    																			indi.getGender(),
+    																			indi.getBirthDate(),
+    																			indi.getAge(),indi.getAlive(),
+    																			indi.getDeathDate(),
+    																			indi.getChild(),
+    																			indi.getSpouse());
+    			outFile.print("\r\n");
     		}
-			writer.newLine();
-			writer.write("Families");
-			writer.write("ID Married Divorced Husband ID Husband Name Wife ID Wife Name Children");
+			outFile.println("Families");
+			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
+			outFile.print("\r\n");
+			
     		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
     			Family fa = iterator.next();
-    			writer.write(fa.getFamiliesId() + " " + fa.getMarriedDate() + " " + fa.getDivorceDate()
-    				+ " " + fa.getHusbandId() + " " + fa.getHusbandName() + " " + fa.getWifeId()
-    				+ " " + fa.getWifeName() + " {'" + fa.getChildren() + "'}");
+    			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
+    																		fa.getMarriedDate(), 
+    																		fa.getDivorceDate(), 
+    																		fa.getHusbandId(), 
+    																		fa.getHusbandName(), 
+    																		fa.getWifeId(), 
+    																		fa.getWifeName(), 
+    																		fa.getChildren());
+    			outFile.print("\r\n");
     		}	
 			
-    		writer.flush();
+    		outFile.flush();
     		
             System.out.println("Finish parse GEDCOM file.");
 		} catch (FileNotFoundException e) {
@@ -111,8 +122,8 @@ public class GEDCOMReader {
                 if (reader != null) {
                     reader.close();
                 }
-                if (writer != null) {
-                	writer.close();
+                if (outFile != null) {
+                	outFile.close();
                 }
             }catch (IOException e) {
                 e.printStackTrace();
@@ -161,20 +172,15 @@ public class GEDCOMReader {
 			tag = sliptStrs[1];
 		}
 		
-//		combStrs = new String[]{level,tag};
-//		
-//		if (StringUtil.ifStrArrInArr(combStrs, strArray)) {
-//			returnStrs[0] = level;
-//			returnStrs[1] = tag;
-//			returnStrs[2] = value;
-//		} else {
-//			System.out.println("Illegal file. Error in levels and tags");
-//			throw new NoSuchFieldException();
-//		}
+		combStrs = new String[]{level,tag};
 		
-		returnStrs[0] = level;
-		returnStrs[1] = tag;
-		returnStrs[2] = value;
+		if(StringUtil.ifStrArrInArr(combStrs, strArray)){
+			returnStrs[0] = level;
+			returnStrs[1] = tag;
+			returnStrs[2] = value;
+		}
+		
+		
 		
 		return returnStrs;
 	}

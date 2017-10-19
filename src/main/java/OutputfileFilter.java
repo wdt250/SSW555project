@@ -253,8 +253,8 @@ public class OutputfileFilter {
 		Methods.birthBeforeMarriage(in, fa);
 		Methods.birthBeforeDeath(in);
 //		Methods.marriageBeforeDivorce(fa);
-		Us05.DeathBeforeMarriage(in, fa);
-		Us06.DeathBeforeDivorce(in, fa);
+//		Us05.DeathBeforeMarriage(in, fa);
+//		Us06.DeathBeforeDivorce(in, fa);
 		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());

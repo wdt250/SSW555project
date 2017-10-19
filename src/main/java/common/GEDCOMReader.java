@@ -13,6 +13,10 @@ import java.util.Iterator;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
+import main.java.userstrories.daotong.DaotongStories;
+import main.java.userstrories.jiadong.JiadongStories;
+import main.java.userstrories.linlei.LinleiStories;
+import main.java.userstrories.yoseph.YosephStories;
 import main.java.util.DateUtil;
 import main.java.util.StringUtil;
 /**
@@ -21,6 +25,7 @@ import main.java.util.StringUtil;
  *         E-mail:lliu33@stevens.edu
  * @date 2017-10-06
  * modify Daotong's code
+ * @version 1.3
  */
 public class GEDCOMReader {
 	
@@ -71,11 +76,47 @@ public class GEDCOMReader {
             	}
             }
             
-            
+            //output file to console
+            System.out.println("Individuals");
+    		System.out.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse","\r\n");
+    		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
+    			Individual indi = iterator.next();
+    			System.out.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
+																					indi.getName(),
+																					indi.getGender(),
+																					indi.getBirthDate(),
+																					indi.getAge(),indi.getAlive(),
+																					indi.getDeathDate(),
+																					indi.getChild(),
+																					indi.getSpouse());
+    			System.out.print("\r\n");
+    		}
+    		
+    		System.out.println("Families");
+    		System.out.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
+    		
+    		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
+    			Family fa = iterator.next();
+    			System.out.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
+    																		fa.getMarriedDate(), 
+    																		fa.getDivorceDate(), 
+    																		fa.getHusbandId(), 
+    																		fa.getHusbandName(), 
+    																		fa.getWifeId(), 
+    																		fa.getWifeName(), 
+    																		fa.getChildren());
+    			System.out.print("\r\n");
+    		}	
+    		
+    		LinleiStories.check(individuals, families);
+    		DaotongStories.check(individuals, families);
+    		YosephStories.check(individuals, families);
+    		JiadongStories.check(individuals, families);
+    		
+            //output file into a Result.txt
 			outFile.println("Individuals");
 			outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
 			outFile.print("\r\n");
-			
 			
 			for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
     			Individual indi = iterator.next();
@@ -89,6 +130,7 @@ public class GEDCOMReader {
     																			indi.getSpouse());
     			outFile.print("\r\n");
     		}
+			
 			outFile.println("Families");
 			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
 			outFile.print("\r\n");

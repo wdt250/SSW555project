@@ -1,7 +1,9 @@
 package main.java.userstrories.linlei;
 
-import main.java.Family;
-import main.java.Individual;
+import java.util.ArrayList;
+
+import main.java.beans.Family;
+import main.java.beans.Individual;
 import main.java.Methods;
 
 /**
@@ -12,23 +14,23 @@ import main.java.Methods;
 *
 */
 public class Us06 {
-	public static Boolean DeathBeforeDivorce(Individual[] individuals, Family[] families){
+	public static Boolean DeathBeforeDivorce(ArrayList<Individual> individuals, ArrayList<Family> families){
 		for(Family family: families){
-			if(family.getDivorcedate() == "NA"){
+			if(family.getDivorceDate() == "NA"){
 				continue;
 			}
 
 			for(Individual individual: individuals){
-				if(individual.getDeat() == "NA"){
+				if(individual.getDeathDate() == "NA"){
 					continue;
 				}
 				
-				if(family.getHusbandid() == individual.getId())
-					if(Methods.findDate(individual.getDeat()).before(Methods.findDate(family.getDivorcedate())))
+				if(family.getHusbandId() == individual.getIndividualId())
+					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getDivorceDate())))
 						return false;
 
-				if(family.getWifeid() == individual.getId())
-					if(Methods.findDate(individual.getDeat()).before(Methods.findDate(family.getDivorcedate())))
+				if(family.getWifeId() == individual.getIndividualId())
+					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getDivorceDate())))
 						return false;
 			}
 		}

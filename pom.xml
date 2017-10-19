@@ -28,8 +28,10 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.plugin.version}</version>
         <configuration>
-          <source>${maven.compiler.plugin.source}</source>
-          <target>${maven.compiler.plugin.target}</target>
+          <!-- <source>${maven.compiler.plugin.source}</source>
+          <target>${maven.compiler.plugin.target}</target> -->
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>

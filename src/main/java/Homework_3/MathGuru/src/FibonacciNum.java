@@ -1,3 +1,5 @@
+package main.java.Homework_3.MathGuru.src;
+
 public class FibonacciNum {
 
 	public static int fibNum(int n){

@@ -1,4 +1,6 @@
+package main.java.Homework_3.MathGuru.src;
 /*
+
 Homework #3
 Group Members:
 -Yoseph Borai

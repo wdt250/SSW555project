@@ -1,3 +1,5 @@
+package main.java.Homework_3.MathGuru.src;
+
 public class Factorial {
 	public static int factorial(int n){
 		int result = 1;

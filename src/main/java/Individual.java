@@ -1,4 +1,6 @@
-class Individual{
+package main.java;
+
+public class Individual{
 	private String id;
 	private String name;
 	private String gend;

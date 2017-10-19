@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.Date;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -99,28 +101,28 @@ public class Methods {
 		return true;
 	}
 	
-	public static Boolean DeathBeforeDivorce(Individual[] in, Family[] fa){
-		for(Family fam: fa){
-			if(fam.getDivorcedate() == "NA"){
-				continue;
-			}
-
-			for(Individual indi: in){
-				if(indi.getDeat() == "NA"){
-					continue;
-				}
-				
-				if(fam.getHusbandid() == indi.getId())
-					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
-						return false;
-
-				if(fam.getWifeid() == indi.getId())
-					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
-						return false;
-			}
-		}
-		return true;
-	}
+//	public static Boolean DeathBeforeDivorce(Individual[] in, Family[] fa){
+//		for(Family fam: fa){
+//			if(fam.getDivorcedate() == "NA"){
+//				continue;
+//			}
+//
+//			for(Individual indi: in){
+//				if(indi.getDeat() == "NA"){
+//					continue;
+//				}
+//				
+//				if(fam.getHusbandid() == indi.getId())
+//					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
+//						return false;
+//
+//				if(fam.getWifeid() == indi.getId())
+//					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
+//						return false;
+//			}
+//		}
+//		return true;
+//	}
 
 	//Verify the birth of an individual is before death
 	public static Boolean birthBeforeDeath(Individual[] in) {
@@ -136,17 +138,17 @@ public class Methods {
 	}
 	
 	//Verify the marriage of an family is before divorce
-	public static Boolean marriageBeforeDivorce(Family[] fa) {
-		for(int i = 0; i < fa.length; i++) {
-			if(fa[i].getDivorcedate() != "NA") {
-				if(Methods.findDate(fa[i].getMarrieddate()).after(Methods.findDate(fa[i].getDivorcedate()))) {
-					return false;
-				}			
-			}
-		}
-		
-		return true;
-	}
+//	public static Boolean marriageBeforeDivorce(Family[] fa) {
+//		for(int i = 0; i < fa.length; i++) {
+//			if(fa[i].getDivorcedate() != "NA") {
+//				if(Methods.findDate(fa[i].getMarrieddate()).after(Methods.findDate(fa[i].getDivorcedate()))) {
+//					return false;
+//				}			
+//			}
+//		}
+//		
+//		return true;
+//	}
 	
 	//verify all the individuals lives not more than 150 years old, input is the original .ged 
 	//and if there's anyone longer than 150, output a string"someone's age is not correct"

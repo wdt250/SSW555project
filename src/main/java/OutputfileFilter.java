@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -5,6 +7,9 @@ import java.io.IOException;
 import java.text.*;
 import java.util.Date;
 import java.util.Locale;
+
+import main.java.userstrories.linlei.Us05;
+import main.java.userstrories.linlei.Us06;
 
 public class OutputfileFilter {
 
@@ -248,8 +253,8 @@ public class OutputfileFilter {
 		Methods.birthBeforeMarriage(in, fa);
 		Methods.birthBeforeDeath(in);
 		Methods.marriageBeforeDivorce(fa);
-		Methods.DeathBeforeMarriage(in, fa);
-		Methods.DeathBeforeDivorce(in, fa);
+		Us05.DeathBeforeMarriage(in, fa);
+		Us06.DeathBeforeDivorce(in, fa);
 		
 		/*for(int i=0; i<in.length; i++){
 			System.out.println(in[i].toString());

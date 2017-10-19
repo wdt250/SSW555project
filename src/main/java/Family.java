@@ -1,4 +1,6 @@
-class Family{
+package main.java;
+
+public class Family{
 	private String id;
 	private String marrieddate;
 	private String divorcedate;

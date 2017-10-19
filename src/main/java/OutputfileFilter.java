@@ -252,7 +252,7 @@ public class OutputfileFilter {
 		Methods.DatesBeforeNow(in, fa);
 		Methods.birthBeforeMarriage(in, fa);
 		Methods.birthBeforeDeath(in);
-		Methods.marriageBeforeDivorce(fa);
+//		Methods.marriageBeforeDivorce(fa);
 		Us05.DeathBeforeMarriage(in, fa);
 		Us06.DeathBeforeDivorce(in, fa);
 		

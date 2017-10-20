@@ -106,49 +106,49 @@ public class GEDCOMReader {
     			System.out.print("\r\n");
     		}	
     		
-//    		LinleiStories.check(individuals, families);
-//    		DaotongStories.check(individuals, families);
-//    		YosephStories.check(individuals, families);
-//    		JiadongStories.check(individuals, families);
-//    		
-//            //output file into a Result.txt
-//			outFile.println("Individuals");
-//			outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
-//			outFile.print("\r\n");
-//			
-//			for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-//    			Individual indi = iterator.next();
-//    			outFile.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
-//    																			indi.getName(),
-//    																			indi.getGender(),
-//    																			indi.getBirthDate(),
-//    																			indi.getAge(),indi.getAlive(),
-//    																			indi.getDeathDate(),
-//    																			indi.getChild(),
-//    																			indi.getSpouse());
-//    			outFile.print("\r\n");
-//    		}
-//			
-//			outFile.println("Families");
-//			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
-//			outFile.print("\r\n");
-//			
-//    		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
-//    			Family fa = iterator.next();
-//    			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
-//    																		fa.getMarriedDate(), 
-//    																		fa.getDivorceDate(), 
-//    																		fa.getHusbandId(), 
-//    																		fa.getHusbandName(), 
-//    																		fa.getWifeId(), 
-//    																		fa.getWifeName(), 
-//    																		fa.getChildren());
-//    			outFile.print("\r\n");
-//    		}	
-//			
-//    		outFile.flush();
-//    		
-//            System.out.println("Finish parse GEDCOM file.");
+    		LinleiStories.check(individuals, families);
+    		DaotongStories.check(individuals, families);
+    		YosephStories.check(individuals, families);
+    		JiadongStories.check(individuals, families);
+    		
+            //output file into a Result.txt
+			outFile.println("Individuals");
+			outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
+			outFile.print("\r\n");
+			
+			for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
+    			Individual indi = iterator.next();
+    			outFile.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
+    																			indi.getName(),
+    																			indi.getGender(),
+    																			indi.getBirthDate(),
+    																			indi.getAge(),indi.getAlive(),
+    																			indi.getDeathDate(),
+    																			indi.getAsChildOfFamily(),
+																				indi.getAsSpouseOfFamily());
+    			outFile.print("\r\n");
+    		}
+			
+			outFile.println("Families");
+			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
+			outFile.print("\r\n");
+			
+    		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
+    			Family fa = iterator.next();
+    			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
+    																		fa.getMarriedDate(), 
+    																		fa.getDivorceDate(), 
+    																		fa.getHusbandId(), 
+    																		fa.getHusbandName(), 
+    																		fa.getWifeId(), 
+    																		fa.getWifeName(), 
+    																		fa.getChildren());
+    			outFile.print("\r\n");
+    		}	
+			
+    		outFile.flush();
+    		
+            System.out.println("Finish parse GEDCOM file.");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -1,11 +1,11 @@
-package main.java.userstrories.jiadong;
+package main.java.userstories.jiadong;
 
 import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstrories.linlei.Us05;
-import main.java.userstrories.linlei.Us06;
+import main.java.userstories.linlei.Us05;
+import main.java.userstories.linlei.Us06;
 
 /**
 * @author 

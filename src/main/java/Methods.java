@@ -25,38 +25,38 @@ public class Methods {
     public static boolean testForBirthDateBetween = true;
 
     //Verifies whether all dates are before the given date when passed an array of individuals and families
-	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
+	public static Boolean DatesBeforeNow(Individual[] individuals, Family[] families){
 		Date now = new Date();
 		boolean flag = true;
 
 		//Checks all valid individual dates for a logical date
-		for(int i = 0;i < in.length;i++){
-			if(!(in[i].getBirt().equals("NA"))){
-			    if(findDate(in[i].getBirt()).after(now)){
+		for(Individual individual: individuals){
+			if(!(individual.getBirt().equals("NA"))){
+			    if(findDate(individual.getBirt()).after(now)){
 			    	flag = false;
-			    	System.out.println("Error(" + in[i].getId() + "): Birth date(" +in[i].getBirt() + ") cannot be before today");
+			    	System.out.println("Error(" + individual.getId() + "): Birth date(" +individual.getBirt() + ") cannot be before today");
 			    }
 			}
-			if(!(in[i].getDeat().equals("NA"))){
-			    if(findDate(in[i].getDeat()).after(now)){
+			if(!(individual.getDeat().equals("NA"))){
+			    if(findDate(individual.getDeat()).after(now)){
 			    	flag = false;
-			    	System.out.println("Error(" + in[i].getId() + "): Death date(" +in[i].getBirt() + ") cannot be before today");
+			    	System.out.println("Error(" + individual.getId() + "): Death date(" +individual.getBirt() + ") cannot be before today");
 			    }
 			}
 		}
 		
 		//Checks all valid family dates for l
-		for(int i = 0;i < fa.length;i++){
-			if(!(fa[i].getMarrieddate().equals("NA"))){
-			    if(findDate(fa[i].getMarrieddate()).after(now)){
+		for(Family family: families){
+			if(!(family.getMarrieddate().equals("NA"))){
+			    if(findDate(family.getMarrieddate()).after(now)){
 			    	flag = false;
-			    	System.out.println("Error(" + in[i].getId() + "): Marriage date(" +in[i].getBirt() + ") cannot be before today");
+			    	System.out.println("Error(" + family.getId() + "): Marriage date(" +family.getBirt() + ") cannot be before today");
 			    }
 			}
-			if(!(fa[i].getDivorcedate().equals("NA"))){
-			    if(findDate(fa[i].getDivorcedate()).after(now)){
+			if(!(family.getDivorcedate().equals("NA"))){
+			    if(findDate(family.getDivorcedate()).after(now)){
 			    	flag = false;
-			    	System.out.println("Error(" + in[i].getId() + "): Divorce date(" +in[i].getBirt() + ") cannot be before today");
+			    	System.out.println("Error(" + family.getId() + "): Divorce date(" +family.getBirt() + ") cannot be before today");
 			    }
 			}
 		}
@@ -66,23 +66,23 @@ public class Methods {
 		return flag;
 	}
 	
-	public static Boolean birthBeforeMarriage(Individual[] in, Family[] fa){
+	public static Boolean birthBeforeMarriage(Individual[] individuals, Family[] families){
 		boolean flag = true;
-		for(Family fam: fa){
-			for(Individual indi: in){
-				if(fam.getMarrieddate().equals("NA"))
+		for(Family family: families){
+			for(Individual individual: individuals){
+				if(family.getMarrieddate().equals("NA"))
 					continue;
 
-				if(fam.getHusbandid().equals(indi.getId()))
-					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate()))) {
+				if(family.getHusbandid().equals(individual.getId()))
+					if(Methods.findDate(individual.getBirt()).after(Methods.findDate(family.getMarrieddate()))) {
 				    	flag = false;
-				    	System.out.println("Error(" + indi.getId() + "): Marriage date(" +fam.getMarrieddate() + ") cannot be before birth date(" + indi.getBirt() + ")");
+				    	System.out.println("Error(" + individual.getId() + "): Marriage date(" +family.getMarrieddate() + ") cannot be before birth date(" + individual.getBirt() + ")");
 					}
 
-				if(fam.getWifeid().equals(indi.getId()))
-					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate()))) {
+				if(family.getWifeid().equals(individual.getId()))
+					if(Methods.findDate(individual.getBirt()).after(Methods.findDate(family.getMarrieddate()))) {
 				    	flag = false;
-				    	System.out.println("Error(" + indi.getId() + "): Marriage date(" +fam.getMarrieddate() + ") cannot be before birth date(" + indi.getBirt() + ")");
+				    	System.out.println("Error(" + individual.getId() + "): Marriage date(" +family.getMarrieddate() + ") cannot be before birth date(" + individual.getBirt() + ")");
 					}
 			}
 		}

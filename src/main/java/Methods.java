@@ -27,17 +27,20 @@ public class Methods {
     //Verifies whether all dates are before the given date when passed an array of individuals and families
 	public static Boolean DatesBeforeNow(Individual[] in, Family[] fa){
 		Date now = new Date();
+		boolean flag = true;
 
 		//Checks all valid individual dates for a logical date
 		for(int i = 0;i < in.length;i++){
 			if(!(in[i].getBirt().equals("NA"))){
 			    if(findDate(in[i].getBirt()).after(now)){
-				    return false;
+			    	flag = false;
+			    	System.out.println("Error(" + in[i].getId() + "): Birth date(" +in[i].getBirt() + ") cannot be before today");
 			    }
 			}
 			if(!(in[i].getDeat().equals("NA"))){
 			    if(findDate(in[i].getDeat()).after(now)){
-				    return false;
+			    	flag = false;
+			    	System.out.println("Error(" + in[i].getId() + "): Death date(" +in[i].getBirt() + ") cannot be before today");
 			    }
 			}
 		}
@@ -46,41 +49,52 @@ public class Methods {
 		for(int i = 0;i < fa.length;i++){
 			if(!(fa[i].getMarrieddate().equals("NA"))){
 			    if(findDate(fa[i].getMarrieddate()).after(now)){
-				    return false;
+			    	flag = false;
+			    	System.out.println("Error(" + in[i].getId() + "): Marriage date(" +in[i].getBirt() + ") cannot be before today");
 			    }
 			}
 			if(!(fa[i].getDivorcedate().equals("NA"))){
 			    if(findDate(fa[i].getDivorcedate()).after(now)){
-				    return false;
+			    	flag = false;
+			    	System.out.println("Error(" + in[i].getId() + "): Divorce date(" +in[i].getBirt() + ") cannot be before today");
 			    }
 			}
 		}
 		
-		return true;
+		System.out.println("No dates after today!");
+		
+		return flag;
 	}
 	
 	public static Boolean birthBeforeMarriage(Individual[] in, Family[] fa){
+		boolean flag = true;
 		for(Family fam: fa){
 			for(Individual indi: in){
-				if(fam.getMarrieddate() == "NA")
+				if(fam.getMarrieddate().equals("NA"))
 					continue;
 
-				if(fam.getHusbandid() == indi.getId())
-					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate())))
-						return false;
+				if(fam.getHusbandid().equals(indi.getId()))
+					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate()))) {
+				    	flag = false;
+				    	System.out.println("Error(" + indi.getId() + "): Marriage date(" +fam.getMarrieddate() + ") cannot be before birth date(" + indi.getBirt() + ")");
+					}
 
-				if(fam.getWifeid() == indi.getId())
-					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate())))
-						return false;
+				if(fam.getWifeid().equals(indi.getId()))
+					if(Methods.findDate(indi.getBirt()).after(Methods.findDate(fam.getMarrieddate()))) {
+				    	flag = false;
+				    	System.out.println("Error(" + indi.getId() + "): Marriage date(" +fam.getMarrieddate() + ") cannot be before birth date(" + indi.getBirt() + ")");
+					}
 			}
 		}
 		
-		return true;
+		System.out.println("No Marriage before birth!");
+		
+		return flag;
 	}
 	
 	public static Boolean DeathBeforeMarriage(Individual[] in, Family[] fa){
 		for(Family fam: fa){
-			if(fam.getMarrieddate() == "NA"){
+			if(fam.getMarrieddate().equals("NA")){
 				continue;
 			}
 
@@ -89,11 +103,11 @@ public class Methods {
 					continue;
 				}
 				
-				if(fam.getHusbandid() == indi.getId())
+				if(fam.getHusbandid().equals(indi.getId()))
 					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getMarrieddate())))
 						return false;
 
-				if(fam.getWifeid() == indi.getId())
+				if(fam.getWifeid().equals(indi.getId()))
 					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getMarrieddate())))
 						return false;
 			}
@@ -101,28 +115,28 @@ public class Methods {
 		return true;
 	}
 	
-//	public static Boolean DeathBeforeDivorce(Individual[] in, Family[] fa){
-//		for(Family fam: fa){
-//			if(fam.getDivorcedate() == "NA"){
-//				continue;
-//			}
-//
-//			for(Individual indi: in){
-//				if(indi.getDeat() == "NA"){
-//					continue;
-//				}
-//				
-//				if(fam.getHusbandid() == indi.getId())
-//					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
-//						return false;
-//
-//				if(fam.getWifeid() == indi.getId())
-//					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
-//						return false;
-//			}
-//		}
-//		return true;
-//	}
+	public static Boolean DeathBeforeDivorce(Individual[] in, Family[] fa){
+		for(Family fam: fa){
+			if(fam.getDivorcedate().equals("NA")){
+				continue;
+			}
+
+			for(Individual indi: in){
+				if(indi.getDeat().equals("NA")){
+					continue;
+				}
+				
+				if(fam.getHusbandid().equals(indi.getId()))
+					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
+						return false;
+
+				if(fam.getWifeid().equals(indi.getId()))
+					if(Methods.findDate(indi.getDeat()).before(Methods.findDate(fam.getDivorcedate())))
+						return false;
+			}
+		}
+		return true;
+	}
 
 	//Verify the birth of an individual is before death
 	public static Boolean birthBeforeDeath(Individual[] in) {
@@ -285,3 +299,4 @@ public class Methods {
 	}
 
 }
+

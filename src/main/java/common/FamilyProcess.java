@@ -28,11 +28,10 @@ public class FamilyProcess {
 				break;
 				
 			case "HUSB":
-				family.setHusbandId(strArr[2]);
+				family.setHusbandId(strArr[2].replaceAll("@", ""));
 				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
 					Individual i = iterator.next();
 					if (family.getHusbandId().equals(i.getIndividualId()) ) {
-				
 						family.setHusbandName(i.getName());
 						break;
 					}
@@ -40,7 +39,7 @@ public class FamilyProcess {
 				break;
 				
 			case "WIFE":
-				family.setWifeId(strArr[2]);
+				family.setWifeId(strArr[2].replaceAll("@", ""));
 				for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
 					Individual i = (Individual) iterator.next();
 					if (family.getWifeId().equals(i.getIndividualId())) {
@@ -59,25 +58,25 @@ public class FamilyProcess {
 				break;
 				
 			case "CHIL":
-				ArrayList<String> child = new ArrayList();
+				ArrayList<String> child = new ArrayList<String>();
 				if(family.getChildren()!= null){
 					child = family.getChildren();
 				}
-				child.add(strArr[2]);
+				child.add(strArr[2].replaceAll("@", ""));
 				family.setChilden(child);
 				break;
 				
 			case "DATE":
-				
 				switch (dateSwitch) {
 					case "married":
-						
 						family.setMarriedDate(StringUtil.DateFormat(strArr[2]));
+						family.setDivorceDate("NA");
 						dateSwitch="";
-						
 						break;
 					case "divorce":
-						family.setDivorceDate(StringUtil.DateFormat(strArr[2]));
+						if (!"".equals(strArr[2])) {
+							family.setDivorceDate(StringUtil.DateFormat(strArr[2]));
+						}
 						dateSwitch="";
 						break;
 						
@@ -88,6 +87,23 @@ public class FamilyProcess {
 				
 			default: 
 				break;
+		}
+		return family;
+//		return dataIntegrality(family);
+	}
+	
+	private static Family dataIntegrality(Family family) {
+		if ("".equals(family.getMarriedDate())) {
+			family.setMarriedDate("NA");
+		}
+		if ("".equals(family.getDivorceDate())) {
+			family.setDivorceDate("NA");
+		}
+		if ("".equals(family.getWifeId())) {
+			family.setWifeId("NA");
+		}
+		if ("".equals(family.getWifeName())) {
+			family.setWifeName("NA");
 		}
 		return family;
 	}

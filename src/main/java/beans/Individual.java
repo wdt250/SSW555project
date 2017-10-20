@@ -15,8 +15,8 @@ public class Individual{
 	private int age;
 	private Boolean alive;
 	private String deathDate;
-	private String child;
-	private String spouse;
+	private String asChildOfFamily;
+	private String asSpouseOfFamily;
 	
 	
 	
@@ -62,24 +62,22 @@ public class Individual{
 	public void setDeathDate(String deat) {
 		this.deathDate = deat;
 	}
-	public String getChild() {
-		return child;
+	public String getAsChildOfFamily() {
+		return asChildOfFamily;
 	}
-	public void setChild(String child) {
-		this.child = child;
+	public void setAsChildOfFamily(String asChildOfFamily) {
+		this.asChildOfFamily = asChildOfFamily;
 	}
-	public String getSpouse() {
-		return spouse;
+	public String getAsSpouseOfFamily() {
+		return asSpouseOfFamily;
 	}
-	public void setSpouse(String spouse) {
-		this.spouse = spouse;
+	public void setAsSpouseOfFamily(String asSpouseOfFamily) {
+		this.asSpouseOfFamily = asSpouseOfFamily;
 	}
-
 	@Override
 	public String toString() {
-		return "Individual [id=" + individualId + ", name=" + name + ", gend=" + gender + ", birt=" + birthDate + ", age=" + age
-				+ ", alive=" + alive + ", deat=" + deathDate + ", child=" + child + ", spouse=" + spouse + "]";
+		return "Individual [individualId=" + individualId + ", name=" + name + ", gender=" + gender + ", birthDate="
+				+ birthDate + ", age=" + age + ", alive=" + alive + ", deathDate=" + deathDate + ", asChildOfFamily="
+				+ asChildOfFamily + ", asSpouseOfFamily=" + asSpouseOfFamily + "]";
 	}
-	
-	
 }

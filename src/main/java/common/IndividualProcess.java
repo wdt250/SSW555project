@@ -49,7 +49,7 @@ public class IndividualProcess {
 						individual.setDeathDate("NA");
 						break;
 					case "death":
-						
+						if (!"".equals(strArr[2])) {
 							individual.setAlive(false);
 							individual.setDeathDate(StringUtil.DateFormat(strArr[2]));
 							int age = 0;
@@ -59,7 +59,7 @@ public class IndividualProcess {
 								e.printStackTrace();
 							}
 							individual.setAge(age);
-						
+						}
 						break;
 					default:
 						break;
@@ -68,23 +68,34 @@ public class IndividualProcess {
 				
 			case "FAMS":
 				if ("".equals(strArr[2])) {
-					individual.setSpouse("NA");
+					individual.setAsSpouseOfFamily("NA");
 				} else {
-					individual.setSpouse(strArr[2]);
+					individual.setAsSpouseOfFamily(strArr[2].replaceAll("@", ""));
 				}
 				break;
 				
 			case "FAMC":
 				if ("".equals(strArr[2])) {
-					individual.setChild("NA");
+					individual.setAsChildOfFamily("NA");
 				} else {
-					individual.setChild(strArr[2]);
+					individual.setAsChildOfFamily(strArr[2].replaceAll("@", ""));
 				}
 				break;
 				
 			default: 
 				break;
 			
+		}
+		return individual;
+//		return dataIntegrality(individual);
+	}
+	
+	private static Individual dataIntegrality(Individual individual) {
+		if ("".equals(individual.getAsChildOfFamily())) {
+			individual.setAsChildOfFamily("None");
+		}
+		if ("".equals(individual.getAsSpouseOfFamily())) {
+			individual.setAsSpouseOfFamily("NA");
 		}
 		return individual;
 	}

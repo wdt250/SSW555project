@@ -1,0 +1,21 @@
+Individuals
+ID    Name                            Gender    Birthday        Age Alive  Death           Child                           Spouse    
+I1    Michale /Jefferson/             M         1900-02-04      65  false  1965-06-11      NA                              {'F1 '}   
+I2    Mary /Rodham/                   F         1903-05-12      63  false  1966-06-15      NA                              {'F1 '}   
+I3    Jack /Jefferson/                M         1925-06-14      20  false  1945-08-15      {'F1 '}                         NA        
+I4    Robert /Jefferson/              null      1926-04-08      18  false  1944-06-06      {'F1 '}                         NA        
+I5    Howard /Jefferson/              M         1927-02-09      90  true   NA              {'F1 '}                         {'F2 '}   
+I6    Abigale /Jefferson/             F         1928-08-06      89  true   NA              {'F1 '}                         {'F4 '}   
+I7    Alice /White/                   F         1930-05-08      87  true   NA              NA                              {'F2 '}   
+I8    George /Jefferson/              M         1950-04-04      67  true   NA              {'F2 '}                         NA        
+I9    Kenneth /Cambell/               M         1920-05-09      97  true   NA              NA                              {'F4 '}   
+I10   Thompson /Turing/               M         1930-07-13      87  true   NA              NA                              {'F5 '}   
+I11   Steve /Turing/                  M         1953-07-08      64  true   NA              {'F3 '}                         NA        
+I12   John /Turing/                   M         1950-07-02      67  true   NA              {'F5 '}                         NA        
+Families
+ID    Married         Divorced        Husband ID  Husband Name                    Wife ID     Wife Name                       Children                        
+F1    1923-07-02      NA              I1          Michale /Jefferson/             I2          Mary /Rodham/                   {'I3,I4,I5,I6'}                 
+F2    1947-05-09      1957-10-13      I5          Howard /Jefferson/              I7          Alice /White/                   {'I8'}                          
+F3    1952-06-01      NA              I10         Thompson /Turing/               I6          Abigale /Jefferson/             {'I11'}                         
+F4    1948-04-01      1950-07-14      I9          Kenneth /Cambell/               I6          Abigale /Jefferson/             {'null'}                        
+F5    NA              NA              I10         Thompson /Turing/               null        null                            {'I12'}            

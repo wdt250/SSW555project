@@ -1,4 +1,4 @@
-package main.java.userstrories.yoseph;
+package main.java.userstories.yoseph;
 
 import java.util.ArrayList;
 

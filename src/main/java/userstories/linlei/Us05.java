@@ -1,4 +1,4 @@
-package main.java.userstrories.linlei;
+package main.java.userstories.linlei;
 
 import java.util.ArrayList;
 

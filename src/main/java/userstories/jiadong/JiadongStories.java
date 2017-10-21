@@ -1,4 +1,4 @@
-package main.java.userstories.daotong;
+package main.java.userstories.jiadong;
 
 import java.util.ArrayList;
 
@@ -8,18 +8,17 @@ import main.java.userstories.linlei.Us05;
 import main.java.userstories.linlei.Us06;
 
 /**
-* @author
+* @author 
 *         E-mail:
-* @date Oct 19, 2017
-*
-* @version
+* @date Oct 19, 2017 
+* 
+* @version 
 */
-public class DaotongStories {
+public class JiadongStories {
 
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
-		Us07.DeathBeforeMarriage(individuals, families);
-		Us08.DeathBeforeDivorce(individuals, families);
-		System.out.println("Just a test");;
+		Us03.DeathBeforeMarriage(individuals, families);
+		Us04.DeathBeforeDivorce(individuals, families);
 	}
-
+	
 }

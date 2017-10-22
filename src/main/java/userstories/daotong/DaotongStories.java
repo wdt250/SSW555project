@@ -19,6 +19,7 @@ public class DaotongStories {
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
 		Us07.LessThan150YearsOld(individuals);
 		Us08.BirthBeforeMarriageofParents(individuals, families);
+		Us14.MultipleBirthsNoMoreThan5(individuals, families);
 	}
 
 }

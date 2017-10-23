@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.Scanner;
+
 import main.java.common.GEDCOMReader;
 
 /**

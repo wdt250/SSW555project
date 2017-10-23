@@ -19,6 +19,7 @@ public class DaotongStories {
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
 		Us07.DeathBeforeMarriage(individuals, families);
 		Us08.DeathBeforeDivorce(individuals, families);
+		System.out.println("abc");
 		System.out.println("Just a test");;
 	}
 

@@ -73,5 +73,34 @@ public class DateUtil {
             }  
         }  
         return age;  
-    }  
+    }
+
+	public static long compareDate(String previousDate, String lateDate) {
+		return StringUtil.Str2DateFormat(lateDate).getTime() - StringUtil.Str2DateFormat(previousDate).getTime();
+	}  
+	
+	public static long compareYear(String previousDate, String lateDate) {
+		return compareDay(previousDate, lateDate)/365;
+	}
+	
+	public static long compareMonth(String previousDate, String lateDate) {
+		return compareDay(previousDate, lateDate)/30;
+	}
+	
+	public static long compareDay(String previousDate, String lateDate) {
+		return compareHour(previousDate, lateDate)/24;
+	}
+	
+	public static long compareHour(String previousDate, String lateDate) {
+		return compareMinute(previousDate, lateDate)/60;
+	}
+	
+	public static long compareMinute(String previousDate, String lateDate) {
+		return compareSecond(previousDate, lateDate)/60;
+	}
+	
+	public static long compareSecond(String previousDate, String lateDate) {
+		return compareDate(previousDate, lateDate)/1000;
+	}
+	
 }

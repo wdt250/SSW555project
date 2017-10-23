@@ -60,7 +60,6 @@ public class GEDCOMReader {
             				individuals.add(individual);	
             			}
             			individuals.set(individuals.size()-1, IndividualProcess.individualCombiner(individuals.get(individuals.size()-1), splitResults));
-            			
             		}else if(StringUtil.ifStrInArr(splitResults[1], familyTags))	{
             			if("FAM".equals(splitResults[1])){
             				family = new Family();
@@ -71,84 +70,19 @@ public class GEDCOMReader {
             	}
             }
             
-            //output file to console
-            System.out.println("Individuals");
-    		System.out.format("%-6s%-20s%-10s%-16s%-7s%-10s%-16s%-16s%-10s", "ID","Name","Gender","Birthday",
-    				"Age","Alive","Death","Child","Spouse");
-    		System.out.println();
-    		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-    			Individual indi = iterator.next();
-    			System.out.format("%-6s%-20s%-10s%-16s%-7d%-10b%-16s%-16s%-10s", 	indi.getIndividualId(),
-																					indi.getName(),
-																					indi.getGender(),
-																					indi.getBirthDate(),
-																					indi.getAge(),indi.getAlive(),
-																					indi.getDeathDate(),
-																					indi.getAsChildOfFamily(),
-																					indi.getAsSpouseOfFamily());
-    			System.out.print("\r\n");
-    		}
-    		
-    		System.out.println("\r\nFamilies");
-    		System.out.format("%-6s%-16s%-16s%-12s%-20s%-12s%-20s%-20s", "ID","Married","Divorced","Husband ID",
-    				"Husband Name","Wife ID","Wife Name","Children");
-    		System.out.println();
-    		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
-    			Family fa = iterator.next();
-    			System.out.format("%-6s%-16s%-16s%-12s%-20s%-12s%-20s%-20s", 	fa.getFamilyId(), 
-	    																		fa.getMarriedDate(), 
-	    																		fa.getDivorceDate(), 
-	    																		fa.getHusbandId(), 
-	    																		fa.getHusbandName(), 
-	    																		fa.getWifeId(), 
-	    																		fa.getWifeName(), 
-	    																		fa.getChildren());
-    			System.out.print("\r\n");
-    		}	
+            IndividualProcess.dataIntegrality(individuals);
+            FamilyProcess.dataIntegrality(families);
+            
+            printToConsole(individuals, families);
     		
     		LinleiStories.check(individuals, families);
     		DaotongStories.check(individuals, families);
     		YosephStories.check(individuals, families);
     		JiadongStories.check(individuals, families);
     		
-            //output file into a Result.txt
-			outFile.println("Individuals");
-			outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
-			outFile.print("\r\n");
-			
-			for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
-    			Individual indi = iterator.next();
-    			outFile.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
-    																			indi.getName(),
-    																			indi.getGender(),
-    																			indi.getBirthDate(),
-    																			indi.getAge(),indi.getAlive(),
-    																			indi.getDeathDate(),
-    																			indi.getAsChildOfFamily(),
-																				indi.getAsSpouseOfFamily());
-    			outFile.print("\r\n");
-    		}
-			
-			outFile.println("Families");
-			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
-			outFile.print("\r\n");
-			
-    		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
-    			Family fa = iterator.next();
-    			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
-    																		fa.getMarriedDate(), 
-    																		fa.getDivorceDate(), 
-    																		fa.getHusbandId(), 
-    																		fa.getHusbandName(), 
-    																		fa.getWifeId(), 
-    																		fa.getWifeName(), 
-    																		fa.getChildren());
-    			outFile.print("\r\n");
-    		}	
-			
-    		outFile.flush();
+            printToFile(individuals, families, outFile);
     		
-            System.out.println("Finish parse GEDCOM file.");
+            System.out.println("Finish parse GEDCOM file.\n");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -230,5 +164,80 @@ public class GEDCOMReader {
 			return false;
 		}
 	} 
+	
+	public static void printToConsole(ArrayList<Individual> individuals, ArrayList<Family> families) {
+		//output file to console
+        System.out.println("Individuals");
+		System.out.format("%-6s%-20s%-10s%-16s%-7s%-10s%-16s%-16s%-10s", "ID","Name","Gender","Birthday",
+				"Age","Alive","Death","Child","Spouse");
+		System.out.println();
+		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
+			Individual indi = iterator.next();
+			System.out.format("%-6s%-20s%-10s%-16s%-7d%-10b%-16s%-16s%-10s", 	indi.getIndividualId(),
+																				indi.getName(),
+																				indi.getGender(),
+																				indi.getBirthDate(),
+																				indi.getAge(),indi.getAlive(),
+																				indi.getDeathDate(),
+																				indi.getAsChildOfFamily(),
+																				indi.getAsSpouseOfFamily());
+			System.out.print("\r\n");
+		}
+		
+		System.out.println("\r\nFamilies");
+		System.out.format("%-6s%-16s%-16s%-12s%-20s%-12s%-20s%-20s", "ID","Married","Divorced","Husband ID",
+				"Husband Name","Wife ID","Wife Name","Children");
+		System.out.println();
+		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
+			Family fa = iterator.next();
+			System.out.format("%-6s%-16s%-16s%-12s%-20s%-12s%-20s%-20s", 	fa.getFamilyId(), 
+    																		fa.getMarriedDate(), 
+    																		fa.getDivorceDate(), 
+    																		fa.getHusbandId(), 
+    																		fa.getHusbandName(), 
+    																		fa.getWifeId(), 
+    																		fa.getWifeName(), 
+    																		fa.getChildren());
+			System.out.print("\r\n");
+		}	
+	}
+	
+	public static void printToFile(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+		//output file into a Result.txt
+		outFile.println("Individuals");
+		outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
+		outFile.print("\r\n");
+		
+		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
+			Individual indi = iterator.next();
+			outFile.format("%-6s%-32s%-10s%-16s%-4d%-7b%-16s%-32s%-10s", 	indi.getIndividualId(),
+																			indi.getName(),
+																			indi.getGender(),
+																			indi.getBirthDate(),
+																			indi.getAge(),indi.getAlive(),
+																			indi.getDeathDate(),
+																			indi.getAsChildOfFamily(),
+																			indi.getAsSpouseOfFamily());
+			outFile.print("\r\n");
+		}
+		outFile.println("\r\nFamilies");
+		outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", "ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children");
+		outFile.print("\r\n");
+		
+		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
+			Family fa = iterator.next();
+			outFile.format("%-6s%-16s%-16s%-12s%-32s%-12s%-32s%-32s", 	fa.getFamilyId(), 
+																		fa.getMarriedDate(), 
+																		fa.getDivorceDate(), 
+																		fa.getHusbandId(), 
+																		fa.getHusbandName(), 
+																		fa.getWifeId(), 
+																		fa.getWifeName(), 
+																		fa.getChildren());
+			outFile.print("\r\n");
+		}	
+		
+		outFile.flush();
+	}
 	
 }

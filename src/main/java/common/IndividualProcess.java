@@ -1,5 +1,8 @@
 package main.java.common;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import main.java.beans.Individual;
 import main.java.util.DateUtil;
 import main.java.util.StringUtil;
@@ -49,7 +52,7 @@ public class IndividualProcess {
 						individual.setDeathDate("NA");
 						break;
 					case "death":
-						if (!"".equals(strArr[2])) {
+						if (strArr[2] != null || !strArr[2].isEmpty()) {
 							individual.setAlive(false);
 							individual.setDeathDate(StringUtil.DateFormat(strArr[2]));
 							int age = 0;
@@ -67,7 +70,7 @@ public class IndividualProcess {
 				break;
 				
 			case "FAMS":
-				if ("".equals(strArr[2])) {
+				if (strArr[2] == null || strArr[2].isEmpty()) {
 					individual.setAsSpouseOfFamily("NA");
 				} else {
 					individual.setAsSpouseOfFamily(strArr[2].replaceAll("@", ""));
@@ -75,7 +78,7 @@ public class IndividualProcess {
 				break;
 				
 			case "FAMC":
-				if ("".equals(strArr[2])) {
+				if (strArr[2] == null || strArr[2].isEmpty()) {
 					individual.setAsChildOfFamily("NA");
 				} else {
 					individual.setAsChildOfFamily(strArr[2].replaceAll("@", ""));
@@ -87,16 +90,18 @@ public class IndividualProcess {
 			
 		}
 		return individual;
-//		return dataIntegrality(individual);
 	}
 	
-	private static Individual dataIntegrality(Individual individual) {
-		if ("".equals(individual.getAsChildOfFamily())) {
-			individual.setAsChildOfFamily("None");
+	public static ArrayList<Individual> dataIntegrality(ArrayList<Individual> individuals) {
+		for (Iterator iterator = individuals.iterator(); iterator.hasNext();) {
+			Individual individual = (Individual) iterator.next();
+			if (individual.getAsChildOfFamily() == null || individual.getAsChildOfFamily().isEmpty()) {
+				individual.setAsChildOfFamily("None");
+			}
+			if (individual.getAsSpouseOfFamily() == null || individual.getAsSpouseOfFamily().isEmpty()){
+				individual.setAsSpouseOfFamily("NA");
+			}
 		}
-		if ("".equals(individual.getAsSpouseOfFamily())) {
-			individual.setAsSpouseOfFamily("NA");
-		}
-		return individual;
+		return individuals;
 	}
 }

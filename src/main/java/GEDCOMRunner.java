@@ -15,19 +15,28 @@ public class GEDCOMRunner {
 	
 	public static void main(String args[]){
 		GEDCOMReader gedcomReader = new GEDCOMReader();
-		
-//		System.out.println("Please input the le path(such as \"d:\\GEDCOM.txt\"):");
-//		Scanner scanner=new Scanner(System.in);
-//		String inputPath = scanner.next();
-		
-//		System.out.println("Please input the output path(such as \"d:\\\"):");
-//		String outputPath = scanner.next() + "Result.txt";
-		
-//		String inputPath = "src\\doc\\TotalTestCase.txt";
-		String inputPath = "src\\doc\\My-Family-18-Sep-2017-172.ged";
-		String outputPath = "src\\doc\\Result.txt";
-		
-		gedcomReader.FileConvertor(inputPath, outputPath);
-		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("==========GEDCOM Reader==========");
+		do{
+			System.out.println("\nPlease input the input path(such as \"d:\\GEDCOM.txt\"):");
+			String inputPath = scanner.nextLine();
+			if (inputPath == null || inputPath.isEmpty()) {
+				inputPath = "src\\doc\\My-Family-18-Sep-2017-172.ged";
+			}
+			
+			System.out.println("Please input the output path(such as \"d:\\\"):");
+			String outputPath = scanner.nextLine();
+			if (outputPath == null || outputPath.isEmpty()) {
+//				outputPath = "d:\\Result.txt";
+				outputPath = "src\\doc\\Result.txt";
+			}else {
+				outputPath = scanner.nextLine() + "Result.txt";
+			}
+			
+			gedcomReader.FileConvertor(inputPath, outputPath);
+			
+			System.out.println("Would you like to make another calculation(yes/no)?");
+		}while(!"no".equals(scanner.nextLine()));
+		scanner.close();
 	}
 }

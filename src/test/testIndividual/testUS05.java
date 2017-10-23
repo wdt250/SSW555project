@@ -1,10 +1,11 @@
 package test.testIndividual;
 
 import junit.framework.TestCase;
-import main.java.Family;
-import main.java.Individual;
-import main.java.userstrories.linlei.Us05;
+import main.java.beans.Family;
+import main.java.beans.Individual;
+import main.java.userstories.linlei.Us05;
 
+import java.util.ArrayList;
 import java.util.Date;
 /**
 * @author Linlei Liu 
@@ -15,41 +16,35 @@ import java.util.Date;
 */
 public class testUS05 extends TestCase {
 	
-	protected Individual[] in;
-	protected Family[] fa;
-	protected Date check;
-
-	public testUS05(String s){
-		   super(s);   
-	   }
-
-	@Override
-	protected void setUp() {
-		in = new Individual[2];
-		fa = new Family[2];
-		check = new Date(0, 0, 1);
-	}
-	   
 	public void testDeathBeforeMarriage(){
-		   in[0] = new Individual();
-		   in[1] = new Individual();
-		   fa[0] = new Family();
-		   fa[1] = new Family();
-		   in[0].setDeat("1970-08-10");
-		   in[1].setDeat("2000-10-10");
-		   in[0].setId("I1");
-		   in[1].setId("I2");
-		   fa[0].setHusbandid("I1");
-		   fa[1].setWifeid("I2");
-		   fa[1].setHusbandid("I1");
-		   fa[0].setWifeid("I2");
-		   fa[0].setMarrieddate("NA");
-		   fa[1].setMarrieddate("1970-08-09");
-		   assertTrue(Us05.DeathBeforeMarriage(in, fa));
-		   fa[0].setMarrieddate("1970-08-11");
-		   assertFalse(Us05.DeathBeforeMarriage(in, fa));
-		   fa[0].setMarrieddate("NA");
-	       in[1].setDeat("1970-08-08");
-	       assertFalse(Us05.DeathBeforeMarriage(in, fa));
+		   Individual individual1 = new Individual();
+		   Individual individual2 = new Individual();
+		   Family family1 = new Family();
+		   Family family2 = new Family();
+		   
+		   individual1.setDeathDate("1970-08-10");
+		   individual2.setDeathDate("2000-10-10");
+		   individual1.setIndividualId("I1");
+		   individual2.setIndividualId("I2");
+		   family1.setHusbandId("I1");
+		   family2.setWifeId("I2");
+		   family2.setHusbandId("I1");
+		   family1.setWifeId("I2");
+		   family1.setMarriedDate("NA");
+		   family2.setMarriedDate("1970-08-09");
+		   
+		   ArrayList<Individual> individuals = new ArrayList<Individual>();
+		   ArrayList<Family> families = new ArrayList<Family>();
+		   individuals.add(individual1);
+		   individuals.add(individual2);
+		   families.add(family1);
+		   families.add(family2);
+		   
+		   assertTrue(Us05.DeathBeforeMarriage(individuals, families));
+		   family1.setMarriedDate("1970-08-11");
+		   assertFalse(Us05.DeathBeforeMarriage(individuals, families));
+		   family1.setMarriedDate("NA");
+	       individual2.setDeathDate("1970-08-08");
+	       assertFalse(Us05.DeathBeforeMarriage(individuals, families));
 	   }
 }

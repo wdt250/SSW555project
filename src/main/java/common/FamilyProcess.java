@@ -89,22 +89,24 @@ public class FamilyProcess {
 				break;
 		}
 		return family;
-//		return dataIntegrality(family);
 	}
 	
-	private static Family dataIntegrality(Family family) {
-		if ("".equals(family.getMarriedDate())) {
-			family.setMarriedDate("NA");
+	public static ArrayList<Family> dataIntegrality(ArrayList<Family> families) {
+		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
+			Family family = (Family) iterator.next();
+			if (family.getMarriedDate() == null || family.getMarriedDate().isEmpty()) {
+				family.setMarriedDate("NA");
+			}
+			if (family.getDivorceDate() == null || family.getDivorceDate().isEmpty()) {
+				family.setDivorceDate("NA");
+			}
+			if (family.getWifeId() == null || family.getWifeId().isEmpty()) {
+				family.setWifeId("NA");
+			}
+			if (family.getWifeName() == null || family.getWifeName().isEmpty()) {
+				family.setWifeName("NA");
+			}
 		}
-		if ("".equals(family.getDivorceDate())) {
-			family.setDivorceDate("NA");
-		}
-		if ("".equals(family.getWifeId())) {
-			family.setWifeId("NA");
-		}
-		if ("".equals(family.getWifeName())) {
-			family.setWifeName("NA");
-		}
-		return family;
+		return families;
 	}
 }

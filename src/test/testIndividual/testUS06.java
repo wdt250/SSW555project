@@ -1,11 +1,11 @@
 package test.testIndividual;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import main.java.Family;
-import main.java.Individual;
-import main.java.userstrories.linlei.Us06;
+import main.java.beans.Family;
+import main.java.beans.Individual;
+import main.java.userstories.linlei.Us06;
 
 /**
 * @author Linlei Liu 
@@ -16,41 +16,35 @@ import main.java.userstrories.linlei.Us06;
 */
 public class testUS06 extends TestCase {
 	
-	protected Individual[] individuals;
-	protected Family[] families;
-	protected Date check;
-
-	public testUS06(String s){
-		   super(s);   
-	   }
-
-	@Override
-	protected void setUp() {
-		individuals = new Individual[2];
-		families = new Family[2];
-		check = new Date(0, 0, 1);
-	}
-	
 	public void testDeathBeforeDivorce(){
-		   individuals[0] = new Individual();
-		   individuals[1] = new Individual();
-		   families[0] = new Family();
-		   families[1] = new Family();
-		   individuals[0].setDeat("1970-08-10");
-		   individuals[1].setDeat("2000-10-10");
-		   individuals[0].setId("I1");
-		   individuals[1].setId("I2");
-		   families[0].setHusbandid("I1");
-		   families[1].setWifeid("I2");
-		   families[1].setHusbandid("I1");
-		   families[0].setWifeid("I2");
-		   families[0].setDivorcedate("NA");
-		   families[1].setDivorcedate("1970-08-09");
-		   assertTrue(Us06.DeathBeforeDivorce(individuals, families));
-		   families[0].setDivorcedate("1970-08-11");
-		   assertFalse(Us06.DeathBeforeDivorce(individuals, families));
-		   families[0].setDivorcedate("NA");
-	       individuals[1].setDeat("1970-08-08");
-	       assertFalse(Us06.DeathBeforeDivorce(individuals, families));
-	   }
+		Individual individual1 = new Individual();
+		Individual individual2 = new Individual();
+		Family family1 = new Family();
+		Family family2 = new Family();
+
+		individual1.setDeathDate("1970-08-10");
+		individual2.setDeathDate("2000-10-10");
+		individual1.setIndividualId("I1");
+		individual2.setIndividualId("I2");
+		family1.setHusbandId("I1");
+		family2.setWifeId("I2");
+		family2.setHusbandId("I1");
+		family1.setWifeId("I2");
+		family1.setDivorceDate("NA");
+		family2.setDivorceDate("1970-08-09");
+
+		ArrayList<Individual> individuals = new ArrayList<Individual>();
+		ArrayList<Family> families = new ArrayList<Family>();
+		individuals.add(individual1);
+		individuals.add(individual2);
+		families.add(family1);
+		families.add(family2);
+
+		assertTrue(Us06.DeathBeforeDivorce(individuals, families));
+		family1.setDivorceDate("1970-08-11");
+		assertFalse(Us06.DeathBeforeDivorce(individuals, families));
+		family1.setDivorceDate("NA");
+		individual2.setDeathDate("1970-08-08");
+		assertFalse(Us06.DeathBeforeDivorce(individuals, families));
+	}
 }

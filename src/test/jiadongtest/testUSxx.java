@@ -1,11 +1,11 @@
-package test.testIndividual;
+package test.jiadongtest;
 /**
 * @author Linlei Liu 
 *         E-mail:lliu33@stevens.edu
+* @date Oct 23, 2017 
+* 
 * @version 
-* @date Oct 15, 2017 
-*
 */
-public class testUS13 {
+public class testUSxx {
 
 }

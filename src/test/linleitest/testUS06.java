@@ -1,11 +1,11 @@
-package test.testIndividual;
+package test.linleitest;
 
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.linlei.Us06;
+import main.java.userstories.linlei.US06;
 
 /**
 * @author Linlei Liu 
@@ -40,11 +40,11 @@ public class testUS06 extends TestCase {
 		families.add(family1);
 		families.add(family2);
 
-		assertTrue(Us06.DeathBeforeDivorce(individuals, families));
+		assertTrue(US06.DeathBeforeDivorce(individuals, families));
 		family1.setDivorceDate("1970-08-11");
-		assertFalse(Us06.DeathBeforeDivorce(individuals, families));
+		assertFalse(US06.DeathBeforeDivorce(individuals, families));
 		family1.setDivorceDate("NA");
 		individual2.setDeathDate("1970-08-08");
-		assertFalse(Us06.DeathBeforeDivorce(individuals, families));
+		assertFalse(US06.DeathBeforeDivorce(individuals, families));
 	}
 }

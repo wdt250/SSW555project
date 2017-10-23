@@ -13,7 +13,7 @@ import main.java.Methods;
 * @date Oct 18, 2017 
 *
 */
-public class Us05 {
+public class US05 {
 	public static Boolean DeathBeforeMarriage(ArrayList<Individual> individuals, ArrayList<Family> families){
 		for(Family fam: families){
 			if(fam.getMarriedDate() == "NA"){

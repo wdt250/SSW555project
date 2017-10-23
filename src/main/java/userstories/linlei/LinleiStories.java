@@ -15,8 +15,8 @@ import main.java.beans.Individual;
 public class LinleiStories {
 	
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
-		Us05.DeathBeforeMarriage(individuals, families);
-		Us06.DeathBeforeDivorce(individuals, families);
+		US05.DeathBeforeMarriage(individuals, families);
+		US06.DeathBeforeDivorce(individuals, families);
 	}
 	
 }

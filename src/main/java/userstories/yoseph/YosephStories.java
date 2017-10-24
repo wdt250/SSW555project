@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.yoseph.US01;
-import main.java.userstories.yoseph.US02;
+import main.java.userstories.yoseph.*;
 
 /**
 * @author 
@@ -19,6 +18,8 @@ public class YosephStories {
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
 		US01.DatesBeforeNow(individuals, families);
 		US02.BirthBeforeMarriage(individuals, families);
+		US11.NoBigamy(individuals, families);
+		US12.ParentsNotTooOld(individuals, families);
 	}
 	
 }

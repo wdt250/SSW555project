@@ -1,4 +1,4 @@
-package main.java.userstories.yoseph;
+: Individualpackage main.java.userstories.yoseph;
 
 import java.util.ArrayList;
 
@@ -17,13 +17,13 @@ public class US02 {
 
 				if(family.getHusbandId() == individual.getIndividualId())
 					if(StringUtil.Str2DateFormat(individual.getBirthDate()).after(StringUtil.Str2DateFormat(family.getMarriedDate()))) {
-				    	System.out.println("Error(" + individual.getIndividualId() + ": Birth date(" + individual.getBirthDate() + "cannot be before marriage date(" + family.getMarriedDate() + ")!");
+				    	System.out.println("Error: Individual(" + individual.getIndividualId() + ": Birth date(" + individual.getBirthDate() + "cannot be before marriage date(" + family.getMarriedDate() + ")!");
 						flag = false;
 					}
 
 				if(family.getWifeId() == individual.getIndividualId())
 					if(StringUtil.Str2DateFormat(individual.getBirthDate()).after(StringUtil.Str2DateFormat(family.getMarriedDate()))) {
-				    	System.out.println("Error(" + individual.getIndividualId() + ": Birth date(" + individual.getBirthDate() + "cannot be before marriage date(" + family.getMarriedDate() + ")!");
+				    	System.out.println("Error: Individual(" + individual.getIndividualId() + ": Birth date(" + individual.getBirthDate() + "cannot be before marriage date(" + family.getMarriedDate() + ")!");
 						flag = false;
 					}
 			}

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstrories.linlei.Us05;
-import main.java.userstrories.linlei.Us06;
+import main.java.userstories.yoseph.US01;
+import main.java.userstories.yoseph.US02;
 
 /**
 * @author 
@@ -17,8 +17,8 @@ import main.java.userstrories.linlei.Us06;
 public class YosephStories {
 
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
-		Us01.DeathBeforeMarriage(individuals, families);
-		Us02.DeathBeforeDivorce(individuals, families);
+		US01.DatesBeforeNow(individuals, families);
+		US02.BirthBeforeMarriage(individuals, families);
 	}
 	
 }

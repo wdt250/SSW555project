@@ -3,6 +3,7 @@ package main.java.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -46,6 +47,15 @@ public class StringUtil {
 		return false;
 	}
 	
+	public static boolean ifStrInArr(String target, ArrayList<String> arr) {
+		for(String s:arr){
+			if (s.equals(target)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static boolean ifStrArrInArr(String[] target, String[][] arr) {
 		for(String[] s:arr){
 			if (Arrays.equals(s, target)) {
@@ -54,5 +64,6 @@ public class StringUtil {
 		}
 		return false;
 	}
+	
 
 }

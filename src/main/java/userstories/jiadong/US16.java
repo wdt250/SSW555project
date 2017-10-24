@@ -21,7 +21,7 @@ public class US16 {
 					for (Iterator<Individual> iterator2 = individuals.iterator(); iterator2.hasNext();) {
 						Individual individual = (Individual) iterator2.next();
 						
-						if(individual.getIndividualId().equals(thisId) && individual.getGender() == "M") {
+						if(individual.getIndividualId().equals(thisId) && "M".equals(individual.getGender())) {
 							String[] temp2 = individual.getName().split("/");
 							String childLastName = temp2[1];
 							

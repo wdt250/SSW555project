@@ -1,5 +1,6 @@
 package main.java.userstories.linlei;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,7 +16,7 @@ import main.java.util.DateUtil;
 * @version 
 */
 public class US10 {
-	public static void MarriageAfter14(ArrayList<Individual> individuals, ArrayList<Family> families) {
+	public static void MarriageAfter14(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
 		String HusbandBirthday = "";
 		String WifeBirthday = "";
 		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
@@ -29,9 +30,14 @@ public class US10 {
 					WifeBirthday = individual.getBirthDate();
 				}
 			}
-			if (DateUtil.compareYear(HusbandBirthday, family.getMarriedDate()) < 14 
-					|| DateUtil.compareYear(WifeBirthday, family.getMarriedDate()) < 14) {
-				System.out.println("Error: Marriage after 14");
+			
+			if (DateUtil.compareYear(HusbandBirthday, family.getMarriedDate()) < 14) {
+				System.out.println("Error: FAMILY: US10: " + family.getFamilyId() + ": Husband married before 14");
+				outFile.println("Error: FAMILY: US10: " + family.getFamilyId() + ": Husband married before 14");
+			}
+			if (DateUtil.compareYear(WifeBirthday, family.getMarriedDate()) < 14) {
+				System.out.println("Error: FAMILY: US10: " + family.getFamilyId() + ": Wife married before 14");
+				outFile.println("Error: FAMILY: US10: " + family.getFamilyId() + ": Wife married before 14");
 			}
 		}
 	}

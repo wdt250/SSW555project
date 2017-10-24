@@ -1,0 +1,2 @@
+Error: FAMILY: US10: F2: Husband married before 14
+Error: FAMILY: US10: F2: Wife married before 14

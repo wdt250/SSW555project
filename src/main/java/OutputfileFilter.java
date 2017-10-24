@@ -8,9 +8,6 @@ import java.text.*;
 import java.util.Date;
 import java.util.Locale;
 
-import main.java.userstrories.linlei.Us05;
-import main.java.userstrories.linlei.Us06;
-
 public class OutputfileFilter {
 
 	static String inputfile = "My-Family-13-Sep-2017-897.ged";

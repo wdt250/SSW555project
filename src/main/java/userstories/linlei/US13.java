@@ -1,5 +1,6 @@
 package main.java.userstories.linlei;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -18,7 +19,7 @@ import main.java.util.StringUtil;
 * @version 
 */
 public class US13 {
-	public static void SiblingSpace(ArrayList<Individual> individuals, ArrayList<Family> families) {
+	public static void SiblingSpace(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
 		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
 			Family family = (Family) iterator.next();
 			if (family.getChildren().size() > 1) {

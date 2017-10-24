@@ -1,5 +1,6 @@
 package main.java.userstories.linlei;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import main.java.beans.Family;
@@ -14,11 +15,11 @@ import main.java.beans.Individual;
 */
 public class LinleiStories {
 	
-	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
-		US05.DeathBeforeMarriage(individuals, families);
-		US06.DeathBeforeDivorce(individuals, families);
-		US10.MarriageAfter14(individuals, families);
-		US13.SiblingSpace(individuals, families);
+	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+		US05.DeathBeforeMarriage(individuals, families, outFile);
+		US06.DeathBeforeDivorce(individuals, families, outFile);
+		US10.MarriageAfter14(individuals, families, outFile);
+		US13.SiblingSpace(individuals, families, outFile);
 	}
 	
 }

@@ -1,5 +1,6 @@
 package main.java.userstories.linlei;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import main.java.beans.Family;
@@ -14,7 +15,7 @@ import main.java.Methods;
 *
 */
 public class US06 {
-	public static Boolean DeathBeforeDivorce(ArrayList<Individual> individuals, ArrayList<Family> families){
+	public static Boolean DeathBeforeDivorce(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
 		for(Family family: families){
 			if(family.getDivorceDate() == "NA"){
 				continue;

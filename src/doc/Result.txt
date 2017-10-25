@@ -1,2 +1,2 @@
-Error: INDIVIDUAL: US05: I1: Husband dead before get divorce
-Error: INDIVIDUAL: US05: I2: Husband dead before get divorce
+Error: INDIVIDUAL: US05: I1: Husband dead before get marriage
+Error: INDIVIDUAL: US05: I2: Wife dead before get marriage

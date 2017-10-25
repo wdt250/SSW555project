@@ -18,8 +18,11 @@ import main.java.userstories.linlei.US13;
 * @date Oct 15, 2017 
 *
 */
-public class testUS13 extends TestCase{
+public class testUS13
+//{
+extends TestCase{
 	public void testSiblingSpace() {
+//	public static void main(String[] args) {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
 		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
@@ -155,7 +158,7 @@ public class testUS13 extends TestCase{
 			individuals.add(individual4);
 			families.add(family2);
 			assertTrue(US13.SiblingSpace(individuals, families, outFile));
-			
+
 			individuals.removeAll(individuals);
 			families.removeAll(families);
 			individuals.add(individual5);
@@ -163,6 +166,7 @@ public class testUS13 extends TestCase{
 			individuals.add(individual7);
 			families.add(family3);
 			assertFalse(US13.SiblingSpace(individuals, families, outFile));
+//			System.out.println(US13.SiblingSpace(individuals, families, outFile));
 			
 			individuals.removeAll(individuals);
 			families.removeAll(families);
@@ -195,6 +199,7 @@ public class testUS13 extends TestCase{
 			individuals.add(individual19);
 			families.add(family7);
 			assertFalse(US13.SiblingSpace(individuals, families, outFile));
+//			System.out.println(US13.SiblingSpace(individuals, families, outFile));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

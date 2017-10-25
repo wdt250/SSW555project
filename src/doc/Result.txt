@@ -1,2 +1,2 @@
-Error: INDIVIDUAL: US05: I1: Husband dead before get marriage
-Error: INDIVIDUAL: US05: I2: Wife dead before get marriage
+Error: US08: the Birth of John /Cambell/ of F3 happened not in the period of parents' marriage
+Error: US08: the Birth of Steve /Cambell/ of F4 happened not in the period of parents' marriage

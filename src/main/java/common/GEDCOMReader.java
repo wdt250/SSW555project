@@ -82,7 +82,7 @@ public class GEDCOMReader {
     		
             printToFile(individuals, families, outFile);
     		
-            System.out.println("Finish parse GEDCOM file.\n");
+            System.out.println("\r\nFinish parse GEDCOM file.\n");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

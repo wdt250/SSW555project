@@ -1,5 +1,6 @@
 package main.java.userstories.daotong;
 
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,9 +11,9 @@ import java.util.Locale;
 import main.java.beans.Individual;
 import main.java.beans.Family;
 
-public class Us08 {
+public class US08 {
 
-	public static void BirthBeforeMarriageofParents(ArrayList<Individual> individuals, ArrayList<Family> families){
+	public static void BirthBeforeMarriageofParents(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
 
 		Calendar DateofBirth = Calendar.getInstance();
 		Calendar DateofMarried = Calendar.getInstance();
@@ -22,7 +23,7 @@ public class Us08 {
 		for(Iterator<Individual> iteratorofIndividual = individuals.iterator(); iteratorofIndividual.hasNext();){
 			Individual indi = iteratorofIndividual.next();
 
-			if(indi.getChild()!=null){
+			if(indi.getAsChildOfFamily()!=null){
 				try {
 					DateofBirth.setTime(origindate.parse(indi.getBirthDate()));
 				} catch (ParseException e) {
@@ -32,7 +33,7 @@ public class Us08 {
 				for(Iterator<Family> iteratorofFamily = families.iterator(); iteratorofFamily.hasNext();){
 					Family fami = iteratorofFamily.next();
 
-					if(fami.getFamilyId().equals(indi.getChild()) && fami.getMarriedDate()!= null && fami.getDivorceDate()!= null){//there is divorce and test
+					if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && fami.getMarriedDate()!= null && fami.getDivorceDate()!= null){//there is divorce and test
 						try {
 							DateofMarried.setTime(origindate.parse(fami.getMarriedDate()));
 							DateofDivorce.setTime(origindate.parse(fami.getDivorceDate()));
@@ -42,13 +43,13 @@ public class Us08 {
 						}
 						DateofDivorce.add(Calendar.MONTH, 9);
 						if(DateofBirth.after(DateofMarried)&&DateofBirth.before(DateofDivorce)){
-							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
+//							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
 						}else{
-							System.out.println(indi.getName() + " of " + fami.getFamilyId() + " hold on, maybe not your baby...");
+							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 						}
 						
 						break;
-					}else if(fami.getFamilyId().equals(indi.getChild()) && fami.getMarriedDate()!= null && fami.getDivorceDate()== null){//no divorce
+					}else if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && fami.getMarriedDate()!= null && fami.getDivorceDate()== null){//no divorce
 						try {
 							DateofMarried.setTime(origindate.parse(fami.getMarriedDate()));
 						} catch (ParseException e) {
@@ -56,19 +57,19 @@ public class Us08 {
 							e.printStackTrace();
 						}
 						if(DateofBirth.after(DateofMarried)){
-							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
+//							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
 						}else{
-							System.out.println(indi.getName() + " of " + fami.getFamilyId() + " hold on, maybe not your baby...");
+							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 						}
 						break;
 					}
-					else if(fami.getFamilyId().equals(indi.getChild())){//this is essential cause maybe result in check error
-						System.out.println(indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
+					else if(fami.getFamilyId().equals(indi.getAsChildOfFamily())){//this is essential cause maybe result in check error
+						System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
 						break;
 					}
 				}
 			}
 		}
-		
+		outFile.flush();
 	}
 }

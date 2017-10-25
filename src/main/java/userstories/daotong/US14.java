@@ -1,5 +1,6 @@
 package main.java.userstories.daotong;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -7,9 +8,9 @@ import java.util.stream.Collectors;
 import main.java.beans.Family;
 import main.java.beans.Individual;
 
-public class Us14 {
+public class US14 {
 
-	public static void MultipleBirthsNoMoreThan5(ArrayList<Individual> individuals, ArrayList<Family> families){
+	public static void MultipleBirthsNoMoreThan5(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
 		
 		ArrayList<String> child = new ArrayList<String>();
 		ArrayList<String> birthDate = new ArrayList<String>();
@@ -42,11 +43,12 @@ public class Us14 {
 	            													  .map(entry -> entry.getKey())          //get the Stream
 	            													  .collect(Collectors.toList());         //转化为 List get the List
 				if(!DuplicateDate.isEmpty()){
-					System.out.println("the family of " + fami.getFamilyId() + " has more than 5 siblings born simutaneously");
+					System.out.println("Error: US14: "+"the family of " + fami.getFamilyId() + " has more than 5 siblings born simutaneously");
 				}else if(DuplicateDate.isEmpty()){
-					System.out.println("the family of " + fami.getFamilyId() + " has no more than 5 siblings born simutaneously");
+//					System.out.println("the family of " + fami.getFamilyId() + " has no more than 5 siblings born simutaneously");
 				}
 			}
-		}	
+		}
+		outFile.flush();
 	}
 }

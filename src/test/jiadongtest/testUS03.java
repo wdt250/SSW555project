@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import main.java.beans.Individual;
 
-import main.java.userstories.jiadong.US03
+import main.java.userstories.jiadong.US03;
 /**
 * @author Jiadong chen 
 *         E-mail:jchen69@stevens.edu

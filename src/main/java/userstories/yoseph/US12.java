@@ -31,7 +31,6 @@ public class US12 {
 				}
 				
 				if((motherAge - childAge) > 60) {
-					System.out.println(motherAge.toString() + childAge.toString());
 					flag = false;
 					System.out.println("Error(" + family.getWifeId() + "): Mother cannot be more than 60 years older than child!");
 				}

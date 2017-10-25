@@ -8,13 +8,7 @@ import main.java.Methods;
 import main.java.beans.Family;
 import main.java.beans.Individual;
 import main.java.userstories.yoseph.US01;
-/**
-* @author Linlei Liu 
-*         E-mail:lliu33@stevens.edu
-* @version 
-* @date Oct 18, 2017 
-*
-*/
+
 public class testUS01 extends TestCase {
 	
 	public void testDatesBeforeNow(){

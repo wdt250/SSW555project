@@ -1,20 +1,12 @@
 package test.yosephtest;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import junit.framework.TestCase;
-import main.java.Methods;
 import main.java.beans.Family;
 import main.java.beans.Individual;
 import main.java.userstories.yoseph.US02;
-/**
-* @author Linlei Liu 
-*         E-mail:lliu33@stevens.edu
-* @version 
-* @date Oct 18, 2017 
-*
-*/
+
 public class testUS02 extends TestCase {
 	
 	public void testDatesBeforeNow(){

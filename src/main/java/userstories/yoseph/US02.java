@@ -1,4 +1,4 @@
-: Individualpackage main.java.userstories.yoseph;
+package main.java.userstories.yoseph;
 
 import java.util.ArrayList;
 

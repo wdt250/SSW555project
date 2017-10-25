@@ -8,7 +8,7 @@ import main.java.util.StringUtil;
 import main.java.beans.Family;
 
 public class US11 {
-    public static boolean NoBigamy(ArrayList<Individual> individuals, ArrayList<Family> families) { 
+    public static boolean NoBigamy(ArrayList<Family> families) { 
     	boolean afterMarriageCheck;
     	boolean beforeDivorceCheck;
     	boolean flag = true;

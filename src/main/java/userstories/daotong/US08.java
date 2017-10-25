@@ -13,12 +13,13 @@ import main.java.beans.Family;
 
 public class US08 {
 
-	public static void BirthBeforeMarriageofParents(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
+	public static Boolean BirthBeforeMarriageofParents(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
 
 		Calendar DateofBirth = Calendar.getInstance();
 		Calendar DateofMarried = Calendar.getInstance();
 		Calendar DateofDivorce = Calendar.getInstance();
 		SimpleDateFormat origindate = new SimpleDateFormat("yyyy-mm-dd",Locale.US);
+		Boolean flag = true;
 		
 		for(Iterator<Individual> iteratorofIndividual = individuals.iterator(); iteratorofIndividual.hasNext();){
 			Individual indi = iteratorofIndividual.next();
@@ -47,6 +48,7 @@ public class US08 {
 						}else{
 							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 							outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
+							flag = false;
 						}
 						
 						break;
@@ -62,17 +64,20 @@ public class US08 {
 						}else{
 							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 							outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
+							flag = false;
 						}
 						break;
 					}
 					else if(fami.getFamilyId().equals(indi.getAsChildOfFamily())){//this is essential cause maybe result in check error
 						System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
 						outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
+						flag = false;
 						break;
 					}
 				}
 			}
 		}
 		outFile.flush();
+		return flag;
 	}
 }

@@ -41,6 +41,7 @@ public class US05 {
 					}
 			}
 		}
+		outFile.flush();
 		return true;
 	}
 }

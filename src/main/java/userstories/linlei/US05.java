@@ -16,23 +16,29 @@ import main.java.Methods;
 */
 public class US05 {
 	public static Boolean DeathBeforeMarriage(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile){
-		for(Family fam: families){
-			if(fam.getMarriedDate() == "NA"){
+		for(Family family: families){
+			if(family.getMarriedDate() == "NA"){
 				continue;
 			}
 
-			for(Individual indi: individuals){
-				if(indi.getDeathDate() == "NA"){
+			for(Individual individual: individuals){
+				if(individual.getDeathDate() == "NA"){
 					continue;
 				}
 				
-				if(fam.getHusbandId() == indi.getIndividualId())
-					if(Methods.findDate(indi.getDeathDate()).before(Methods.findDate(fam.getMarriedDate())))
+				if(family.getHusbandId() == individual.getIndividualId())
+					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getMarriedDate()))){
+						System.out.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Husband dead before get marriage");
+						outFile.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Husband dead before get marriage");
 						return false;
-
-				if(fam.getWifeId() == indi.getIndividualId())
-					if(Methods.findDate(indi.getDeathDate()).before(Methods.findDate(fam.getMarriedDate())))
+					}
+						
+				if(family.getWifeId() == individual.getIndividualId())
+					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getMarriedDate()))){
+						System.out.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Wife dead before get marriage");
+						outFile.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Wife dead before get marriage");
 						return false;
+					}
 			}
 		}
 		return true;

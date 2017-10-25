@@ -80,8 +80,7 @@ public class GEDCOMReader {
     		YosephStories.check(individuals, families, outFile);
     		JiadongStories.check(individuals, families, outFile);
     		
-    		outFile.flush();
-            System.out.println("Finish parse GEDCOM file.\n");
+            System.out.println("\r\n\r\nFinish parse GEDCOM file.\n");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -199,6 +198,7 @@ public class GEDCOMReader {
     																		fa.getChildren());
 			System.out.print("\r\n");
 		}
+		System.out.println();
 		
 		//output file into a Result.txt
 		outFile.println("Individuals");
@@ -233,7 +233,7 @@ public class GEDCOMReader {
 																		fa.getChildren());
 			outFile.print("\r\n");
 		}	
-		
+		outFile.print("\r\n");
 		outFile.flush();
 	}
 	

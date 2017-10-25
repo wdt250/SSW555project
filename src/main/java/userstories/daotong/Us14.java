@@ -47,15 +47,6 @@ public class Us14 {
 					System.out.println("the family of " + fami.getFamilyId() + " has no more than 5 siblings born simutaneously");
 				}
 			}
-		}
-		
-		
-		
-		
-		
-		
-		
-                
-		
+		}	
 	}
 }

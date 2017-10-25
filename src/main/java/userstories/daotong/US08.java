@@ -24,7 +24,7 @@ public class US08 {
 		for(Iterator<Individual> iteratorofIndividual = individuals.iterator(); iteratorofIndividual.hasNext();){
 			Individual indi = iteratorofIndividual.next();
 
-			if(indi.getAsChildOfFamily()!=null){
+			if(indi.getAsChildOfFamily()!="None"){
 				try {
 					DateofBirth.setTime(origindate.parse(indi.getBirthDate()));
 				} catch (ParseException e) {
@@ -34,7 +34,7 @@ public class US08 {
 				for(Iterator<Family> iteratorofFamily = families.iterator(); iteratorofFamily.hasNext();){
 					Family fami = iteratorofFamily.next();
 
-					if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && fami.getMarriedDate()!= null && fami.getDivorceDate()!= null){//there is divorce and test
+					if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && !fami.getMarriedDate().equals("NA") && !fami.getDivorceDate().equals("NA")){//there is divorce and test
 						try {
 							DateofMarried.setTime(origindate.parse(fami.getMarriedDate()));
 							DateofDivorce.setTime(origindate.parse(fami.getDivorceDate()));
@@ -52,7 +52,7 @@ public class US08 {
 						}
 						
 						break;
-					}else if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && fami.getMarriedDate()!= null && fami.getDivorceDate()== null){//no divorce
+					}else if(fami.getFamilyId().equals(indi.getAsChildOfFamily()) && !fami.getMarriedDate().equals("NA") && fami.getDivorceDate().equals("NA")){//no divorce
 						try {
 							DateofMarried.setTime(origindate.parse(fami.getMarriedDate()));
 						} catch (ParseException e) {

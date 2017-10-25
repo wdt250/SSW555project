@@ -14,8 +14,10 @@ public class US07 {
 				
 			}else if(in.getAge()>=150){
 				System.out.println("Error: INDIVIDUAL: US07: "+in.getIndividualId()+" "+in.getName()+"'s age is "+in.getAge()+" more than 150 years old");
+				outFile.println("Error: INDIVIDUAL: US07: "+in.getIndividualId()+" "+in.getName()+"'s age is "+in.getAge()+" more than 150 years old");
 			}else{
 				System.out.println("Error: INDIVIDUAL: US07: "+in.getIndividualId()+" "+in.getName()+" something problem with his/her age");
+				outFile.println("Error: INDIVIDUAL: US07: "+in.getIndividualId()+" "+in.getName()+" something problem with his/her age");
 			}
 		}
 		outFile.flush();

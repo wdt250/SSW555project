@@ -46,6 +46,7 @@ public class US08 {
 //							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
 						}else{
 							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
+							outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 						}
 						
 						break;
@@ -60,11 +61,13 @@ public class US08 {
 //							System.out.println(indi.getName() + " of " + fami.getFamilyId() +" is good baby! ");
 						}else{
 							System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
+							outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() + " happened not in the period of parents' marriage");
 						}
 						break;
 					}
 					else if(fami.getFamilyId().equals(indi.getAsChildOfFamily())){//this is essential cause maybe result in check error
 						System.out.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
+						outFile.println("Error: US08: the Birth of "+indi.getName() + " of " + fami.getFamilyId() +" can not decide may due to some missing date");
 						break;
 					}
 				}

@@ -44,6 +44,7 @@ public class US14 {
 	            													  .collect(Collectors.toList());         //转化为 List get the List
 				if(!DuplicateDate.isEmpty()){
 					System.out.println("Error: US14: "+"the family of " + fami.getFamilyId() + " has more than 5 siblings born simutaneously");
+					outFile.println("Error: US14: "+"the family of " + fami.getFamilyId() + " has more than 5 siblings born simutaneously");
 				}else if(DuplicateDate.isEmpty()){
 //					System.out.println("the family of " + fami.getFamilyId() + " has no more than 5 siblings born simutaneously");
 				}

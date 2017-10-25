@@ -73,14 +73,16 @@ public class GEDCOMReader {
             IndividualProcess.dataIntegrality(individuals);
             FamilyProcess.dataIntegrality(families);
             
-            printSummary(individuals, families, outFile);
+            printToConsole(individuals, families);
     		
     		LinleiStories.check(individuals, families, outFile);
     		DaotongStories.check(individuals, families, outFile);
     		YosephStories.check(individuals, families, outFile);
     		JiadongStories.check(individuals, families, outFile);
     		
-            System.out.println("\r\n\r\nFinish parse GEDCOM file.\n");
+            printToFile(individuals, families, outFile);
+    		
+            System.out.println("Finish parse GEDCOM file.\n");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -163,7 +165,7 @@ public class GEDCOMReader {
 		}
 	} 
 	
-	public static void printSummary(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+	public static void printToConsole(ArrayList<Individual> individuals, ArrayList<Family> families) {
 		//output file to console
         System.out.println("Individuals");
 		System.out.format("%-6s%-20s%-10s%-16s%-7s%-10s%-16s%-16s%-10s", "ID","Name","Gender","Birthday",
@@ -197,9 +199,10 @@ public class GEDCOMReader {
     																		fa.getWifeName(), 
     																		fa.getChildren());
 			System.out.print("\r\n");
-		}
-		System.out.println();
-		
+		}	
+	}
+	
+	public static void printToFile(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
 		//output file into a Result.txt
 		outFile.println("Individuals");
 		outFile.format("%-6s%-32s%-10s%-16s%-4s%-7s%-16s%-32s%-10s", "ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse");
@@ -233,7 +236,7 @@ public class GEDCOMReader {
 																		fa.getChildren());
 			outFile.print("\r\n");
 		}	
-		outFile.print("\r\n");
+		
 		outFile.flush();
 	}
 	

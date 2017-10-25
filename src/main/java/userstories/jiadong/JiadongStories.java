@@ -1,5 +1,6 @@
 package main.java.userstories.jiadong;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import main.java.beans.Family;
@@ -16,7 +17,7 @@ import main.java.userstories.linlei.Us06;
 */
 public class JiadongStories {
 
-	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
+	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
 		Us03.DeathBeforeMarriage(individuals, families);
 		Us04.DeathBeforeDivorce(individuals, families);
 	}

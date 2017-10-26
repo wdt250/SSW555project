@@ -1,5 +1,6 @@
 package main.java.userstories.jiadong;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -7,7 +8,7 @@ import main.java.beans.Family;
 import main.java.beans.Individual;
 
 public class US16 {
-	public static boolean maleLastName(ArrayList<Family> fa, ArrayList<Individual> individuals) {
+	public static boolean maleLastName(ArrayList<Individual> individuals, ArrayList<Family> fa, PrintWriter outFile) {
 		for (Iterator<Family> iterator = fa.iterator(); iterator.hasNext();) {
 			Family fam = (Family)iterator.next();
 			
@@ -25,7 +26,9 @@ public class US16 {
 							String[] temp2 = individual.getName().split("/");
 							String childLastName = temp2[1];
 							
-							if(lastName != childLastName) {
+							if(!lastName.equals(childLastName)) {
+								System.out.println("Anomaly: INDIVIDUAL: US16 " + individual.getIndividualId() + ": have a last name different from his family member");
+								outFile.println("Anomaly: INDIVIDUAL: US16 " + individual.getIndividualId() + ": have a last name different from his family member");
 								return false;
 							}
 						}
@@ -34,6 +37,7 @@ public class US16 {
 			}
 		}
 		
+		outFile.flush();
 		return true;
 	}
 }

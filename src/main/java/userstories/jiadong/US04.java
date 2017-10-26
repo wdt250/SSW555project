@@ -1,8 +1,8 @@
 package main.java.userstories.jiadong;
 
-import main.java.util.Date;
-import main.java.util.Iterator;
-
+import java.util.Date;
+import java.util.Iterator;
+import java.io.PrintWriter;
 import java.util.ArrayList; 
 
 
@@ -21,17 +21,20 @@ public class US04 {
 	 	return(response);
 }
 	
-	public static Boolean marriageBeforeDivorce(ArrayList<Family> fa) {
+	public static Boolean marriageBeforeDivorce(ArrayList<Family> fa,  PrintWriter outFile) {
 		for (Iterator<Family> iterator = fa.iterator(); iterator.hasNext();) {
 			Family fam = iterator.next();
 			
 			if(fam.getDivorceDate() != null) {
 				if(dateParse(fam.getMarriedDate()).after(dateParse(fam.getDivorceDate()))) {
+					System.out.println("ERROR: FAMILY: US04: " + fam.getFamilyId() + ": the family's divorce date is before marriage date.");
+					outFile.println("ERROR: FAMILY: US04: " + fam.getFamilyId() + ": the family's divorce date is before marriage date.");
 					return false;
 				}			
 			}
 		}
 		
+		outFile.flush();
 		return true;
 	}
 }

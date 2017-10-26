@@ -5,21 +5,25 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.linlei.Us05;
-import main.java.userstories.linlei.Us06;
+import main.java.userstories.jiadong.US03;
+import main.java.userstories.jiadong.US04;
+import main.java.userstories.jiadong.US15;
+import main.java.userstories.jiadong.US16;
 
 /**
-* @author 
-*         E-mail:
-* @date Oct 19, 2017 
+* @author jiadong chen
+*         E-mail:jchen69@stevens.edu
+* @date Oct 25, 2017 
 * 
 * @version 
 */
 public class JiadongStories {
 
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
-		Us03.DeathBeforeMarriage(individuals, families);
-		Us04.DeathBeforeDivorce(individuals, families);
+		US03.birthBeforeDeath(individuals, outFile);
+		US04.marriageBeforeDivorce(families, outFile);
+		US15.fewerThan15Sib(families, outFile);
+		US16.maleLastName(individuals, families, outFile);
 	}
 	
 }

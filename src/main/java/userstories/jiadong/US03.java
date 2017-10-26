@@ -1,8 +1,9 @@
 package main.java.userstories.jiadong;
 
-import main.java.util.Date;
-import main.java.util.Iterator;
-import main.java.util.ArrayList; 
+import java.util.Date;
+import java.util.Iterator;
+import java.io.PrintWriter;
+import java.util.ArrayList; 
 
 import main.java.beans.Individual;
 
@@ -19,18 +20,21 @@ public class US03 {
 		 	return(response);
 	}
 	
-	public static Boolean birthBeforeDeath(ArrayList<Individual> in) {
+	public static Boolean birthBeforeDeath(ArrayList<Individual> in, PrintWriter outFile) {
 		
 		for (Iterator<Individual> iterator = in.iterator(); iterator.hasNext();) {
 			Individual indi = iterator.next();
 			
 			if(indi.getDeathDate() != "NA") {
 				if(dateParse(indi.getBirthDate()).after(dateParse(indi.getDeathDate()))) {
+					System.out.println("ERROR: INDIVIDUAL: US03: " + indi.getIndividualId() + ": has death date before birth date");
+					outFile.println("ERROR: INDIVIDUAL: US03: " + indi.getIndividualId() + ": has death date before birth date");
 					return false;
 				}			
 			}
 		}
 		
+		outFile.flush();
 		return true;
 	}
 }

@@ -31,6 +31,7 @@ public class testUS08 extends TestCase {
 			indi2.setAsChildOfFamily("F1");
 			fami1.setFamilyId("F1");
 			fami1.setMarriedDate("1970-01-01");
+			fami1.setDivorceDate("2000-01-01");
 			
 			individuals.add(indi1);
 			individuals.add(indi2);

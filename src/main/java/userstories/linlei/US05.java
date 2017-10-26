@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.Methods;
+import main.java.util.DateUtil;
 
 /**
 * @author Linlei Liu 
@@ -27,14 +27,14 @@ public class US05 {
 				}
 				
 				if(family.getHusbandId() == individual.getIndividualId())
-					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getMarriedDate()))){
+					if(DateUtil.findDate(individual.getDeathDate()).before(DateUtil.findDate(family.getMarriedDate()))){
 						System.out.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Husband dead before get marriage");
 						outFile.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Husband dead before get marriage");
 						return false;
 					}
 						
 				if(family.getWifeId() == individual.getIndividualId())
-					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getMarriedDate()))){
+					if(DateUtil.findDate(individual.getDeathDate()).before(DateUtil.findDate(family.getMarriedDate()))){
 						System.out.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Wife dead before get marriage");
 						outFile.println("Error: INDIVIDUAL: US05: " + individual.getIndividualId() + ": Wife dead before get marriage");
 						return false;

@@ -103,4 +103,13 @@ public class DateUtil {
 		return compareDate(previousDate, lateDate)/1000;
 	}
 	
+	public static Date findDate(String date){
+    	String[] temp = date.split("-");
+    	int year = Integer.parseInt(temp[0]) - 1900;
+    	int month = Integer.parseInt(temp[1]) - 1;
+    	int day = Integer.parseInt(temp[2]);
+    	Date response = new Date(year, month, day);
+    	
+    	return(response);
+    }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.Methods;
+import main.java.util.DateUtil;
 
 /**
 * @author Linlei Liu 
@@ -27,14 +27,14 @@ public class US06 {
 				}
 				
 				if(family.getHusbandId() == individual.getIndividualId())
-					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getDivorceDate()))){
+					if(DateUtil.findDate(individual.getDeathDate()).before(DateUtil.findDate(family.getDivorceDate()))){
 						System.out.println("Error: INDIVIDUAL: US06: " + individual.getIndividualId() + ": Husband dead before get divorce");
 						outFile.println("Error: INDIVIDUAL: US06: " + individual.getIndividualId() + ": Husband dead before get divorce");
 						return false;
 					}
 
 				if(family.getWifeId() == individual.getIndividualId())
-					if(Methods.findDate(individual.getDeathDate()).before(Methods.findDate(family.getDivorceDate()))){
+					if(DateUtil.findDate(individual.getDeathDate()).before(DateUtil.findDate(family.getDivorceDate()))){
 						System.out.println("Error: INDIVIDUAL: US06: " + individual.getIndividualId() + ": Husband dead before get divorce");
 						outFile.println("Error: INDIVIDUAL: US06: " + individual.getIndividualId() + ": Husband dead before get divorce");
 						return false;
@@ -44,4 +44,6 @@ public class US06 {
 		outFile.flush();
 		return true;
 	}
+	
+	
 }

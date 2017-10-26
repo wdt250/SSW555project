@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import junit.framework.TestCase;
-import main.java.Methods;
 import main.java.beans.Family;
 import main.java.beans.Individual;
 import main.java.userstories.yoseph.US01;

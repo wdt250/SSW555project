@@ -25,7 +25,7 @@ public class US04 {
 		for (Iterator<Family> iterator = fa.iterator(); iterator.hasNext();) {
 			Family fam = iterator.next();
 			
-			if(fam.getDivorceDate() != null) {
+			if(!"NA".equals(fam.getDivorceDate())) {
 				if(dateParse(fam.getMarriedDate()).after(dateParse(fam.getDivorceDate()))) {
 					System.out.println("ERROR: FAMILY: US04: " + fam.getFamilyId() + ": the family's divorce date is before marriage date.");
 					outFile.println("ERROR: FAMILY: US04: " + fam.getFamilyId() + ": the family's divorce date is before marriage date.");

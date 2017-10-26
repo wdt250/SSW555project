@@ -200,6 +200,7 @@ public class GEDCOMReader {
     																		fa.getChildren());
 			System.out.print("\r\n");
 		}	
+		System.out.print("\r\n");
 	}
 	
 	public static void printToFile(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
@@ -236,7 +237,7 @@ public class GEDCOMReader {
 																		fa.getChildren());
 			outFile.print("\r\n");
 		}	
-		
+		outFile.print("\r\n");
 		outFile.flush();
 	}
 	

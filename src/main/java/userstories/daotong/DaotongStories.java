@@ -1,26 +1,27 @@
 package main.java.userstories.daotong;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.linlei.Us05;
-import main.java.userstories.linlei.Us06;
+import main.java.userstories.daotong.US07;
+import main.java.userstories.daotong.US08;
+import main.java.userstories.daotong.US14;
 
 /**
-* @author
-*         E-mail:
-* @date Oct 19, 2017
+* @author Daotong Wang
+*         E-mail: dwang37@stevens.edu
+* @date 10/21/2017
 *
 * @version
 */
 public class DaotongStories {
 
-	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families) {
-		Us07.DeathBeforeMarriage(individuals, families);
-		Us08.DeathBeforeDivorce(individuals, families);
-		System.out.println("abc");
-		System.out.println("Just a test");;
+	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+		US07.LessThan150YearsOld(individuals, outFile);
+		US08.BirthBeforeMarriageofParents(individuals, families, outFile);
+		US14.MultipleBirthsNoMoreThan5(individuals, families, outFile);
 	}
 
 }

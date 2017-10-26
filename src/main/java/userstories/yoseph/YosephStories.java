@@ -1,5 +1,6 @@
 package main.java.userstories.yoseph;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 
@@ -14,6 +15,7 @@ public class YosephStories {
 		US02.BirthBeforeMarriage(individuals, families, outfile);
 		US11.NoBigamy(families, outfile);
 		US12.ParentsNotTooOld(individuals, families, outfile);
+
 	}
 	
 }

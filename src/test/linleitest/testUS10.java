@@ -18,10 +18,9 @@ import main.java.userstories.linlei.US10;
 * 
 * @version 
 */
-public class testUS10 {
-//	extends TestCase {
+public class testUS10 extends TestCase {
 
-	public static void main(String[] args) {
+	public void testMarriageAfter14() {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
 		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
@@ -57,16 +56,20 @@ public class testUS10 {
 			
 			individuals.add(individual1);
 			individuals.add(individual2);
+			families.add(family1);
+			
+			assertTrue(US10.MarriageAfter14(individuals, families, outFile));
+			
+			individuals.removeAll(individuals);
+			families.removeAll(families);
 			individuals.add(individual3);
 			individuals.add(individual4);
-			families.add(family1);
 			families.add(family2);
+			assertFalse(US10.MarriageAfter14(individuals, families, outFile));
 			
-			US10.MarriageAfter14(individuals, families, outFile);
-			outFile.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			outFile.close();
 		}
 	}

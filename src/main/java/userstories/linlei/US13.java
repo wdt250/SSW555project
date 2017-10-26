@@ -19,30 +19,37 @@ import main.java.util.StringUtil;
 * @version 
 */
 public class US13 {
-	public static void SiblingSpace(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+	public static boolean SiblingSpace(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
+		boolean flag = true;
+		ArrayList<Individual> indis = new ArrayList<Individual>();
 		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
 			Family family = (Family) iterator.next();
 			if (family.getChildren().size() > 1) {
-				ArrayList<String> birthdays = new ArrayList<String>();
 				for (Iterator iterator2 = family.getChildren().iterator(); iterator2.hasNext();) {
 					String id = (String)iterator2.next();
 					for (Iterator iterator3 = individuals.iterator(); iterator3.hasNext();) {
 						Individual individual = (Individual) iterator3.next();
-						if (individual.getIndividualId().equals(id)) {
-							birthdays.add(individual.getBirthDate());
+						if (id.equals(individual.getIndividualId())) {
+							indis.add(individual);
 							break;
 						}
-					}
-				}
-				Collections.sort(birthdays);
-				for (int i = 0; i < birthdays.size()-1; i++){  
-					if (DateUtil.compareMonth(birthdays.get(i), birthdays.get(i+1)) < 8 
-							&& DateUtil.compareDay(birthdays.get(i), birthdays.get(i+1)) > 2 ) {
-						System.out.println(family.getFamilyId() + " Error: Siblings spacing");
 					}
 				}
 			}
 		}
 		
+		for (int i = 0; i < indis.size()-1; i++){  
+			if (DateUtil.compareMonth(indis.get(i).getBirthDate(), indis.get(i+1).getBirthDate()) < 8) {
+				if (DateUtil.compareDay(indis.get(i).getBirthDate(), indis.get(i+1).getBirthDate()) > 2) {
+					System.out.println("Error: FAMILY: US13: " + indis.get(i+1).getIndividualId()
+							+ ": birthed less than 8 months or more than 2 days after siblings");
+					outFile.println("Error: FAMILY: US13: " + indis.get(i+1).getIndividualId()
+							+ ": birthed less than 8 months or more than 2 days after siblings");
+					flag = false;
+				}
+			}
+		}
+		outFile.flush();
+		return flag;
 	}
 }

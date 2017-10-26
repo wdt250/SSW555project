@@ -76,26 +76,26 @@ public class GedTest extends TestCase{
       assertFalse(Methods.birthBeforeMarriage(in, fa));
    }
 
-   public void testLessthan150years(){
-	   Methods.LessThan150YearsOld("My-Family-13-Sep-2017-897.ged");
-	   assertEquals(false, Methods.testFor150);
-   }
-	
-   public void testBirthBeforeMarriageofParents(){
-	in[1] = new Individual();
-	fa[1] = new Family();
-   	in[0] = new Individual();
-	in[0].setBirt("10 MAY 1900");
-	in[0].setChild("@F1@");
-	fa[0] = new Family();
-	fa[0].setMarrieddate("1 APR 1900");
-	fa[0].setId("@F1@");
-	Methods.BirthBeforeMarriageofParents(in, fa);
-	assertEquals(true, Methods.testForBirthDateBetween);
-	fa[0].setMarrieddate("1 APR 1901");
-	Methods.BirthBeforeMarriageofParents(in, fa);
-	assertEquals(false, Methods.testForBirthDateBetween);
-   }
+//   public void testLessthan150years(){
+//	   Methods.LessThan150YearsOld("My-Family-13-Sep-2017-897.ged");
+//	   assertEquals(false, Methods.testFor150);
+//   }
+//	
+//   public void testBirthBeforeMarriageofParents(){
+//	in[1] = new Individual();
+//	fa[1] = new Family();
+//   	in[0] = new Individual();
+//	in[0].setBirt("10 MAY 1900");
+//	in[0].setChild("@F1@");
+//	fa[0] = new Family();
+//	fa[0].setMarrieddate("1 APR 1900");
+//	fa[0].setId("@F1@");
+//	Methods.BirthBeforeMarriageofParents(in, fa);
+//	assertEquals(true, Methods.testForBirthDateBetween);
+//	fa[0].setMarrieddate("1 APR 1901");
+//	Methods.BirthBeforeMarriageofParents(in, fa);
+//	assertEquals(false, Methods.testForBirthDateBetween);
+//   }
    
    public void testDeathBeforeMarriage(){
 	   in[0] = new Individual();

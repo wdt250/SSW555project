@@ -63,7 +63,7 @@ public class FamilyProcess {
 					child = family.getChildren();
 				}
 				child.add(strArr[2].replaceAll("@", ""));
-				family.setChilden(child);
+				family.setChildren(child);
 				break;
 				
 			case "DATE":

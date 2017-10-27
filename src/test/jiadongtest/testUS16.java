@@ -54,7 +54,7 @@ public class testUS16 extends TestCase {
 			child.add("I2");
 			child.add("I3");
 			child.add("I4");
-			family.setChilden(child);
+			family.setChildren(child);
 			
 			families.add(family);
 			individuals.add(individual1);
@@ -71,7 +71,7 @@ public class testUS16 extends TestCase {
 			
 			individuals.add(individual5);
 			child.add("I5");
-			family.setChilden(child);
+			family.setChildren(child);
 			families.add(family);
 			assertFalse(US16.maleLastName(individuals, families, outFile));
 		} catch (IOException e) {

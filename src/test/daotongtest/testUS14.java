@@ -48,7 +48,7 @@ public class testUS14 extends TestCase{
 			Children.add("I5");
 			Children.add("I6");
 			
-			fami1.setChilden(Children);
+			fami1.setChildren(Children);
 			fami1.setFamilyId("F1");
 			individuals.add(indi1);
 			individuals.add(indi2);

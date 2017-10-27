@@ -65,7 +65,7 @@ public class Family{
 	public ArrayList<String> getChildren() {
 		return children;
 	}
-	public void setChilden(ArrayList<String> Children) {
+	public void setChildren(ArrayList<String> Children) {
 		this.children = Children;
 	}
 	

@@ -49,13 +49,13 @@ public class testUS15 extends TestCase {
 			child.add("I13");
 			child.add("I14");
 			child.add("I15");
-			family.setChilden(child);
+			family.setChildren(child);
 			
 			families.add(family);
 			assertTrue(US15.fewerThan15Sib(families, outFile));
 			
 			child.add("I16");
-			family.setChilden(child);
+			family.setChildren(child);
 			assertFalse(US15.fewerThan15Sib(families, outFile));
 			
 			families.add(family);

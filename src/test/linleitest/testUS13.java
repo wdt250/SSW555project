@@ -139,13 +139,13 @@ extends TestCase{
 			family6.setFamilyId("F6");
 			family7.setFamilyId("F7");
 			
-			family1.setChilden(children1);
-			family2.setChilden(children2);
-			family3.setChilden(children3);
-			family4.setChilden(children4);
-			family5.setChilden(children5);
-			family6.setChilden(children6);
-			family7.setChilden(children7);
+			family1.setChildren(children1);
+			family2.setChildren(children2);
+			family3.setChildren(children3);
+			family4.setChildren(children4);
+			family5.setChildren(children5);
+			family6.setChildren(children6);
+			family7.setChildren(children7);
 	
 			individuals.add(individual1);
 			families.add(family1);

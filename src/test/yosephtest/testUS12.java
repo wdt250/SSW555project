@@ -41,7 +41,7 @@ public class testUS12 extends TestCase {
 		  individual4.setIndividualId("@I04@");
 		  children.add(individual3.getIndividualId());
 		  children.add(individual4.getIndividualId());
-		  family1.setChilden(children);
+		  family1.setChildren(children);
 		  assertTrue(US12.ParentsNotTooOld(individuals, families, outfile));
 		  individual1.setAge(95);
 		  assertFalse(US12.ParentsNotTooOld(individuals, families, outfile));

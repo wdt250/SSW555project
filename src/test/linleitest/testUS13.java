@@ -165,7 +165,6 @@ extends TestCase{
 			individuals.add(individual7);
 			families.add(family3);
 			assertFalse(US13.SiblingSpace(individuals, families, outFile));
-//			System.out.println(US13.SiblingSpace(individuals, families, outFile));
 			
 			individuals.removeAll(individuals);
 			families.removeAll(families);
@@ -198,7 +197,6 @@ extends TestCase{
 			individuals.add(individual19);
 			families.add(family7);
 			assertFalse(US13.SiblingSpace(individuals, families, outFile));
-//			System.out.println(US13.SiblingSpace(individuals, families, outFile));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -1,2 +1,48 @@
+Error: FAMILY: US10: F5: Wife married before 14
+Error: FAMILY: US13: I15: birthed less than 8 months or more than 2 days after siblings
+Error: US08: the Birth of Jack /Jefferson/ of F1 happened not in the period of parents' marriage
+Error: US08: the Birth of Robert /Jefferson/ of F1 happened not in the period of parents' marriage
+Error: US08: the Birth of Howard /Jefferson/ of F1 happened not in the period of parents' marriage
+Error: US08: the Birth of Abigale /Jefferson/ of F1 happened not in the period of parents' marriage
 Error: US08: the Birth of John /Cambell/ of F3 happened not in the period of parents' marriage
-Error: US08: the Birth of Steve /Cambell/ of F4 happened not in the period of parents' marriage
+Error: US08: the Birth of Steve /Cambell/ of F4 can not decide may due to some missing date
+Anomaly:Family:(F1): cannot have more than one marriage at a time!
+Individuals
+ID    Name                            Gender    Birthday        Age Alive  Death           Child                           Spouse    
+I1    Michale /Jefferson/             M         1913-02-04      52  false  1965-06-11      None                            F1        
+I2    Mary /Rodham/                   F         1903-05-12      63  false  1966-06-15      None                            F1        
+I12   Geogia /Rodham/                 F         1953-05-12      64  true   NA              None                            F5        
+I13   Nami /Rodham/                   F         2010-05-12      7   true   NA              F5                              NA        
+I14   Joe /Rodham/                    F         2010-05-12      7   true   NA              F5                              NA        
+I3    Jack /Jefferson/                M         1925-06-14      20  false  1945-08-15      F1                              NA        
+I4    Robert /Jefferson/              null      1926-04-08      18  false  1944-06-06      F1                              NA        
+I5    Howard /Jefferson/              M         1927-02-09      90  true   NA              F1                              F2        
+I6    Abigale /Jefferson/             F         1928-08-06      89  true   NA              F1                              F3        
+I7    Alice /White/                   F         1930-05-08      87  true   NA              None                            F2        
+I8    George /Jefferson/              M         1950-04-04      67  true   NA              F2                              NA        
+I9    Kenneth /Cambell/               M         1920-05-09      97  true   NA              None                            F4        
+I10   John /Cambell/                  M         1949-04-03      68  true   NA              F3                              NA        
+I11   Steve /Cambell/                 null      1951-03-14      66  true   NA              F4                              NA        
+I15   Joe /Rodham/                    F         2010-09-12      7   true   NA              F5                              NA        
+I16   Joe /Rodham/                    F         2010-09-12      7   true   NA              F5                              NA        
+I17   Joe /Rodham/                    F         2010-09-12      7   true   NA              F5                              NA        
+I18   Joe /Rodham/                    F         2010-09-12      7   true   NA              F5                              NA        
+I19   Joe /Rodham/                    F         2010-09-12      7   true   NA              F5                              NA        
+I20   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I21   Joe /Jefferson/                 M         2010-09-12      7   true   NA              F5                              NA        
+I22   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I23   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I24   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I25   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I26   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I27   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+I28   Joe /Detroit/                   F         2010-09-12      7   true   NA              F5                              NA        
+
+Families
+ID    Married         Divorced        Husband ID  Husband Name                    Wife ID     Wife Name                       Children                        
+F1    1943-07-02      NA              I1          Michale /Jefferson/             I2          Mary /Rodham/                   []                              
+F2    1947-05-09      1957-10-13      I5          Howard /Jefferson/              I7          Alice /White/                   []                              
+F3    1960-10-05      NA              I9          Kenneth /Cambell/               I6          Abigale /Jefferson/             []                              
+F4    NA              NA              I9          Kenneth /Cambell/               NA          NA                              []                              
+F5    1944-07-02      NA              I1          Michale /Jefferson/             I12         Geogia /Rodham/                 [I13, I14, I15, I16, I17]       
+

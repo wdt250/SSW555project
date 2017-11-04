@@ -22,7 +22,6 @@ public class testUS13
 //{
 extends TestCase{
 	public void testSiblingSpace() {
-//	public static void main(String[] args) {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
 		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;

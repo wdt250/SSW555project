@@ -15,7 +15,8 @@ public class YosephStories {
 		US02.BirthBeforeMarriage(individuals, families, outfile);
 		US11.NoBigamy(families, outfile);
 		US12.ParentsNotTooOld(individuals, families, outfile);
-
+		US21.CorrectGenderForRole(individuals, families, outfile);
+		US23.UniqueNameAndBirthDate(individuals, outfile);
 	}
 	
 }

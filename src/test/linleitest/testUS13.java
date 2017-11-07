@@ -18,9 +18,7 @@ import main.java.userstories.linlei.US13;
 * @date Oct 15, 2017 
 *
 */
-public class testUS13
-//{
-extends TestCase{
+public class testUS13 extends TestCase{
 	public void testSiblingSpace() {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
 		ArrayList<Family> families = new ArrayList<Family>();

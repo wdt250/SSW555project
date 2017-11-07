@@ -32,7 +32,7 @@ public class GEDCOMReader {
 	public void FileConvertor(String inputPath, String outputPath) {
 		
 		File inputFile = new File(inputPath);
-		File outputFile = new File(outputPath);
+//		File outputFile = new File(outputPath);
         BufferedReader reader = null;  
         PrintWriter outFile = null;
         

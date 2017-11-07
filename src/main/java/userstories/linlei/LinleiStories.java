@@ -20,6 +20,8 @@ public class LinleiStories {
 		US06.DeathBeforeDivorce(individuals, families, outFile);
 		US10.MarriageAfter14(individuals, families, outFile);
 		US13.SiblingSpace(individuals, families, outFile);
+		US17.NoMarryDescendant(individuals, families, outFile);
+		US20.AuntsAndUncles(individuals, families, outFile);
 	}
 	
 }

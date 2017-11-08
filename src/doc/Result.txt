@@ -1,2 +1,6 @@
-Error: FAMILY: US10: F5: Wife married before 14
-Error: FAMILY: US13: I15: birthed less than 8 months or more than 2 days after siblings
+Error: FAMILY: US17: F1: Parent married descendant
+Error: FAMILY: US17: F1: Parent married descendant
+Error: FAMILY: US17: F1: Parent married descendant
+Error: FAMILY: US17: F2: Parent married descendant
+Error: FAMILY: US17: F2: Parent married descendant
+Error: FAMILY: US17: F4: Parent married descendant

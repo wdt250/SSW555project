@@ -84,4 +84,17 @@ public class FamilyUtil {
 		}
 		return "";
 	}
+	
+	public static String findSpouseIdByIndividualId(ArrayList<Family> families, String individualId) {
+		for (Iterator<Family> iterator1 = families.iterator(); iterator1.hasNext();) {
+			Family family = (Family) iterator1.next();
+			if (individualId.equals(family.getHusbandId())) {
+				return family.getWifeId();
+			}
+			if (individualId.equals(family.getWifeId())) {
+				return family.getHusbandId();
+			}
+		}
+		return "";
+	}
 }

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import org.junit.Test;
 import junit.framework.TestCase;
 import main.java.beans.Family;
 import main.java.beans.Individual;
@@ -19,11 +18,9 @@ import main.java.userstories.linlei.US17;
 * 
 * @version 
 */
-public class testUS17
-	extends TestCase{
+public class testUS17 extends TestCase{
 
 	public void testNoMarryDescendant() {
-//	public static void main(String[] args) {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
 		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
@@ -78,13 +75,11 @@ public class testUS17
 			children1.add(individual5.getIndividualId());
 			family1.setChildren(children1);
 			
-			
 			family2.setHusbandId(individual3.getIndividualId());
 			family2.setWifeId(individual4.getIndividualId());
 			children2.add(individual7.getIndividualId());
 			children2.add(individual9.getIndividualId());
 			family2.setChildren(children2);
-
 			
 			family3.setHusbandId(individual5.getIndividualId());
 			family3.setWifeId(individual6.getIndividualId());
@@ -96,9 +91,6 @@ public class testUS17
 			
 			family5.setHusbandId(individual9.getIndividualId());
 			family5.setWifeId(individual10.getIndividualId());
-			
-//			family4.setWifeId(individual12.getIndividualId());
-//			children3.add(individual12.getIndividualId());
 			
 			individuals.add(individual1);
 			individuals.add(individual2);
@@ -146,7 +138,6 @@ public class testUS17
 			family4.setWifeId(individual12.getIndividualId());
 			children3.add(individual12.getIndividualId());
 			assertFalse(US17.NoMarryDescendant(individuals, families, outFile));
-//			US17.NoMarryDescendant(individuals, families, outFile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

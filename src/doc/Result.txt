@@ -1,6 +1,13 @@
-Error: FAMILY: US17: F1: Parent married descendant
-Error: FAMILY: US17: F1: Parent married descendant
-Error: FAMILY: US17: F1: Parent married descendant
-Error: FAMILY: US17: F2: Parent married descendant
-Error: FAMILY: US17: F2: Parent married descendant
-Error: FAMILY: US17: F4: Parent married descendant
+Error: FAMILY: US17: F171: I171: Parent married descendant
+Error: FAMILY: US20: F204: I207: Aunt or Uncle married niece or nephew
+Error: US08: the Birth of Joe /Detroit/ of F171 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F171 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F172 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F172 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F174 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F174 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F201 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F201 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F201 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F202 can not decide may due to some missing date
+Error: US08: the Birth of Joe /Detroit/ of F202 can not decide may due to some missing date

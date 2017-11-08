@@ -72,21 +72,20 @@ public class testUS20 extends TestCase{
 			ArrayList<String> children1 = new ArrayList<String>();
 			ArrayList<String> children2 = new ArrayList<String>();
 						
+			family1.setHusbandId(individual1.getIndividualId());
+			family1.setWifeId(individual2.getIndividualId());
 			children1.add(individual3.getIndividualId());
 			children1.add(individual5.getIndividualId());
+			family1.setChildren(children1);
+			
+			family2.setHusbandId(individual3.getIndividualId());
+			family2.setWifeId(individual4.getIndividualId());
 			children2.add(individual8.getIndividualId());
 			children2.add(individual9.getIndividualId());
-			
-			family1.setHusbandId(individual1.getIndividualId());
-			family2.setHusbandId(individual3.getIndividualId());
-			family3.setHusbandId(individual5.getIndividualId());
-			
-			family1.setWifeId(individual2.getIndividualId());
-			family2.setWifeId(individual4.getIndividualId());
-			family3.setWifeId(individual6.getIndividualId());
-			
-			family1.setChildren(children1);
 			family2.setChildren(children2);
+			
+			family3.setHusbandId(individual5.getIndividualId());
+			family3.setWifeId(individual6.getIndividualId());
 			
 			individuals.add(individual1);
 			individuals.add(individual2);

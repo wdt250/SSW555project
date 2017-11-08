@@ -16,10 +16,10 @@ import main.java.beans.Individual;
 public class LinleiStories {
 	
 	public static void check(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outFile) {
-		US05.DeathBeforeMarriage(individuals, families, outFile);
-		US06.DeathBeforeDivorce(individuals, families, outFile);
-		US10.MarriageAfter14(individuals, families, outFile);
-		US13.SiblingSpace(individuals, families, outFile);
+//		US05.DeathBeforeMarriage(individuals, families, outFile);
+//		US06.DeathBeforeDivorce(individuals, families, outFile);
+//		US10.MarriageAfter14(individuals, families, outFile);
+//		US13.SiblingSpace(individuals, families, outFile);
 		US17.NoMarryDescendant(individuals, families, outFile);
 		US20.AuntsAndUncles(individuals, families, outFile);
 	}

@@ -2,10 +2,8 @@ package main.java.userstories.linlei;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
@@ -48,8 +46,10 @@ public class US17 {
 				if (!mark.contains(childId)) {
 					mark.add(childId);
 					if (targetId.equals(childId)) {
-						System.out.println("Error: FAMILY: US17: " + FamilyUtil.findFamilyByIndividualId(families, targetId).getFamilyId() + ": Parent married descendant");
-						outFile.println("Error: FAMILY: US17: " + FamilyUtil.findFamilyByIndividualId(families, targetId).getFamilyId() + ": Parent married descendant");
+						System.out.println("Error: FAMILY: US17: " + FamilyUtil.findFamilyByIndividualId(families, targetId).getFamilyId()
+								+ ": " + FamilyUtil.findFamilyByIndividualId(families, targetId).getHusbandId() + ": Parent married descendant");
+						outFile.println("Error: FAMILY: US17: " + FamilyUtil.findFamilyByIndividualId(families, targetId).getFamilyId()
+								+ ": " + FamilyUtil.findFamilyByIndividualId(families, targetId).getHusbandId() + ": Parent married descendant");
 						flag2 = false;
 						break;
 					} else {

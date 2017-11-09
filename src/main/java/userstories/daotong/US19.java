@@ -85,6 +85,7 @@ public class US19 {
 				
 			}
 		}
+		outFile.flush();
 		return flag;
 	}
 }

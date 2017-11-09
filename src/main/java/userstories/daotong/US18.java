@@ -23,7 +23,7 @@ public class US18 {
 				}
 			}	
 		}
-		
+		outFile.flush();
 		return flag;
 	}
 }

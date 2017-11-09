@@ -24,6 +24,8 @@ public class JiadongStories {
 		US04.marriageBeforeDivorce(families, outFile);
 		US15.fewerThan15Sib(families, outFile);
 		US16.maleLastName(individuals, families, outFile);
+		US22.uniqueIds(individuals, families, outFile);
+		US24.uniqueFamiliesBySpouses(families, outFile);
 	}
 	
 }

@@ -9,6 +9,8 @@ import main.java.userstories.jiadong.US03;
 import main.java.userstories.jiadong.US04;
 import main.java.userstories.jiadong.US15;
 import main.java.userstories.jiadong.US16;
+import main.java.userstories.jiadong.US22;
+import main.java.userstories.jiadong.US24;
 
 /**
 * @author jiadong chen

@@ -5,9 +5,7 @@ import java.util.ArrayList;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.daotong.US07;
-import main.java.userstories.daotong.US08;
-import main.java.userstories.daotong.US14;
+
 
 /**
 * @author Daotong Wang
@@ -22,6 +20,8 @@ public class DaotongStories {
 		US07.LessThan150YearsOld(individuals, outFile);
 		US08.BirthBeforeMarriageofParents(individuals, families, outFile);
 		US14.MultipleBirthsNoMoreThan5(individuals, families, outFile);
+		US18.SiblingsShouldNotMarry(families, outFile);
+		US19.FirstCousinsShouldNotMarry(families, outFile);
 	}
 
 }

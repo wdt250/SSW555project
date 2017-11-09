@@ -9,6 +9,8 @@ import main.java.userstories.jiadong.US03;
 import main.java.userstories.jiadong.US04;
 import main.java.userstories.jiadong.US15;
 import main.java.userstories.jiadong.US16;
+import main.java.userstories.jiadong.US22;
+import main.java.userstories.jiadong.US24;
 
 /**
 * @author jiadong chen
@@ -24,6 +26,8 @@ public class JiadongStories {
 		US04.marriageBeforeDivorce(families, outFile);
 		US15.fewerThan15Sib(families, outFile);
 		US16.maleLastName(individuals, families, outFile);
+		US22.uniqueIds(individuals, families, outFile);
+		US24.uniqueFamiliesBySpouses(families, outFile);
 	}
 	
 }

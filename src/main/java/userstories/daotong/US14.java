@@ -23,7 +23,7 @@ public class US14 {
 			birthDate.clear();
 			DuplicateDate.clear();
 			if(fami.getChildren()!= null){
-				child = fami.getChildren();
+				child= (ArrayList<String>) fami.getChildren().clone();
 				
 				for (Iterator<String> iteratorofchild = child.iterator(); iteratorofchild.hasNext();	){
 					String childIDstr = iteratorofchild.next();

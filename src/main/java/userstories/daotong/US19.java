@@ -7,7 +7,7 @@ import main.java.beans.Family;
 import main.java.beans.Individual;
 
 public class US19 {
-	//need to validate
+
 	public static boolean FirstCousinsShouldNotMarry(ArrayList<Family> families, PrintWriter outFile){
 		boolean flag = true;
 		String mother1 = null;

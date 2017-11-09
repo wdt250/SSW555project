@@ -15,8 +15,8 @@ public class US18 {
 			for (Family fa2: families){
 				if (fa2.getChildren()!=null && fa2.getChildren().contains(fa.getHusbandId()) && fa2.getChildren().contains(fa.getWifeId())){
 					flag = false;
-					System.out.println("Error: US18: " + "the family of " + fa.getFamilyId() + "'s parents are siblings");
-					outFile.println("Error: US18: " + "the family of " + fa.getFamilyId() + "'s parents are siblings");
+					System.out.println("Error: Family: US18: " + "the family of " + fa.getFamilyId() + "'s parents are siblings");
+					outFile.println("Error: Family: US18: " + "the family of " + fa.getFamilyId() + "'s parents are siblings");
 					break;
 				}else{
 					continue;

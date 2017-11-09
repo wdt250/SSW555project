@@ -45,8 +45,8 @@ public class US19 {
 					for(Family fa3: families){
 						if (mother1 != null && mother2 != null && fa3.getChildren()!= null && fa3.getChildren().contains(mother1) && fa3.getChildren().contains(mother2)){
 							flag = false;
-							System.out.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + mother1 + " and "+ mother2);
-							outFile.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins" );
+							System.out.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + mother1 + " and "+ mother2);
+							outFile.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins" );
 							mother1 = null;
 							father1 = null;
 							mother2 = null;
@@ -54,8 +54,8 @@ public class US19 {
 							break;
 						}else if (mother1 != null && father2 != null && fa3.getChildren()!= null && fa3.getChildren().contains(mother1) && fa3.getChildren().contains(father2) ){
 							flag = false;
-							System.out.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + mother1 + " and "+ father2);
-							outFile.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
+							System.out.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + mother1 + " and "+ father2);
+							outFile.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
 							mother1 = null;
 							father1 = null;
 							mother2 = null;
@@ -63,8 +63,8 @@ public class US19 {
 							break;
 						}else if (father1 != null && mother2 != null && fa3.getChildren()!= null && fa3.getChildren().contains(father1) && fa3.getChildren().contains(mother2) ){
 							flag = false;
-							System.out.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + father1 + " and "+ mother2);
-							outFile.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
+							System.out.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + father1 + " and "+ mother2);
+							outFile.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
 							mother1 = null;
 							father1 = null;
 							mother2 = null;
@@ -72,8 +72,8 @@ public class US19 {
 							break;
 						}else if (father1 != null && father2 != null && fa3.getChildren()!= null && fa3.getChildren().contains(father1) && fa3.getChildren().contains(father2) ){
 							flag = false;
-							System.out.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + father1 + " and "+ father2);
-							outFile.println("Error: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
+							System.out.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins"+ " ,parents ids are: " + father1 + " and "+ father2);
+							outFile.println("Error: Family: US19: the family of " + fa.getFamilyId() + " has trouble marrying: the couples are First Cousins");
 							mother1 = null;
 							father1 = null;
 							mother2 = null;

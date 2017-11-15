@@ -22,6 +22,7 @@ public class LinleiStories {
 //		US13.SiblingSpace(individuals, families, outFile);
 		US17.NoMarryDescendant(individuals, families, outFile);
 		US20.AuntsAndUncles(individuals, families, outFile);
+		US30.LivingMarried(individuals, families, outFile);
 	}
 	
 }

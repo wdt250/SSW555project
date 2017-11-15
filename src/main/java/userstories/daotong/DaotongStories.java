@@ -22,6 +22,8 @@ public class DaotongStories {
 		US14.MultipleBirthsNoMoreThan5(individuals, families, outFile);
 		US18.SiblingsShouldNotMarry(families, outFile);
 		US19.FirstCousinsShouldNotMarry(families, outFile);
+		US29.ListDeceased(individuals, outFile);
+		US32.ListMultipleBirths(families, individuals, outFile);
 	}
 
 }

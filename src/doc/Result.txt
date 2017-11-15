@@ -1,5 +1,5 @@
 
-US30: List all living married people:
-ID    Name                Gender    Birthday        Age    Child           Spouse    
-I1    Michale /Jefferson/ M         1913-02-04      52     None            F1        
+US31: List all living single people:
+ID    Name                Gender    Birthday        Age    Child           
+I2    Nami /Rodham/       F         2010-05-12      7      F5              
 

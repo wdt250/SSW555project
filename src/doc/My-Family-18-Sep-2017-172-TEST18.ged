@@ -1,0 +1,154 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE My Family
+1 DATE 18 SEP 2017
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Michale Jefferson
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Michale /Jefferson/
+2 GIVN Michale
+2 SURN Jefferson
+1 SEX M
+1 BIRT
+2 DATE 4 FEB 1900
+1 DEAT Y
+2 DATE 11 JUN 1965
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Mary /Rodham/
+2 GIVN Mary
+2 SURN Rodham
+2 _MARNM Jefferson
+1 SEX F
+1 BIRT
+2 DATE 12 MAY 1903
+1 DEAT Y
+2 DATE 15 JUN 1966
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Jack /Jefferson/
+2 GIVN Jack
+2 SURN Jefferson
+2 _MARNM Jefferson
+1 SEX M
+1 BIRT
+2 DATE 14 JUN 1925
+1 DEAT Y
+2 DATE 15 AUG 1945
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Robert /Jefferson/
+2 GIVN Robert
+2 SURN Jefferson
+2 _MARNM Jefferson
+1 BIRT
+2 DATE 8 APR 1926
+1 DEAT Y
+2 DATE 6 JUN 1944
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Howard /Jefferson/
+2 GIVN Howard
+2 SURN Jefferson
+2 _MARNM Jefferson
+1 SEX M
+1 BIRT
+2 DATE 9 FEB 1927
+1 FAMS @F2@
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Abigale /Jefferson/
+2 GIVN Abigale
+2 SURN Jefferson
+2 _MARNM Cambell
+1 SEX F
+1 BIRT
+2 DATE 6 AUG 1928
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Alice /White/
+2 GIVN Alice
+2 SURN White
+2 _MARNM White
+1 SEX F
+1 BIRT
+2 DATE 8 MAY 1930
+1 FAMS @F2@
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME George /Jefferson/
+2 GIVN George
+2 SURN Jefferson
+2 _MARNM White
+1 SEX M
+1 BIRT
+2 DATE 4 APR 1950
+1 FAMC @F2@
+0 @I9@ INDI
+1 NAME Kenneth /Cambell/
+2 GIVN Kenneth
+2 SURN Cambell
+2 _MARNM Cambell
+1 SEX M
+1 BIRT
+2 DATE 9 MAY 1920
+1 FAMS @F3@
+1 FAMS @F4@
+0 @I10@ INDI
+1 NAME John /Cambell/
+2 GIVN John
+2 SURN Cambell
+2 _MARNM Cambell
+1 SEX M
+1 BIRT
+2 DATE 3 APR 1949
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME Steve /Cambell/
+2 GIVN Steve
+2 SURN Cambell
+2 _MARNM Cambell
+1 BIRT
+2 DATE 14 MAR 1951
+1 FAMC @F4@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 MARR
+2 DATE 2 JUL 1923
+2 PLAC Atlanta
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I5@
+1 WIFE @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE 9 MAY 1947
+2 PLAC New York
+1 DIV
+2 DATE 13 OCT 1957
+1 _CURRENT N
+0 @F3@ FAM
+1 HUSB @I9@
+1 WIFE @I6@
+1 CHIL @I10@
+1 MARR
+2 DATE 5 OCT 1960
+1 _CURRENT Y
+0 @F4@ FAM
+1 HUSB @I9@
+1 CHIL @I11@
+0 TRLR

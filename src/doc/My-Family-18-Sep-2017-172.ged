@@ -16,7 +16,7 @@
 1 NAME Michale /Jefferson/
 2 GIVN Michale
 2 SURN Jefferson
-1 SEX M
+1 SEX F
 1 BIRT
 2 DATE 4 FEB 1913
 1 DEAT Y
@@ -27,7 +27,7 @@
 2 GIVN Mary
 2 SURN Rodham
 2 _MARNM Jefferson
-1 SEX F
+1 SEX M
 1 BIRT
 2 DATE 12 MAY 1903
 1 DEAT Y
@@ -473,6 +473,15 @@
 1 BIRT
 2 DATE 12 SEP 2010
 1 FAMC @F202@
+0 @I94@ INDI
+1 NAME Michale /Jefferson/
+2 GIVN Michale
+2 SURN Jefferson
+1 SEX M
+1 BIRT
+2 DATE 4 FEB 1913
+1 DEAT Y
+2 DATE 11 JUN 1965
 
 0 NOTE define family
 0 @F1@ FAM

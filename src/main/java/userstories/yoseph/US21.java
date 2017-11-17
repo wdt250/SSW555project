@@ -13,14 +13,14 @@ public class US21 {
 			for(Individual individual: individuals) {
 				if(individual.getIndividualId().equals(family.getHusbandId()) && !individual.getGender().equals("M")) {
 					flag = false;
-					System.out.println("Error:Individual:(" + family.getHusbandId() + "): Father cannot be a female!");
-					outfile.println("Error:Individual:(" + family.getHusbandId() + "): Father cannot be a female!");
+					System.out.println("Error:US21:Individual:(" + family.getHusbandId() + "): Father cannot be a female!");
+					outfile.println("Error:US21:Individual:(" + family.getHusbandId() + "): Father cannot be a female!");
 				}
 				
 				if(individual.getIndividualId().equals(family.getWifeId()) && !individual.getGender().equals("F")) {
 					flag = false;
-					System.out.println("Error:Individual:(" + family.getWifeId() + "): Mother cannot be a male!");
-					outfile.println("Error:Individual:(" + family.getWifeId() + "): Mother cannot be a male!");
+					System.out.println("Error:US21:Individual:(" + family.getWifeId() + "): Mother cannot be a male!");
+					outfile.println("Error:US21:Individual:(" + family.getWifeId() + "): Mother cannot be a male!");
 				}
 			}
 		}

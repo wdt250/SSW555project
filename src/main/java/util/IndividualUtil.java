@@ -14,7 +14,7 @@ import main.java.beans.Individual;
 */
 public class IndividualUtil {
 	
-	public static Individual findFamilyById(ArrayList<Individual> individuals, String individualId) {
+	public static Individual findIndividualByIndividualId(ArrayList<Individual> individuals, String individualId) {
 		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
 			Individual individual = (Individual) iterator.next();
 			if (individualId.equals(individual.getIndividualId())) {

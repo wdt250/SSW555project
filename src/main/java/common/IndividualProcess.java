@@ -93,7 +93,7 @@ public class IndividualProcess {
 	}
 	
 	public static ArrayList<Individual> dataIntegrality(ArrayList<Individual> individuals) {
-		for (Iterator iterator = individuals.iterator(); iterator.hasNext();) {
+		for (Iterator<Individual> iterator = individuals.iterator(); iterator.hasNext();) {
 			Individual individual = (Individual) iterator.next();
 			if (individual.getAsChildOfFamily() == null || individual.getAsChildOfFamily().isEmpty()) {
 				individual.setAsChildOfFamily("None");

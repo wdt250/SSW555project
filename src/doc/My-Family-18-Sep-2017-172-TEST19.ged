@@ -62,7 +62,6 @@
 1 BIRT
 2 DATE 9 FEB 1927
 1 FAMS @F2@
-1 FAMC @F1@
 0 @I6@ INDI
 1 NAME Abigale /Jefferson/
 2 GIVN Abigale
@@ -125,7 +124,6 @@
 1 WIFE @I2@
 1 CHIL @I3@
 1 CHIL @I4@
-1 CHIL @I5@
 1 CHIL @I6@
 1 MARR
 2 DATE 2 JUL 1923

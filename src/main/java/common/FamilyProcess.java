@@ -92,7 +92,7 @@ public class FamilyProcess {
 	}
 	
 	public static ArrayList<Family> dataIntegrality(ArrayList<Family> families) {
-		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
+		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
 			Family family = (Family) iterator.next();
 			if (family.getMarriedDate() == null || family.getMarriedDate().isEmpty()) {
 				family.setMarriedDate("NA");

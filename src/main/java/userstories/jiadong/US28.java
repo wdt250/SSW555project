@@ -30,7 +30,7 @@ public class US28 {
 				System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
 						"Age","Child","Spouse","family");
 				
-				for (Iterator<Individual> iterator2 = individuals.iterator(); iterator.hasNext();) {
+				for (Iterator<Individual> iterator2 = individuals.iterator(); iterator2.hasNext();) {
 					Individual indi = (Individual) iterator2.next();
 					
 					if(arr[0].equals(indi.getIndividualId())) {
@@ -46,7 +46,6 @@ public class US28 {
 					}
 				}
 			}else {
-				System.out.println(2);
 				System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s", "ID","Name","Gender","Birthday",
 						"Age","Child","Spouse");
 				for(int i = 0; i < arr.length; i++) {
@@ -54,14 +53,14 @@ public class US28 {
 						int indi1Age = 0;
 						int indi2Age = 0;
 						
-						for (Iterator<Individual> iterator2 = individuals.iterator(); iterator.hasNext();) {
-							Individual indi = (Individual) iterator2.next();
+						for (Iterator<Individual> iterator3 = individuals.iterator(); iterator3.hasNext();) {
+							Individual indi = (Individual) iterator3.next();
 							
 							if(arr[j].equals(indi.getIndividualId())) {
 								indi1Age = indi.getAge();
 							}
 							
-							if(arr[j].equals(indi.getIndividualId())) {
+							if(arr[j+1].equals(indi.getIndividualId())) {
 								indi2Age = indi.getAge();
 							}
 						}

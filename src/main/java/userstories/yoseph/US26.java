@@ -28,13 +28,13 @@ public class US26 {
 				}
 			}
 			
-			if((SpouseFamilies.get(family.getWifeId()) != null) && (!SpouseFamilies.get(family.getHusbandId()).equals(family.getFamilyId()) && !family.getDivorceDate().equals("NA"))) {
+			if((SpouseFamilies.get(family.getWifeId()) != null) && (!SpouseFamilies.get(family.getHusbandId()).equals(family.getFamilyId()) && family.getDivorceDate().equals("NA"))) {
 				flag = false;
 				System.out.println("Error:US26:Individual:(" + family.getHusbandId() + "): Family role records not consistent!");
 				outfile.println("Error:US26:Individual:(" + family.getHusbandId() + "): Family role records not consistent!");
 			}
 			
-			if((SpouseFamilies.get(family.getWifeId()) != null) && (!SpouseFamilies.get(family.getWifeId()).equals(family.getFamilyId()) && !family.getDivorceDate().equals("NA"))) {
+			if((SpouseFamilies.get(family.getWifeId()) != null) && (!SpouseFamilies.get(family.getWifeId()).equals(family.getFamilyId()) && family.getDivorceDate().equals("NA"))) {
 				flag = false;
 				System.out.println("Error:US26:Individual:(" + family.getWifeId() + "): Family role records not consistent!");
 				outfile.println("Error:US26:Individual:(" + family.getWifeId() + "): Family role records not consistent!");

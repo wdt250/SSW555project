@@ -24,7 +24,7 @@ public class US28 {
 			for(String fId: fam.getChildren()) {
 				arr[count] = fId;
 				count++;
-			};
+			};//what's your mean of ";"? what's your mean of this for loop? I think it ends too early
 			
 			if(fSize == 1) {
 				System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
@@ -56,7 +56,7 @@ public class US28 {
 						
 						for (Iterator<Individual> iterator2 = individuals.iterator(); iterator.hasNext();) {
 							Individual indi = (Individual) iterator2.next();
-							
+							//what the meaning of the following two if? why use arr[j] twice?
 							if(arr[j].equals(indi.getIndividualId())) {
 								indi1Age = indi.getAge();
 							}

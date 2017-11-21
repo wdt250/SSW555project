@@ -76,7 +76,7 @@ public class GEDCOMReader {
             printToConsole(individuals, families);
             printToFile(individuals, families, outFile);
             
-    		LinleiStories.check(individuals, families, outFile);
+//    		LinleiStories.check(individuals, families, outFile);
     		DaotongStories.check(individuals, families, outFile);
     		YosephStories.check(individuals, families, outFile);
     		JiadongStories.check(individuals, families, outFile);

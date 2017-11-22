@@ -17,6 +17,8 @@ public class YosephStories {
 		US12.ParentsNotTooOld(individuals, families, outfile);
 		US21.CorrectGenderForRole(individuals, families, outfile);
 		US23.UniqueNameAndBirthDate(individuals, outfile);
+		US25.UniqueFirstNamesInFamilies(individuals, families, outfile);
+		US26.CorrespondingEntries(individuals, families, outfile);
 	}
 	
 }

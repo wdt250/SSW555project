@@ -46,7 +46,9 @@ public class US32 {
 					dupBirthDate = entry.getKey();
 					for(Individual in: indiCache){
 						if(in.getBirthDate()==dupBirthDate){
-							System.out.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + "from the family of " + fa.getFamilyId() + " has a multiple birth of" + in.getBirthDate());
+							System.out.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
+							outFile.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
+							flag = true;
 						}
 					}
 				}
@@ -55,7 +57,7 @@ public class US32 {
 		}
 		
 		
-		
+
 		outFile.flush();
 		return flag;
 	}

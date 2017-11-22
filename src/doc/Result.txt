@@ -94,3 +94,41 @@ Error:US23:Individual:(I207): Cannot have duplicate name and birthdate!
 Error:US23:Individual:(I208): Cannot have duplicate name and birthdate!
 Error:US23:Individual:(I209): Cannot have duplicate name and birthdate!
 Error:US23:Individual:(I94): Cannot have duplicate name and birthdate!
+Error:US25:Family:(F5): Cannot have two children with the same name!
+Error:US25:Family:(F5): Cannot have two children with the same name!
+Error:US25:Family:(F172): Cannot have two children with the same name!
+Error:US26:Individual:(I9): Family role records not consistent!
+Error:US26:Individual:(I1): Family role records not consistent!
+
+US28: Below is the list of siblings in families by decreasing age: 
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I5    Howard /Jefferson/  M         1927-02-09      90     F1              F2        F1     
+I6    Abigale /Jefferson/ F         1928-08-06      89     F1              F3        F1     
+I3    Jack /Jefferson/    M         1925-06-14      20     F1              NA        F1     
+I4    Robert /Jefferson/  null      1926-04-08      18     F1              NA        F1     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I8    George /Jefferson/  M         1950-04-04      67     F2              NA        F2     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I10   John /Cambell/      M         1949-04-03      68     F3              NA        F3     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I11   Steve /Cambell/     null      1951-03-14      66     F4              NA        F4     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I13   Nami /Rodham/       F         2010-05-12      7      F5              NA        F5     
+I14   Joe /Rodham/        F         2010-05-12      7      F5              NA        F5     
+I15   Joe /Rodham/        F         2010-09-12      7      F5              NA        F5     
+I16   Joe /XXX/           F         2010-09-12      7      F5              NA        F5     
+I17   Joe /Rodham/        F         2010-09-12      7      F5              NA        F5     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I177  Joe /Detroit/       F         2010-09-12      7      F172            F174      F172   
+I179  Joe /Detroit/       F         2010-09-12      7      F172            F175      F172   
+
+US33: List all orphaned child:
+ID    Name                Gender    Birthday        Age    Child           Spouse    
+I13   Nami /Rodham/       F         2010-05-12      7      F5              NA        
+I14   Joe /Rodham/        F         2010-05-12      7      F5              NA        
+I15   Joe /Rodham/        F         2010-09-12      7      F5              NA        
+I16   Joe /XXX/           F         2010-09-12      7      F5              NA        
+I17   Joe /Rodham/        F         2010-09-12      7      F5              NA        
+I177  Joe /Detroit/       F         2010-09-12      7      F172            F174      
+I179  Joe /Detroit/       F         2010-09-12      7      F172            F175      
+

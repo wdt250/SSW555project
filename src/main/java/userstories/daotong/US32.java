@@ -20,42 +20,46 @@ public class US32 {
 		String dupBirthDate = null;
 		
 		for(Family fa: families){
-			for(String childId: fa.getChildren()){
-				for(Individual indi: individuals){
-					if(indi.getIndividualId() == childId){
-						indiCache.add(indi);						
-						break;
+			indiCache.clear();
+			childCache.clear();
+			finalCache.clear();
+			
+			if(fa.getChildren()!= null){
+				for(String childId: fa.getChildren()){
+					for(Individual indi: individuals){
+						if(indi.getIndividualId().equals(childId)){
+							indiCache.add(indi);
+							break;
+						}
 					}
 				}
-			}
-			
-			for(Individual in: indiCache){
-				childCache.put(in.getIndividualId(), in.getBirthDate());
-			}
-			
-			for(Map.Entry<String, String> entry: childCache.entrySet()){
-				if(finalCache.containsKey(entry.getValue())){
-					finalCache.put(entry.getValue(), finalCache.get(entry.getValue())+1);
-				}else{
-					finalCache.put(entry.getValue(), 1);
+				
+				for(Individual in: indiCache){
+					childCache.put(in.getIndividualId(), in.getBirthDate());
 				}
-			}
-			
-			for(Map.Entry<String, Integer> entry: finalCache.entrySet()){
-				if(entry.getValue()>1){
-					dupBirthDate = entry.getKey();
-					for(Individual in: indiCache){
-						if(in.getBirthDate()==dupBirthDate){
-							System.out.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
-							outFile.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
-							flag = true;
+				
+				for(Map.Entry<String, String> entry: childCache.entrySet()){
+					if(finalCache.containsKey(entry.getValue())){
+						finalCache.put(entry.getValue(), finalCache.get(entry.getValue())+1);
+					}else{
+						finalCache.put(entry.getValue(), 1);
+					}
+				}
+				
+				for(Map.Entry<String, Integer> entry: finalCache.entrySet()){
+					if(entry.getValue()>1){
+						dupBirthDate = entry.getKey();
+						for(Individual in: indiCache){
+							if(in.getBirthDate().equals(dupBirthDate)){
+								System.out.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
+								outFile.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
+								flag = true;
+							}
 						}
 					}
 				}
 			}
-			
 		}
-		
 		
 
 		outFile.flush();

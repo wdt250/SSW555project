@@ -25,9 +25,9 @@ public class US20 {
 			Individual individual = (Individual) iterator.next();
 			String parentFamilyId = individual.getAsChildOfFamily();
 			String ownFamilyId = individual.getAsSpouseOfFamily();
-			if (parentFamilyId != null && parentFamilyId.length() != 0 
-					&& ownFamilyId != null && ownFamilyId.length() != 0
-					&& !parentFamilyId.equals("None")) {
+			if (ownFamilyId != null && ownFamilyId.length() != 0 
+					&& parentFamilyId != null && parentFamilyId.length() != 0
+					&& !"None".equals(parentFamilyId)) {
 				Family parentFamily = FamilyUtil.findFamilyByFamilyId(families, parentFamilyId);
 				Family ownFamily = FamilyUtil.findFamilyByFamilyId(families, ownFamilyId);
 				Individual spouse = FamilyUtil.findSpouse(families, individuals, individual);

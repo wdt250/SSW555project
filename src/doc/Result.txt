@@ -1,3 +1,4 @@
+
 Individuals
 ID    Name                Gender    Birthday        Age    Alive     Death           Child           Spouse    
 I1    Michale /Jefferson/ F         1913-02-04      52     false     1965-06-11      None            F1        
@@ -59,6 +60,18 @@ F4    NA              NA              I9          Kenneth /Cambell/   NA        
 F5    1944-07-02      NA              I1          Michale /Jefferson/ I12         Geogia /Rodham/     [I13, I14, I15, I16, I17]
 F172  NA              NA              I173        Joe /Detroit/       I174        Joe /Detroit/       [I177, I179]        
 
+US29: Individual: whose id is I1 passed away
+US29: Individual: whose id is I2 passed away
+US29: Individual: whose id is I3 passed away
+US29: Individual: whose id is I4 passed away
+US29: Individual: whose id is I94 passed away
+US32: Individual: the person whose id is I13 from the family of F5 has a multiple birth of 2010-05-12
+US32: Individual: the person whose id is I14 from the family of F5 has a multiple birth of 2010-05-12
+US32: Individual: the person whose id is I15 from the family of F5 has a multiple birth of 2010-09-12
+US32: Individual: the person whose id is I16 from the family of F5 has a multiple birth of 2010-09-12
+US32: Individual: the person whose id is I17 from the family of F5 has a multiple birth of 2010-09-12
+US32: Individual: the person whose id is I177 from the family of F172 has a multiple birth of 2010-09-12
+US32: Individual: the person whose id is I179 from the family of F172 has a multiple birth of 2010-09-12
 Anomaly:Family:(F1): cannot have more than one marriage at a time!
 Error:US21:Individual:(I1): Father cannot be a female!
 Error:US21:Individual:(I2): Mother cannot be a male!

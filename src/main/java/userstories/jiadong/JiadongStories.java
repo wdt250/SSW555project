@@ -28,6 +28,8 @@ public class JiadongStories {
 		US16.maleLastName(individuals, families, outFile);
 		US22.uniqueIds(individuals, families, outFile);
 		US24.uniqueFamiliesBySpouses(families, outFile);
+		US28.orderSiblingByAge(individuals, families, outFile);
+		US33.listOrphans(individuals, families, outFile);
 	}
 	
 }

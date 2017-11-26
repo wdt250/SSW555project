@@ -1,4 +1,3 @@
-
 Individuals
 ID    Name                Gender    Birthday        Age    Alive     Death           Child           Spouse    
 I1    Michale /Jefferson/ F         1913-02-04      52     false     1965-06-11      None            F1        

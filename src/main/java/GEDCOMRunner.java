@@ -30,7 +30,7 @@ public class GEDCOMRunner {
 //				outputPath = "d:\\Result.txt";
 				outputPath = "src\\doc\\Result.txt";
 			}else {
-				outputPath = scanner.nextLine() + "Result.txt";
+				outputPath = outputPath + "Result.txt";
 			}
 			
 			gedcomReader.FileConvertor(inputPath, outputPath);

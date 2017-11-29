@@ -72,16 +72,24 @@ I26   Joe /Detroit/       F         2010-09-12      7      F5
 I27   Joe /Detroit/       F         2010-09-12      7      F5              
 I28   Joe /Detroit/       F         2010-09-12      7      F5              
 
-US29: Individual: whose id is I1 passed away
-US29: Individual: whose id is I2 passed away
-US29: Individual: whose id is I3 passed away
-US29: Individual: whose id is I4 passed away
-US29: Individual: whose id is I94 passed away
-US32: Individual: the person whose id is I13 from the family of F5 has a multiple birth of 2010-05-12
-US32: Individual: the person whose id is I14 from the family of F5 has a multiple birth of 2010-05-12
-US32: Individual: the person whose id is I15 from the family of F5 has a multiple birth of 2010-09-12
-US32: Individual: the person whose id is I16 from the family of F5 has a multiple birth of 2010-09-12
-US32: Individual: the person whose id is I17 from the family of F5 has a multiple birth of 2010-09-12
+
+US29: List all deceased people: 
+ID    Name                Gender    Birthday        Age    ChildofFamily   
+I1    Michale /Jefferson/ F         1913-02-04      52     None            
+I2    Mary /Rodham/       M         1903-05-12      63     None            
+I3    Jack /Jefferson/    M         1925-06-14      20     F1              
+I4    Robert /Jefferson/  null      1926-04-08      18     F1              
+I94   Michale /Jefferson/ M         1913-02-04      52     None            
+
+
+US32: List all siblings born at the same times: 
+ID    Name                Gender    Birthday        Age    ChildofFamily   
+I13   Nami /Rodham/       F         2010-05-12      7      F5              
+I14   Joe /Rodham/        F         2010-05-12      7      F5              
+I15   Joe /Rodham/        F         2010-09-12      7      F5              
+I16   Joe /XXX/           F         2010-09-12      7      F5              
+I17   Joe /Rodham/        F         2010-09-12      7      F5              
+
 Anomaly:Family:(F1): cannot have more than one marriage at a time!
 Error:US21:Individual:(I1): Father cannot be a female!
 Error:US21:Individual:(I2): Mother cannot be a male!

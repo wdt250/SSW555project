@@ -19,6 +19,15 @@ public class US32 {
 		HashMap<String , Integer> finalCache = new HashMap();
 		String dupBirthDate = null;
 		
+		System.out.println("\nUS32: List all siblings born at the same times:");
+		System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s", "ID","Name","Gender","Birthday",
+				"Age","ChildofFamily");
+		System.out.print("\r\n");
+		outFile.println("\nUS32: List all siblings born at the same times: ");
+		outFile.format("%-6s%-20s%-10s%-16s%-7s%-16s", "ID","Name","Gender","Birthday",
+				"Age","ChildofFamily");
+		outFile.print("\r\n");
+		
 		for(Family fa: families){
 			indiCache.clear();
 			childCache.clear();
@@ -51,16 +60,29 @@ public class US32 {
 						dupBirthDate = entry.getKey();
 						for(Individual in: indiCache){
 							if(in.getBirthDate().equals(dupBirthDate)){
-								System.out.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
-								outFile.println("US32: Individual: " + "the person whose id is " + in.getIndividualId() + " from the family of " + fa.getFamilyId() + " has a multiple birth of " + in.getBirthDate());
-								flag = true;
+								System.out.format("%-6s%-20s%-10s%-16s%-7d%-16s", 	in.getIndividualId(),
+																					in.getName(),
+																					in.getGender(),
+																					in.getBirthDate(),
+																					in.getAge(),
+																					in.getAsChildOfFamily());
+								System.out.print("\r\n");
+
+								outFile.format("%-6s%-20s%-10s%-16s%-7d%-16s", 	in.getIndividualId(),
+																				in.getName(),
+																				in.getGender(),
+																				in.getBirthDate(),
+																				in.getAge(),
+																				in.getAsChildOfFamily());
+								outFile.print("\r\n");
 							}
 						}
 					}
 				}
 			}
 		}
-		
+		System.out.println();
+		outFile.println();
 
 		outFile.flush();
 		return flag;

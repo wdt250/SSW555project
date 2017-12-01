@@ -14,6 +14,14 @@ public class US28 {
 		System.out.println("US28: Below is the list of siblings in families by decreasing age: ");
 		outFile.println("\nUS28: Below is the list of siblings in families by decreasing age: ");
 		
+		System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
+				"Age","Child","Spouse","Family");
+		System.out.println();
+		
+		outFile.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
+				"Age","Child","Spouse","Family");
+		outFile.print("\r\n");
+		
 		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
 			Family fam = (Family)iterator.next();
 			
@@ -26,14 +34,6 @@ public class US28 {
 				arr[count] = fId;
 				count++;
 			};
-			
-			System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
-					"Age","Child","Spouse","Family");
-			System.out.println();
-			
-			outFile.format("%-6s%-20s%-10s%-16s%-7s%-16s%-10s%-7s", "ID","Name","Gender","Birthday",
-					"Age","Child","Spouse","Family");
-			outFile.print("\r\n");
 			
 			for(int i = 0; i < arr.length; i++) {
 				for(int j = 0; j < arr.length - i - 1; j++) {

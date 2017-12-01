@@ -20,8 +20,8 @@ public class US11 {
     				afterMarriageCheck = StringUtil.Str2DateFormat(bigamyCheck.getMarriedDate()).after(StringUtil.Str2DateFormat(family.getMarriedDate()));
     				if(family.getDivorceDate().equals("NA")) {
     					if(afterMarriageCheck) {
-    						System.out.println("Anomaly:Family:(" + family.getFamilyId() + "): cannot have more than one marriage at a time!");
-    						outfile.println("Anomaly:Family:(" + family.getFamilyId() + "): cannot have more than one marriage at a time!");
+    						System.out.println("Anomaly:US11:Family:(" + family.getFamilyId() + "): cannot have more than one marriage at a time!");
+    						outfile.println("Anomaly:US11:Family:(" + family.getFamilyId() + "): cannot have more than one marriage at a time!");
     						flag = false;
     					}
     					continue;
@@ -31,8 +31,8 @@ public class US11 {
     				
     				if(beforeDivorceCheck && afterMarriageCheck) {
     					flag = false;
-    					System.out.println("Anomaly:Family:(" + family.getFamilyId() + "): Cannot have more than one marriage at a time!");
-    					outfile.println("Anomaly:Family:(" + family.getFamilyId() + "): Cannot have more than one marriage at a time!");
+    					System.out.println("Anomaly:US11:Family:(" + family.getFamilyId() + "): Cannot have more than one marriage at a time!");
+    					outfile.println("Anomaly:US11:Family:(" + family.getFamilyId() + "): Cannot have more than one marriage at a time!");
     				}
     			}
     		}

@@ -27,19 +27,21 @@ public class US20 {
 			String ownFamilyId = individual.getAsSpouseOfFamily();
 			if (ownFamilyId != null && ownFamilyId.length() != 0 
 					&& parentFamilyId != null && parentFamilyId.length() != 0
-					&& !"None".equals(parentFamilyId)) {
+					&& "NA".equals(ownFamilyId) && !"None".equals(parentFamilyId)) {
 				Family parentFamily = FamilyUtil.findFamilyByFamilyId(families, parentFamilyId);
 				Family ownFamily = FamilyUtil.findFamilyByFamilyId(families, ownFamilyId);
 				Individual spouse = FamilyUtil.findSpouse(families, individuals, individual);
-				ArrayList<String>  sibling = parentFamily.getChildren();
-				for (String string : sibling) {
-					Family fam = FamilyUtil.findFamilyByIndividualId(families, string);
-					if (fam != null) {
-						if (fam.getChildren() != null && !fam.getChildren().isEmpty()) {
-							if (StringUtil.ifStrInArr(spouse.getIndividualId(), fam.getChildren())) {
-								System.out.println("Error: FAMILY: US20: " + ownFamily.getFamilyId() + ": " + individual.getIndividualId() + ": Aunt or Uncle married niece or nephew");
-								outFile.println("Error: FAMILY: US20: " + ownFamily.getFamilyId() + ": " + individual.getIndividualId() + ": Aunt or Uncle married niece or nephew");
-								flag = false;
+				if (parentFamily != null && ownFamily != null) {
+					ArrayList<String>  sibling = parentFamily.getChildren();
+					for (String string : sibling) {
+						Family fam = FamilyUtil.findFamilyByIndividualId(families, string);
+						if (fam != null) {
+							if (fam.getChildren() != null && !fam.getChildren().isEmpty()) {
+								if (StringUtil.ifStrInArr(spouse.getIndividualId(), fam.getChildren())) {
+									System.out.println("Error: FAMILY: US20: " + ownFamily.getFamilyId() + ": " + individual.getIndividualId() + ": Aunt or Uncle married niece or nephew");
+									outFile.println("Error: FAMILY: US20: " + ownFamily.getFamilyId() + ": " + individual.getIndividualId() + ": Aunt or Uncle married niece or nephew");
+									flag = false;
+								}
 							}
 						}
 					}

@@ -14,15 +14,17 @@ public class US01 {
 		boolean flag = true;
 
 		for(Individual individual: individuals){
-			if(!(individual.getBirthDate().equals("NA"))){
-			    if(StringUtil.Str2DateFormat(individual.getBirthDate()).after(now)){
+			if(individual.getBirthDate() != null && individual.getBirthDate().length() != 0
+					&& !"NA".equals(individual.getBirthDate())){
+			    if(now.before(StringUtil.Str2DateFormat(individual.getBirthDate()))){
 			    	System.out.println("Error: Individual:(" + individual.getIndividualId() + "): Birth date(" + individual.getBirthDate() + ") cannot be after today!");
 			    	outfile.println("Error: Individual:(" + individual.getIndividualId() + "): Birth date(" + individual.getBirthDate() + ") cannot be after today!");
 				    flag = false;
 			    }
 			}
-			if(!(individual.getDeathDate().equals("NA"))){
-			    if(StringUtil.Str2DateFormat(individual.getDeathDate()).after(now)){
+			if(individual.getDeathDate() != null && individual.getDeathDate().length() != 0
+					&& !"NA".equals(individual.getDeathDate())){
+			    if(now.before(StringUtil.Str2DateFormat(individual.getDeathDate()))){
 			    	System.out.println("Error: Individual:(" + individual.getIndividualId() + "): Death date(" + individual.getDeathDate() + ") cannot be after today!");
 			    	outfile.println("Error: Individual:(" + individual.getIndividualId() + "): Death date(" + individual.getDeathDate() + ") cannot be after today!");
 				    flag = false;
@@ -31,15 +33,17 @@ public class US01 {
 		}
 		
 		for(Family family: families){
-			if(!(family.getMarriedDate().equals("NA"))){
-			    if(StringUtil.Str2DateFormat(family.getMarriedDate()).after(now)){
+			if(family.getMarriedDate() != null && family.getMarriedDate().length() !=0
+					&& !"NA".equals(family.getMarriedDate())){
+			    if(now.before(StringUtil.Str2DateFormat(family.getMarriedDate()))){
 			    	System.out.println("Error: Family:(" + family.getFamilyId() + "): Marriage date(" + family.getMarriedDate() + ") cannot be after today!");
 			    	outfile.println("Error: Family:(" + family.getFamilyId() + "): Marriage date(" + family.getMarriedDate() + ") cannot be after today!");
 				    flag = false;
 			    }
 			}
-			if(!(family.getDivorceDate().equals("NA"))){
-			    if(StringUtil.Str2DateFormat(family.getDivorceDate()).after(now)){
+			if(family.getDivorceDate() != null && family.getDivorceDate().length() !=0
+					&& !"NA".equals(family.getDivorceDate())){
+			    if(now.before(StringUtil.Str2DateFormat(family.getDivorceDate()))){
 			    	System.out.println("Error: Family:(" + family.getFamilyId() + "): Divorce date(" + family.getDivorceDate() + ") cannot be after today!");
 			    	outfile.println("Error: Family:(" + family.getFamilyId() + "): Divorce date(" + family.getDivorceDate() + ") cannot be after today!");
 				    flag = false;

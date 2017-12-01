@@ -14,6 +14,9 @@ public class DateUtil {
 	
 	public static int getAge(Date birthDay) throws Exception  
     {  
+		if (birthDay == null) {
+			return 0;
+		}
         Calendar cal = Calendar.getInstance();  
   
         int currentYear = cal.get(Calendar.YEAR);  
@@ -44,6 +47,9 @@ public class DateUtil {
 	
 	public static int getAge(Date birthDay, Date deathDay) throws Exception  
     {  
+		if (birthDay == null || deathDay == null) {
+			return 0;
+		}
         Calendar birthCal = Calendar.getInstance();
         Calendar deathCal = Calendar.getInstance();
   
@@ -104,6 +110,7 @@ public class DateUtil {
 	}
 	
 	public static Date findDate(String date){
+		
     	String[] temp = date.split("-");
     	int year = Integer.parseInt(temp[0]) - 1900;
     	int month = Integer.parseInt(temp[1]) - 1;

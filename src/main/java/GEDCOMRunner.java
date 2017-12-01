@@ -21,7 +21,8 @@ public class GEDCOMRunner {
 			System.out.println("\nPlease input the input path(such as \"d:\\GEDCOM.txt\"):");
 			String inputPath = scanner.nextLine();
 			if (inputPath == null || inputPath.isEmpty()) {
-				inputPath = "src\\doc\\My-Family-18-Sep-2017-172.ged";
+//				inputPath = "src\\doc\\My-Family-18-Sep-2017-172.ged";
+				inputPath = "d:\\test.txt";
 			}
 			
 			System.out.println("Please input the output path(such as \"d:\\\"):");

@@ -75,11 +75,22 @@ public class GEDCOMReader {
             printToConsole(individuals, families);
             printToFile(individuals, families, outFile);
             
-    		LinleiStories.check(individuals, families, outFile);
-    		DaotongStories.check(individuals, families, outFile);
-    		YosephStories.check(individuals, families, outFile);
-    		JiadongStories.check(individuals, families, outFile);
-    		
+            if (!individuals.isEmpty()) {
+				if (!families.isEmpty()) {
+					LinleiStories.check(individuals, families, outFile);
+		    		DaotongStories.check(individuals, families, outFile);
+		    		YosephStories.check(individuals, families, outFile);
+		    		JiadongStories.check(individuals, families, outFile);
+				}else {
+					System.out.println("No Family in the file");
+					outFile.println("No Family in the file");
+					outFile.flush();
+				}
+			}else {
+				System.out.println("No Individual in the file");
+				outFile.println("No Individual in the file");
+				outFile.flush();
+			}
             System.out.println("\r\nFinish parse GEDCOM file.\n");
 		} catch (FileNotFoundException e) {
             e.printStackTrace();

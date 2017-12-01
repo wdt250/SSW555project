@@ -6,27 +6,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList; 
 
 import main.java.beans.Individual;
+import main.java.util.DateUtil;
+import main.java.util.StringUtil;
 
 
 public class US03 {
-	
-	public static Date dateParse(String date){
-		 	String[] temp = date.split("-");
-		 	int year = Integer.parseInt(temp[0]);
-		 	int month = Integer.parseInt(temp[1]);
-		 	int day = Integer.parseInt(temp[2]);
-		 	Date response = new Date(year, month, day);
-		 
-		 	return(response);
-	}
 	
 	public static Boolean birthBeforeDeath(ArrayList<Individual> in, PrintWriter outFile) {
 		
 		for (Iterator<Individual> iterator = in.iterator(); iterator.hasNext();) {
 			Individual indi = iterator.next();
 			
-			if(indi.getDeathDate() != "NA") {
-				if(dateParse(indi.getBirthDate()).after(dateParse(indi.getDeathDate()))) {
+			if(indi.getBirthDate() != null && indi.getBirthDate().length() != 0 
+					&& indi.getDeathDate() != null && indi.getDeathDate().length() != 0 
+					&& !"NA".equals(indi.getBirthDate()) && !"NA".equals(indi.getDeathDate())) {
+				if(StringUtil.Str2DateFormat(indi.getBirthDate()).after(StringUtil.Str2DateFormat(indi.getDeathDate()))){
 					System.out.println("ERROR: INDIVIDUAL: US03: " + indi.getIndividualId() + ": has death date before birth date");
 					outFile.println("ERROR: INDIVIDUAL: US03: " + indi.getIndividualId() + ": has death date before birth date");
 					return false;

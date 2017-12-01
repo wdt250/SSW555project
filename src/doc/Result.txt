@@ -1,26 +1,139 @@
 Individuals
 ID    Name                Gender    Birthday        Age    Alive     Death           Child           Spouse    
-I1                                  null            0      false     null            None            NA        
+I1    Michale /Jefferson/ F         1913-02-04      52     false     1965-06-11      None            F1        
+I2    Mary /Rodham/       M         1903-05-12      63     false     1966-06-15      None            F1        
+I12   Geogia /Rodham/     F         1953-05-12      64     true      NA              None            F5        
+I13   Nami /Rodham/       F         2010-05-12      7      true      NA              F5              NA        
+I14   Joe /Rodham/        F         2010-05-12      7      true      NA              F5              NA        
+I3    Jack /Jefferson/    M         1925-06-14      20     false     1945-08-15      F1              NA        
+I4    Robert /Jefferson/  null      1926-04-08      18     false     1944-06-06      F1              NA        
+I5    Howard /Jefferson/  M         1927-02-09      90     true      NA              F1              F2        
+I6    Abigale /Jefferson/ F         1928-08-06      89     true      NA              F1              F3        
+I7    Alice /White/       F         1930-05-08      87     true      NA              None            F2        
+I8    George /Jefferson/  M         1950-04-04      67     true      NA              F2              NA        
+I9    Kenneth /Cambell/   M         1920-05-09      97     true      NA              None            F4        
+I10   John /Cambell/      M         1949-04-03      68     true      NA              F3              NA        
+I11   Steve /Cambell/     null      1951-03-14      66     true      NA              F4              NA        
+I15   Joe /Rodham/        F         2010-09-12      7      true      NA              F5              NA        
+I16   Joe /XXX/           F         2010-09-12      7      true      NA              F5              NA        
+I17   Joe /Rodham/        F         2010-09-12      7      true      NA              F5              NA        
+I18   Joe /Rodham/        F         2010-09-12      7      true      NA              F5              NA        
+I19   Joe /Rodham/        F         2010-09-12      7      true      NA              F5              NA        
+I20   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I21   Joe /Jefferson/     M         2010-09-12      7      true      NA              F5              NA        
+I22   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I23   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I24   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I25   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I26   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I27   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I28   Joe /Detroit/       F         2010-09-12      7      true      NA              F5              NA        
+I94   Michale /Jefferson/ M         1913-02-04      52     false     1965-06-11      None            NA        
 
 Families
 ID    Married         Divorced        Husband ID  Husband Name        Wife ID     Wife Name           Children            
-F1    NA              NA              I1                              NA          NA                  [, , , ]            
+F1    1943-07-02      NA              I1          Michale /Jefferson/ I2          Mary /Rodham/       [I3, I4, I5, I6]    
+F2    1947-05-09      1957-10-13      I5          Howard /Jefferson/  I7          Alice /White/       [I8]                
+F3    1960-10-05      NA              I9          Kenneth /Cambell/   I6          Abigale /Jefferson/ [I10]               
+F4    NA              NA              I9          Kenneth /Cambell/   NA          NA                  [I11]               
+F5    1944-07-02      NA              I1          Michale /Jefferson/ I12         Geogia /Rodham/     [I13, I14, I15, I16, I17]
 
+Error: FAMILY: US10: F5: Wife married before 14
+Error: FAMILY: US13: I15: birthed less than 8 months or more than 2 days after siblings
 
 US30: List all living married people:
 ID    Name                Gender    Birthday        Age    Child           Spouse    
+I12   Geogia /Rodham/     F         1953-05-12      64     None            F5        
+I5    Howard /Jefferson/  M         1927-02-09      90     F1              F2        
+I6    Abigale /Jefferson/ F         1928-08-06      89     F1              F3        
+I7    Alice /White/       F         1930-05-08      87     None            F2        
+I9    Kenneth /Cambell/   M         1920-05-09      97     None            F4        
 
 
 US31: List all living single people:
 ID    Name                Gender    Birthday        Age    Child           
+I13   Nami /Rodham/       F         2010-05-12      7      F5              
+I14   Joe /Rodham/        F         2010-05-12      7      F5              
+I8    George /Jefferson/  M         1950-04-04      67     F2              
+I10   John /Cambell/      M         1949-04-03      68     F3              
+I11   Steve /Cambell/     null      1951-03-14      66     F4              
+I15   Joe /Rodham/        F         2010-09-12      7      F5              
+I16   Joe /XXX/           F         2010-09-12      7      F5              
+I17   Joe /Rodham/        F         2010-09-12      7      F5              
+I18   Joe /Rodham/        F         2010-09-12      7      F5              
+I19   Joe /Rodham/        F         2010-09-12      7      F5              
+I20   Joe /Detroit/       F         2010-09-12      7      F5              
+I21   Joe /Jefferson/     M         2010-09-12      7      F5              
+I22   Joe /Detroit/       F         2010-09-12      7      F5              
+I23   Joe /Detroit/       F         2010-09-12      7      F5              
+I24   Joe /Detroit/       F         2010-09-12      7      F5              
+I25   Joe /Detroit/       F         2010-09-12      7      F5              
+I26   Joe /Detroit/       F         2010-09-12      7      F5              
+I27   Joe /Detroit/       F         2010-09-12      7      F5              
+I28   Joe /Detroit/       F         2010-09-12      7      F5              
 
 
 US29: List all deceased people: 
 ID    Name                Gender    Birthday        Age    ChildofFamily   
-I1                                  null            0      None            
+I1    Michale /Jefferson/ F         1913-02-04      52     None            
+I2    Mary /Rodham/       M         1903-05-12      63     None            
+I3    Jack /Jefferson/    M         1925-06-14      20     F1              
+I4    Robert /Jefferson/  null      1926-04-08      18     F1              
+I94   Michale /Jefferson/ M         1913-02-04      52     None            
 
 
 US32: List all siblings born at the same times: 
 ID    Name                Gender    Birthday        Age    ChildofFamily   
+I13   Nami /Rodham/       F         2010-05-12      7      F5              
+I14   Joe /Rodham/        F         2010-05-12      7      F5              
+I15   Joe /Rodham/        F         2010-09-12      7      F5              
+I16   Joe /XXX/           F         2010-09-12      7      F5              
+I17   Joe /Rodham/        F         2010-09-12      7      F5              
 
+Anomaly:Family:(F1): cannot have more than one marriage at a time!
 Error:US21:Individual:(I1): Father cannot be a female!
+Error:US21:Individual:(I2): Mother cannot be a male!
+Error:US21:Individual:(I1): Father cannot be a female!
+Error:US23:Individual:(I17): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I18): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I19): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I22): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I23): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I24): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I25): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I26): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I27): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I28): Cannot have duplicate name and birthdate!
+Error:US23:Individual:(I94): Cannot have duplicate name and birthdate!
+Error:US25:Family:(F5): Cannot have two children with the same name!
+Error:US25:Family:(F5): Cannot have two children with the same name!
+Error:US26:Individual:(I9): Family role records not consistent!
+Error:US26:Individual:(I1): Family role records not consistent!
+
+US28: Below is the list of siblings in families by decreasing age: 
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I5    Howard /Jefferson/  M         1927-02-09      90     F1              F2        F1     
+I6    Abigale /Jefferson/ F         1928-08-06      89     F1              F3        F1     
+I3    Jack /Jefferson/    M         1925-06-14      20     F1              NA        F1     
+I4    Robert /Jefferson/  null      1926-04-08      18     F1              NA        F1     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I8    George /Jefferson/  M         1950-04-04      67     F2              NA        F2     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I10   John /Cambell/      M         1949-04-03      68     F3              NA        F3     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I11   Steve /Cambell/     null      1951-03-14      66     F4              NA        F4     
+ID    Name                Gender    Birthday        Age    Child           Spouse    Family 
+I13   Nami /Rodham/       F         2010-05-12      7      F5              NA        F5     
+I14   Joe /Rodham/        F         2010-05-12      7      F5              NA        F5     
+I15   Joe /Rodham/        F         2010-09-12      7      F5              NA        F5     
+I16   Joe /XXX/           F         2010-09-12      7      F5              NA        F5     
+I17   Joe /Rodham/        F         2010-09-12      7      F5              NA        F5     
+
+US33: List all orphaned child:
+ID    Name                Gender    Birthday        Age    Child           Spouse    
+I13   Nami /Rodham/       F         2010-05-12      7      F5              NA        
+I14   Joe /Rodham/        F         2010-05-12      7      F5              NA        
+I15   Joe /Rodham/        F         2010-09-12      7      F5              NA        
+I16   Joe /XXX/           F         2010-09-12      7      F5              NA        
+I17   Joe /Rodham/        F         2010-09-12      7      F5              NA        
+

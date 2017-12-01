@@ -7,7 +7,8 @@ import main.java.beans.Individual;
 
 public class US29 {
 
-	public static void ListDeceased(ArrayList<Individual> individuals, PrintWriter outFile){
+	public static boolean ListDeceased(ArrayList<Individual> individuals, PrintWriter outFile){
+		boolean flag = true;
 		System.out.println("\nUS29: List all deceased people: ");
 		System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s", "ID","Name","Gender","Birthday",
 				"Age","ChildofFamily");
@@ -19,6 +20,7 @@ public class US29 {
 		for(Individual in: individuals){
 
 			if(!in.getAlive()){
+				flag = false;
 				System.out.format("%-6s%-20s%-10s%-16s%-7d%-16s", 	in.getIndividualId(),
 																	in.getName(),
 																	in.getGender(),
@@ -40,5 +42,6 @@ public class US29 {
 		outFile.println();
 		
 		outFile.flush();
+		return flag;
 	}
 }

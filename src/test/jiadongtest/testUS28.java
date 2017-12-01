@@ -78,7 +78,7 @@ public class testUS28 extends TestCase{
 				US28.orderSiblingByAge(individuals, families, outFile);
 			} catch (Exception e) {
 	            e.printStackTrace();
-	            fail("Error: US30: print problem");
+	            fail("Error: US28: print problem");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

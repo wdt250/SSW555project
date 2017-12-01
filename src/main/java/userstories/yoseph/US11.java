@@ -1,12 +1,10 @@
 package main.java.userstories.yoseph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
-import main.java.beans.Individual;
-import main.java.util.StringUtil;
 import main.java.beans.Family;
+import main.java.util.StringUtil;
 
 public class US11 {
     public static boolean NoBigamy(ArrayList<Family> families, PrintWriter outfile) { 

@@ -13,7 +13,7 @@ import main.java.userstories.daotong.US18;
 public class testUS18 extends TestCase{
 
 	public void testSiblingsShouldNotMarry() {
-		ArrayList<Family> families = new ArrayList();
+		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
 		try {
 			outFile = new PrintWriter(new BufferedWriter(new FileWriter("src\\doc\\Result.txt")));

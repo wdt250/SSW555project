@@ -2,11 +2,9 @@ package main.java.userstories.yoseph;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.io.PrintWriter;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.yoseph.*;
 
 public class YosephStories {
 

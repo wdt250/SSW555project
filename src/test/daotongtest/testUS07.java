@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import main.java.beans.Family;
 import main.java.beans.Individual;
 import main.java.userstories.daotong.US07;;
 
@@ -16,7 +15,6 @@ public class testUS07 extends TestCase {
 
 	public void testLessThan150YearsOld() {
 		ArrayList<Individual> individuals = new ArrayList<Individual>();
-		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
 		try {
 			outFile = new PrintWriter(new BufferedWriter(new FileWriter("src\\doc\\Result.txt")));

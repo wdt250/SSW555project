@@ -13,7 +13,7 @@ import main.java.userstories.daotong.US19;
 public class testUS19 extends TestCase{
 
 	public void testFirstCousinsShouldNotMarry() {
-		ArrayList<Family> families = new ArrayList();
+		ArrayList<Family> families = new ArrayList<Family>();
 		PrintWriter outFile = null;
 		
 		try {

@@ -1,10 +1,10 @@
 package main.java.userstories.yoseph;
 
-import java.util.ArrayList;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
-import main.java.beans.*;
-import main.java.util.StringUtil;
+import main.java.beans.Family;
+import main.java.beans.Individual;
 
 public class US21 {
 	public static boolean CorrectGenderForRole(ArrayList<Individual> individuals, ArrayList<Family> families, PrintWriter outfile) {

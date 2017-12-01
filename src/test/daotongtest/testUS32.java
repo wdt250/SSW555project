@@ -14,10 +14,10 @@ public class testUS32 extends TestCase{
 
 	public void testListMultipleBirths() {
 		try {
-			ArrayList<Individual> individuals = new ArrayList();
-			ArrayList<Family> families = new ArrayList();
-			ArrayList<String> children1 = new ArrayList();
-			ArrayList<String> children2 = new ArrayList();
+			ArrayList<Individual> individuals = new ArrayList<Individual>();
+			ArrayList<Family> families = new ArrayList<Family>();
+			ArrayList<String> children1 = new ArrayList<String>();
+			ArrayList<String> children2 = new ArrayList<String>();
 			PrintWriter outFile = null;
 			
 			outFile = new PrintWriter(new BufferedWriter(new FileWriter("src\\doc\\Result.txt")));
@@ -62,11 +62,21 @@ public class testUS32 extends TestCase{
 			families.add(fa1);
 			
 			
-			assertFalse(US32.ListMultipleBirths(families, individuals, outFile));
+			try {
+				US32.ListMultipleBirths(families, individuals, outFile);
+			} catch (Exception e) {
+	            e.printStackTrace();
+	            fail("Error: US33: print problem");
+			}
 			
 			families.add(fa2);
 			
-			assertTrue(US32.ListMultipleBirths(families, individuals, outFile));
+			try {
+				US32.ListMultipleBirths(families, individuals, outFile);
+			} catch (Exception e) {
+	            e.printStackTrace();
+	            fail("Error: US33: print problem");
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

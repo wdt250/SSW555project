@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 import main.java.beans.Family;
 import main.java.beans.Individual;
-import main.java.userstories.daotong.US08;
 import main.java.userstories.daotong.US14;
 
 public class testUS14 extends TestCase{

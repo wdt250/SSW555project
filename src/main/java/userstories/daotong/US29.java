@@ -7,8 +7,7 @@ import main.java.beans.Individual;
 
 public class US29 {
 
-	public static boolean ListDeceased(ArrayList<Individual> individuals, PrintWriter outFile){
-		boolean flag = true;
+	public static void ListDeceased(ArrayList<Individual> individuals, PrintWriter outFile){
 		System.out.println("\nUS29: List all deceased people: ");
 		System.out.format("%-6s%-20s%-10s%-16s%-7s%-16s", "ID","Name","Gender","Birthday",
 				"Age","ChildofFamily");
@@ -41,6 +40,5 @@ public class US29 {
 		outFile.println();
 		
 		outFile.flush();
-		return flag;
 	}
 }

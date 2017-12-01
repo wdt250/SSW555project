@@ -1,12 +1,10 @@
 package main.java.userstories.yoseph;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Date;
-import java.io.PrintWriter;
 
-import main.java.beans.*;
-import main.java.util.StringUtil;
+import main.java.beans.Individual;
 
 public class US23 {
 		public static boolean UniqueNameAndBirthDate(ArrayList<Individual> individuals, PrintWriter outfile) {

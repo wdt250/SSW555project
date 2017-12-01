@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import main.java.beans.Family;
-import main.java.beans.Individual;
 import main.java.userstories.jiadong.US24;
 
 public class testUS24 extends TestCase {

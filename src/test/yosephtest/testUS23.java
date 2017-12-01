@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import main.java.beans.Family;
 import main.java.beans.Individual;
 import main.java.userstories.yoseph.US23;
 

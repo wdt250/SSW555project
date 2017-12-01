@@ -4,19 +4,17 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import main.java.beans.Family;
 import main.java.beans.Individual;
 
 public class US32 {
 
-	public static boolean ListMultipleBirths(ArrayList<Family> families, ArrayList<Individual> individuals, PrintWriter outFile){
-		boolean flag = false;
+	public static void ListMultipleBirths(ArrayList<Family> families, ArrayList<Individual> individuals, PrintWriter outFile){
 		
-		ArrayList<Individual> indiCache = new ArrayList();
-		HashMap<String , String> childCache = new HashMap();
-		HashMap<String , Integer> finalCache = new HashMap();
+		ArrayList<Individual> indiCache = new ArrayList<Individual>();
+		HashMap<String , String> childCache = new HashMap<String, String>();
+		HashMap<String , Integer> finalCache = new HashMap<String, Integer>();
 		String dupBirthDate = null;
 		
 		System.out.println("\nUS32: List all siblings born at the same times:");
@@ -85,6 +83,5 @@ public class US32 {
 		outFile.println();
 
 		outFile.flush();
-		return flag;
 	}
 }

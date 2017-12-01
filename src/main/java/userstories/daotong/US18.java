@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import main.java.beans.Family;
-import main.java.beans.Individual;
 
 public class US18 {
 	

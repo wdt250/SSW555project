@@ -1,15 +1,10 @@
 package test.jiadongtest;
 
-import static org.junit.Assert.*;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
-import org.junit.Test;
-
 
 import junit.framework.TestCase;
 import main.java.beans.Family;

@@ -76,7 +76,7 @@ public class testUS33 extends TestCase{
 				US33.listOrphans(individuals, families, outFile);
 			} catch (Exception e) {
 	            e.printStackTrace();
-	            fail("Error: US30: print problem");
+	            fail("Error: US33: print problem");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -21,10 +21,10 @@ public class US10 {
 		String WifeBirthday = "";
 		boolean flag = true;
 		
-		for (Iterator iterator = families.iterator(); iterator.hasNext();) {
+		for (Iterator<Family> iterator = families.iterator(); iterator.hasNext();) {
 			Family family = (Family) iterator.next();
 			if (!"NA".equals(family.getMarriedDate())) {
-				for (Iterator iterator2 = individuals.iterator(); iterator2.hasNext();) {
+				for (Iterator<Individual> iterator2 = individuals.iterator(); iterator2.hasNext();) {
 					Individual individual = (Individual) iterator2.next();
 					if (family.getHusbandId().equals(individual.getIndividualId())) {
 						HusbandBirthday = individual.getBirthDate();
